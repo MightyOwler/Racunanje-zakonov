@@ -599,20 +599,20 @@ void write_laws_only(const std::vector<std::pair<std::string, Matrix2x2>>& evalu
     // A map to keep track of disqualified words
     std::map<std::string, bool> disqualified;
 
-    // Lsoop over the evaluations
-    // for (const auto& evaluation : evaluations) {
-    //     const auto& word = evaluation.first;
-    //     // If a word is already disqualified, continue to the next evaluation
-    //     if (disqualified[word]) {
-    //         continue;
-    //     }
+    // Loop over the evaluations
+    for (const auto& evaluation : evaluations) {
+        const auto& word = evaluation.first;
+        // If a word is already disqualified, continue to the next evaluation
+        if (disqualified[word]) {
+            continue;
+        }
 
-    //     // Check if the current evaluation is a scalar multiple of the identity
-    //     if (!is_scalar_identity(evaluation.second, p)) {
-    //         // If not, the word is disqualified and we don't need to check further for this word
-    //         disqualified[word] = true;
-    //     }
-    // }
+        // Check if the current evaluation is a scalar multiple of the identity
+        if (!is_scalar_identity(evaluation.second, p)) {
+            // If not, the word is disqualified and we don't need to check further for this word
+            disqualified[word] = true;
+        }
+    }
 
     // Write the laws to the file
     for (const auto& evaluation : evaluations) {
@@ -624,19 +624,10 @@ void write_laws_only(const std::vector<std::pair<std::string, Matrix2x2>>& evalu
         }
     }
 
-        // Loop over the evaluations and directly write out the valid ones
-        for (const auto& evaluation : evaluations) {
-            if (is_scalar_identity(evaluation.second, p)) {
-                file << "Beseda " << evaluation.first << " je zakon v grupi PSL_2(" << p << ")" << std::endl;
-            }
-        }
-
-        // Close the file
- 
-
     // Close the file
     file.close();
 }
+
 
 
 // Function that writes a summary to a file as specified
@@ -709,10 +700,10 @@ int main() {
     auto matrix_pairs = read_matrix_pairs_from_file(matrix_pairs_filename); // Assuming you have implemented this function
     auto evaluations = evaluate_words_on_matrices(words, matrix_pairs, p);
 
-    // if (n <= 8) {
-    //     write_summary_to_file(evaluations, p, n);
-    // }
-    // write_laws_only(evaluations, p, n);
+    if (n <= 8) {
+        write_summary_to_file(evaluations, p, n);
+    }
+    write_laws_only(evaluations, p, n);
    
     // POMEMBNO: Za grupe 19 in 23 sem datoteke izbrisal, ker je bilo skupaj več kot 1,5 GB
 
