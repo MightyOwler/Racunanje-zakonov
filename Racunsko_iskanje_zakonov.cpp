@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdexcept>
 #include <filesystem>
 #include <fstream>
 #include <sstream>
@@ -343,6 +344,9 @@ std::vector<std::pair<Matrix2x2, Matrix2x2>> read_matrix_pairs_from_file(const s
         throw std::runtime_error("Unable to open file: " + filepath.string());
     }
 
+    size_t estimated_number_of_matrix_pairs = 30000;
+    matrix_pairs.reserve(estimated_number_of_matrix_pairs);
+
     std::string line;
     while (std::getline(file, line)) {
         std::replace(line.begin(), line.end(), '[', ' ');
@@ -468,19 +472,16 @@ Matrix2x2 matrixInverse(const Matrix2x2& matrix, int p) {
 
 Matrix2x2 eval_expression(int p, const std::string& word, const Matrix2x2& matA, const Matrix2x2& matB);
 bool is_scalar_identity(const Matrix2x2& matrix, int p) {
-    // Again, this is just a stub. You need to implement the actual logic for checking scalar identity.
-    // A matrix is a scalar multiple of the identity if all non-diagonal elements are 0,
-    // and the diagonal elements are equal and non-zero (in a field modulo p, non-zero means not divisible by p).
+    return (matrix.a11 == matrix.a22 && matrix.a11 != 0 && matrix.a12 == 0 && matrix.a21 == 0);
 
-    // Example logic:
-    if (matrix.a11 == matrix.a22 && matrix.a11 != 0 && matrix.a12 == 0 && matrix.a21 == 0) {
-        int scalar = matrix.a11 % p;
-        // Check if 'scalar' is a generator of the multiplicative group of integers modulo p,
-        // which means it should be coprime with p. This is a simplification and might not
-        // be what you need for a full "is_scalar_identity" check.
-        return std::gcd(scalar, p) == 1;
-    }
-    return false;
+    // if (matrix.a11 == matrix.a22 && matrix.a11 != 0 && matrix.a12 == 0 && matrix.a21 == 0) {
+    //     int scalar = matrix.a11 % p;
+    //     // Check if 'scalar' is a generator of the multiplicative group of integers modulo p,
+    //     // which means it should be coprime with p. This is a simplification and might not
+    //     // be what you need for a full "is_scalar_identity" check.
+    //     return std::gcd(scalar, p) == 1;
+    // }
+    // return false;
 }
 
 // Function to evaluate a single word on all matrix pairs
@@ -536,17 +537,38 @@ void write_to_file_summary_output(const std::filesystem::path& filename, const s
     file.close();
 } 
 
+// std::vector<std::string> read_words_from_file(const std::filesystem::path& filename) {
+//     std::vector<std::string> words;
+//     std::ifstream file(filename);
+//     if (!file.is_open()) {
+//         std::cerr << "Unable to open file: " << filename << std::endl;
+//         return words;
+//     }
+
+//     std::string word;
+//     while (file >> word) {
+//         words.push_back(word);
+//     }
+//     return words;
+// }
+
 std::vector<std::string> read_words_from_file(const std::filesystem::path& filename) {
-    std::vector<std::string> words;
     std::ifstream file(filename);
     if (!file.is_open()) {
         std::cerr << "Unable to open file: " << filename << std::endl;
-        return words;
+        return {};
     }
+
+    // Get file size and reserve vector capacity
+    file.seekg(0, std::ios::end);
+    size_t fileSize = file.tellg();
+    file.seekg(0, std::ios::beg);
+    std::vector<std::string> words;
+    words.reserve(fileSize / 18732); // Estimate number of words
 
     std::string word;
     while (file >> word) {
-        words.push_back(word);
+        words.push_back(std::move(word)); // Use std::move to avoid copying the string
     }
     return words;
 }
@@ -577,20 +599,20 @@ void write_laws_only(const std::vector<std::pair<std::string, Matrix2x2>>& evalu
     // A map to keep track of disqualified words
     std::map<std::string, bool> disqualified;
 
-    // Loop over the evaluations
-    for (const auto& evaluation : evaluations) {
-        const auto& word = evaluation.first;
-        // If a word is already disqualified, continue to the next evaluation
-        if (disqualified[word]) {
-            continue;
-        }
+    // Lsoop over the evaluations
+    // for (const auto& evaluation : evaluations) {
+    //     const auto& word = evaluation.first;
+    //     // If a word is already disqualified, continue to the next evaluation
+    //     if (disqualified[word]) {
+    //         continue;
+    //     }
 
-        // Check if the current evaluation is a scalar multiple of the identity
-        if (!is_scalar_identity(evaluation.second, p)) {
-            // If not, the word is disqualified and we don't need to check further for this word
-            disqualified[word] = true;
-        }
-    }
+    //     // Check if the current evaluation is a scalar multiple of the identity
+    //     if (!is_scalar_identity(evaluation.second, p)) {
+    //         // If not, the word is disqualified and we don't need to check further for this word
+    //         disqualified[word] = true;
+    //     }
+    // }
 
     // Write the laws to the file
     for (const auto& evaluation : evaluations) {
@@ -601,6 +623,16 @@ void write_laws_only(const std::vector<std::pair<std::string, Matrix2x2>>& evalu
             disqualified[evaluation.first] = true;
         }
     }
+
+        // Loop over the evaluations and directly write out the valid ones
+        for (const auto& evaluation : evaluations) {
+            if (is_scalar_identity(evaluation.second, p)) {
+                file << "Beseda " << evaluation.first << " je zakon v grupi PSL_2(" << p << ")" << std::endl;
+            }
+        }
+
+        // Close the file
+ 
 
     // Close the file
     file.close();
@@ -655,36 +687,21 @@ void write_summary_to_file(const std::vector<std::pair<std::string, Matrix2x2>>&
 
 
 int main() {
+
+    // Za compilanje: g++ -std=c++17 -o .\Racunsko_iskanje_zakonov.exe .\Racunsko_iskanje_zakonov.cpp -lstdc++fs
+
+
     // Start timing
     auto start = std::chrono::high_resolution_clock::now();
 
-    // Initialize two matrices and a prime number
-    // Matrix2x2 matA(1, 0, 0, 1);
-    // Matrix2x2 matB(1, 0, 0, 2);
-    // int prime = 7;
-
-    // // Evaluate the expression 'xxyXY' modulo prime
-    // Matrix2x2 result = eval_expression(prime, "xxyXY", matA, matB);
-    // std::cout << result << std::endl;
-
-    // Print the result (you should define this function or replace it with your own print logic)
-    // printMatrix(result);
-
-    int p = 7; // Prime number
+   
+     int p = 7; // Prime number
         // Set n and p to the values you are working with
         // ...
     int n = 10;
     
-    // To zahteva preveč spomina
+    // To zahteva preveč spomina!! Ugotovi, kako popraviti stvari!
 
-    // Generate or obtain the evaluations for the current value of n
-    // This is where you'd call a function that returns evaluations for the given n
-
-    
-
-    // Now call the write_summary_to_file function with the current n
-    // Array of p values
-    
     std::filesystem::path matrix_pairs_filename = "Grupe_in_besede\\Pari_PSL_2_matrik\\pari_matrik_PSL_2_" + std::to_string(p) + ".txt";
     std::filesystem::path words_filename = "Grupe_in_besede\\Besede\\Besede dolzine " + std::to_string(n) + ".txt";
 
@@ -692,68 +709,11 @@ int main() {
     auto matrix_pairs = read_matrix_pairs_from_file(matrix_pairs_filename); // Assuming you have implemented this function
     auto evaluations = evaluate_words_on_matrices(words, matrix_pairs, p);
 
-    if (n <= 8) {
-        write_summary_to_file(evaluations, p, n);
-    }
-    write_laws_only(evaluations, p, n);
+    // if (n <= 8) {
+    //     write_summary_to_file(evaluations, p, n);
+    // }
+    // write_laws_only(evaluations, p, n);
    
-
-    // fs::path base_folder = "Grupe_in_besede";
-    // fs::path psl_folder = base_folder / "PSL_2";
-    // fs::path free_group_folder = base_folder / "Besede";
-    // fs::path psl_matrices_folder = base_folder / "Pari_PSL_2_matrik";
-
-    // // Create directories if they don't exist
-    // fs::create_directories(psl_folder);
-    // fs::create_directories(free_group_folder);
-    // fs::create_directories(psl_matrices_folder);
-
-    // Example prime modulus and length of free group words
-    // int p = 19;
-    // int n = 3;
-
-    // // Generate the groups
-    // auto psl_group = generate_psl_2_p(p);
-    // auto free_group_words = generate_words_smarter(n);
-
-    // // Save the groups to files
-    // save_psl_2_p_group(psl_group, p, psl_folder);
-    // save_free_group(free_group_words, n, free_group_folder);
-
-    // Loop through the range of n for free groups
-    // for (int n = 18; n <= 18; ++n) {
-    //     // Generate free group words
-    //     auto free_group_words = generate_words_smarter(n);
-    //     // Save the free group to a file
-    //     save_free_group(free_group_words, n, free_group_folder);
-    // }
-    // std::cout << "All groups have been saved to files." << std::endl;
-    
-    // std::filesystem::path base_folder = "Grupe_in_besede";
-    // std::vector<int> primes = {2, 3, 5, 7, 11, 13, 17, 19, 23};
-    // std::filesystem::path psl_folder = base_folder / "PSL_2";
-    // std::filesystem::path psl_matrices_folder = base_folder / "Pari_PSL_2_matrik";
-
-    // // Ensure the output directory exists
-    // std::filesystem::create_directories(psl_matrices_folder);
-
-    // for (int prime : primes) {
-    //     // Construct input filename within PSL_2 folder
-    //     std::filesystem::path input_path = psl_folder / ("PSL_2_" + std::to_string(prime) + ".txt");
-
-    //     // Read matrices from the file
-    //     auto matrices = read_matrices_from_file(input_path.string());
-    //     auto pairs = create_matrix_pairs(matrices);  // Assuming you have this function defined.
-
-    //     // Construct output filename within Pari_PSL_2_matrik folder
-    //     std::filesystem::path output_path = psl_matrices_folder / ("pari_matrik_PSL_2_" + std::to_string(prime) + ".txt");
-
-    //     // Save matrix pairs to the file
-    //     save_matrix_pairs(pairs, output_path.string());
-    // }
-
-    // std::cout << "Processed and saved matrix pairs for prime numbers from 2 to 23." << std::endl;
-
     // POMEMBNO: Za grupe 19 in 23 sem datoteke izbrisal, ker je bilo skupaj več kot 1,5 GB
 
     // Stop timing
