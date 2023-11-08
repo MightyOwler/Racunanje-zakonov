@@ -12,6 +12,7 @@
 #include <utility> // For std::pair
 #include <numeric>
 #include <map>
+#include <cmath>
 
 // Function to multiply two 2x2 matrices
 std::array<std::array<int, 2>, 2> multiplyMatrices(
@@ -629,6 +630,39 @@ void write_laws_only(const std::vector<std::pair<std::string, Matrix2x2>>& evalu
 }
 
 
+void write_laws_only_limited(const std::vector<std::pair<std::string, Matrix2x2>>& evaluations, int p, int n) {
+    std::filesystem::path dir = "Rezultati/Zakoni za grupo PSL_2_" + std::to_string(p);
+    std::filesystem::create_directories(dir);
+
+    std::filesystem::path file_path = dir / ("Zakoni dolzine " + std::to_string(n) + ".txt");
+    std::ofstream file(file_path);
+
+    if (!file.is_open()) {
+        throw std::runtime_error("Unable to open file: " + file_path.string());
+    }
+
+    // Determine the number of lines to keep to approximately get 3000 lines.
+    int total_lines = evaluations.size();
+    int interval = std::ceil(total_lines / 200.0);
+
+    // Use a counter to write every interval-th line
+    int counter = 0;
+
+    for (const auto& evaluation : evaluations) {
+        if (counter % interval == 0) {
+            // Check if the current evaluation is a scalar multiple of the identity
+            if (is_scalar_identity(evaluation.second, p)) {
+                file << "Beseda " << evaluation.first << " je zakon v grupi PSL_2(" << p << ")" << std::endl;
+            }
+        }
+        ++counter;
+    }
+
+    // Close the file
+    file.close();
+}
+
+
 
 // Function that writes a summary to a file as specified
 void write_summary_to_file(const std::vector<std::pair<std::string, Matrix2x2>>& evaluations, int p, int n) {
@@ -703,7 +737,7 @@ int main() {
     if (n <= 8) {
         write_summary_to_file(evaluations, p, n);
     }
-    write_laws_only(evaluations, p, n);
+    write_laws_only_limited(evaluations, p, n);
    
     // POMEMBNO: Za grupe 19 in 23 sem datoteke izbrisal, ker je bilo skupaj več kot 1,5 GB
 
