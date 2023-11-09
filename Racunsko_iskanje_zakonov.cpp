@@ -836,8 +836,6 @@ int main() {
     // Za compilanje: g++ -std=c++17 -o .\Racunsko_iskanje_zakonov.exe .\Racunsko_iskanje_zakonov.cpp -lstdc++fs
 
 
-    write_extended_words(20);
-
     // Start timing
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -847,13 +845,13 @@ int main() {
         // ...
     int n = 10;
     
-    for (int i = 5; i <= 5; i++){
+    for (int i = 19; i <= 19; i++){
         int n = i;
 
         std::filesystem::path matrix_pairs_filename = "Grupe_in_besede\\Pari_PSL_2_matrik\\pari_matrik_PSL_2_" + std::to_string(p) + ".txt";
         std::filesystem::path words_filename = "Grupe_in_besede\\Besede\\Besede dolzine " + std::to_string(n) + ".txt";
 
-       auto words = (n <= 17) ? read_words_from_file(words_filename) : generate_words_smarter(n);
+       auto words =  read_words_from_file(words_filename);
 
         auto matrix_pairs = read_matrix_pairs_from_file(matrix_pairs_filename); // Assuming you have implemented this function
         // auto evaluations = evaluate_words_on_matrices(words, matrix_pairs, p);
