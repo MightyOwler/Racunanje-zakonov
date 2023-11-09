@@ -107,6 +107,8 @@ std::vector<std::string> generate_words_smarter(int n) {
     return results;
 }
 
+
+
 // Function to print a 2x2 matrix
 
 // Define a structure to represent a 2x2 matrix
@@ -250,7 +252,7 @@ void save_psl_2_p_group(const std::vector<Matrix2x2>& group, int p, const fs::pa
     file.close();
 }
 
-void save_free_group(const std::vector<std::string>& group, int n, const fs::path& folder) {
+void write_words_to_file(const std::vector<std::string>& group, int n, const fs::path& folder) {
     fs::path file_path = folder / ("Besede dolzine " + std::to_string(n) + ".txt");
     std::ofstream file(file_path);
 
@@ -266,7 +268,7 @@ void save_free_group(const std::vector<std::string>& group, int n, const fs::pat
     file.close();
 }
 
-void save_matrix_pairs(const std::vector<std::pair<Matrix2x2, Matrix2x2>>& pairs, const std::string& filename) {
+void write_matrix_pairs_to_file(const std::vector<std::pair<Matrix2x2, Matrix2x2>>& pairs, const std::string& filename) {
     std::ofstream file(filename);
     if (!file.is_open()) {
         std::cerr << "Unable to open file for writing: " << filename << std::endl;
@@ -391,7 +393,7 @@ void process_and_save_matrices(const std::filesystem::path& base_folder, int sta
         std::filesystem::path output_path = psl_matrices_folder / ("pari_matrik_PSL_2_" + std::to_string(i) + ".txt");
 
         // Save matrix pairs to the file
-        save_matrix_pairs(pairs, output_path.string());
+        write_matrix_pairs_to_file(pairs, output_path.string());
     }
 }
 
@@ -471,18 +473,8 @@ Matrix2x2 matrixInverse(const Matrix2x2& matrix, int p) {
 }
 
 
-Matrix2x2 eval_expression(int p, const std::string& word, const Matrix2x2& matA, const Matrix2x2& matB);
-bool is_scalar_identity(const Matrix2x2& matrix, int p) {
+bool is_scalar_identity(const Matrix2x2& matrix) {
     return (matrix.a11 == matrix.a22 && matrix.a11 != 0 && matrix.a12 == 0 && matrix.a21 == 0);
-
-    // if (matrix.a11 == matrix.a22 && matrix.a11 != 0 && matrix.a12 == 0 && matrix.a21 == 0) {
-    //     int scalar = matrix.a11 % p;
-    //     // Check if 'scalar' is a generator of the multiplicative group of integers modulo p,
-    //     // which means it should be coprime with p. This is a simplification and might not
-    //     // be what you need for a full "is_scalar_identity" check.
-    //     return std::gcd(scalar, p) == 1;
-    // }
-    // return false;
 }
 
 // Function to evaluate a single word on all matrix pairs
@@ -492,7 +484,7 @@ std::vector<std::pair<std::string, Matrix2x2>> evaluate_single_word(const std::s
 
     for (const auto& [matA, matB] : matrix_pairs) {
         Matrix2x2 result = eval_expression(p, word, matA, matB);
-        if (!is_scalar_identity(result, p)) {
+        if (!is_scalar_identity(result)) {
             all_identities = false;
             break;
         }
@@ -522,21 +514,44 @@ std::vector<std::pair<std::string, std::vector<Matrix2x2>>> evaluate_words_on_tu
     return all_evaluations;
 }
 
-// Function to write the evaluation results to a file in a summary format
-void write_to_file_summary_output(const std::filesystem::path& filename, const std::vector<std::pair<std::string, std::vector<Matrix2x2>>>& evaluations) {
-    std::ofstream file(filename);
 
-    if (!file.is_open()) {
-        std::cerr << "Unable to open file for writing: " << filename << std::endl;
-        return;
+bool is_word_scalar_identity(const std::string& word, const std::vector<std::pair<Matrix2x2, Matrix2x2>>& matrix_pairs, int p) {
+    for (const auto& [matA, matB] : matrix_pairs) {
+        Matrix2x2 result = eval_expression(p, word, matA, matB);
+        if (!is_scalar_identity(result)) {
+            return false; // Early return on the first non-identity result
+        }
     }
+    return true; // All results were scalar identities
+}
 
-    for (const auto& [word, matrices] : evaluations) {
-        file << "Beseda " << word << " je zakon.\n";
+bool are_all_words_scalar_identities(const std::vector<std::string>& words, const std::vector<std::pair<Matrix2x2, Matrix2x2>>& matrix_pairs, int p) {
+    for (const auto& word : words) {
+        if (!is_word_scalar_identity(word, matrix_pairs, p)) {
+            return false; // Early return if any word is not a scalar identity
+        }
     }
+    return true; // All words resulted in scalar identities
+}
 
-    file.close();
-} 
+
+
+
+// // Function to write the evaluation results to a file in a summary format
+// void write_to_file_summary_output(const std::filesystem::path& filename, const std::vector<std::pair<std::string, std::vector<Matrix2x2>>>& evaluations) {
+//     std::ofstream file(filename);
+
+//     if (!file.is_open()) {
+//         std::cerr << "Unable to open file for writing: " << filename << std::endl;
+//         return;
+//     }
+
+//     for (const auto& [word, matrices] : evaluations) {
+//         file << "Beseda " << word << " je zakon.\n";
+//     }
+
+//     file.close();
+// } 
 
 // std::vector<std::string> read_words_from_file(const std::filesystem::path& filename) {
 //     std::vector<std::string> words;
@@ -586,7 +601,111 @@ std::vector<std::pair<std::string, Matrix2x2>> evaluate_words_on_matrices(const 
     return evaluations;
 }
 
-void write_laws_only(const std::vector<std::pair<std::string, Matrix2x2>>& evaluations, int p, int n) {
+// void write_laws_only(const std::vector<std::pair<std::string, Matrix2x2>>& evaluations, int p, int n) {
+//     std::filesystem::path dir = "Rezultati/Zakoni za grupo PSL_2_" + std::to_string(p);
+//     std::filesystem::create_directories(dir);
+
+//     std::filesystem::path file_path = dir / ("Zakoni dolzine " + std::to_string(n) + ".txt");
+//     std::ofstream file(file_path);
+
+//     if (!file.is_open()) {
+//         throw std::runtime_error("Unable to open file: " + file_path.string());
+//     }
+
+//     // A map to keep track of disqualified words
+//     std::map<std::string, bool> disqualified;
+
+//     // Loop over the evaluations
+//     for (const auto& evaluation : evaluations) {
+//         const auto& word = evaluation.first;
+//         // If a word is already disqualified, continue to the next evaluation
+//         if (disqualified[word]) {
+//             continue;
+//         }
+
+//         // Check if the current evaluation is a scalar multiple of the identity
+//         if (!is_scalar_identity(evaluation.second)) {
+//             // If not, the word is disqualified and we don't need to check further for this word
+//             disqualified[word] = true;
+//         }
+//     }
+
+//     // Write the laws to the file
+//     for (const auto& evaluation : evaluations) {
+//         // If the word has not been disqualified, it's a law
+//         if (!disqualified[evaluation.first]) {
+//             file << "Beseda " << evaluation.first << " je zakon v grupi PSL_2(" << p << ")" << std::endl;
+//             // After writing a law, you can disqualify it to prevent it from being written again
+//             disqualified[evaluation.first] = true;
+//         }
+//     }
+
+//     // Close the file
+//     file.close();
+// }
+
+
+
+
+// void write_laws_only_limited(const std::vector<std::pair<std::string, Matrix2x2>>& evaluations, int p, int n) {
+//     std::filesystem::path dir = "Rezultati/Zakoni za grupo PSL_2_" + std::to_string(p);
+//     std::filesystem::create_directories(dir);
+
+//     std::filesystem::path file_path = dir / ("Zakoni dolzine " + std::to_string(n) + ".txt");
+//     std::ofstream file(file_path);
+
+//     if (!file.is_open()) {
+//         throw std::runtime_error("Unable to open file: " + file_path.string());
+//     }
+
+//     // A map to keep track of disqualified words
+//     std::map<std::string, bool> disqualified;
+//     int total_qualifying = 0;
+
+//     // First pass to disqualify non-scalar identity matrices and count qualifying ones
+//     for (const auto& evaluation : evaluations) {
+//         const auto& word = evaluation.first;
+//         // If a word is already disqualified, skip to the next
+//         if (disqualified.find(word) != disqualified.end()) {
+//             continue;
+//         }
+
+//         // Check if the current evaluation is a scalar multiple of the identity
+//         if (is_scalar_identity(evaluation.second)) {
+//             total_qualifying++;
+//         } else {
+//             disqualified[word] = true;
+//         }
+//     }
+
+//     // Determine the interval for writing lines
+//     int interval = (total_qualifying > 3000) ? std::ceil(static_cast<double>(total_qualifying) / 3000.0) : 1;
+//     int index = 0;
+//     int written = 0;
+
+//     // Second pass to write out only the non-disqualified and evenly spaced entries
+//     for (const auto& evaluation : evaluations) {
+//         const auto& word = evaluation.first;
+//         // Skip disqualified words
+//         if (disqualified.find(word) != disqualified.end()) {
+//             continue;
+//         }
+
+//         // Write approximately every interval-th qualifying entry
+//         if ((index % interval == 0) && (written < 3000)) {
+//             file << "Beseda " << word << " je zakon v grupi PSL_2(" << p << ")" << std::endl;
+//             written++;  // Increment the count of written lines
+//         }
+
+//         index++;  // Increment the index for each qualifying entry
+//     }
+
+//     // Close the file
+//     file.close();
+// }
+
+
+void write_laws_only_simplified(const std::vector<std::string>& words, const std::vector<std::pair<Matrix2x2, Matrix2x2>>& matrix_pairs, int p, int n) {
     std::filesystem::path dir = "Rezultati/Zakoni za grupo PSL_2_" + std::to_string(p);
     std::filesystem::create_directories(dir);
 
@@ -597,31 +716,10 @@ void write_laws_only(const std::vector<std::pair<std::string, Matrix2x2>>& evalu
         throw std::runtime_error("Unable to open file: " + file_path.string());
     }
 
-    // A map to keep track of disqualified words
-    std::map<std::string, bool> disqualified;
-
-    // Loop over the evaluations
-    for (const auto& evaluation : evaluations) {
-        const auto& word = evaluation.first;
-        // If a word is already disqualified, continue to the next evaluation
-        if (disqualified[word]) {
-            continue;
-        }
-
-        // Check if the current evaluation is a scalar multiple of the identity
-        if (!is_scalar_identity(evaluation.second, p)) {
-            // If not, the word is disqualified and we don't need to check further for this word
-            disqualified[word] = true;
-        }
-    }
-
-    // Write the laws to the file
-    for (const auto& evaluation : evaluations) {
-        // If the word has not been disqualified, it's a law
-        if (!disqualified[evaluation.first]) {
-            file << "Beseda " << evaluation.first << " je zakon v grupi PSL_2(" << p << ")" << std::endl;
-            // After writing a law, you can disqualify it to prevent it from being written again
-            disqualified[evaluation.first] = true;
+    // Loop over the words and write only those that evaluate to scalar identities
+    for (const auto& word : words) {
+        if (is_word_scalar_identity(word, matrix_pairs, p)) {
+            file << "Beseda " << word << " je zakon v grupi PSL_2(" << p << ")" << std::endl;
         }
     }
 
@@ -630,84 +728,105 @@ void write_laws_only(const std::vector<std::pair<std::string, Matrix2x2>>& evalu
 }
 
 
-void write_laws_only_limited(const std::vector<std::pair<std::string, Matrix2x2>>& evaluations, int p, int n) {
-    std::filesystem::path dir = "Rezultati/Zakoni za grupo PSL_2_" + std::to_string(p);
-    std::filesystem::create_directories(dir);
-
-    std::filesystem::path file_path = dir / ("Zakoni dolzine " + std::to_string(n) + ".txt");
-    std::ofstream file(file_path);
-
-    if (!file.is_open()) {
-        throw std::runtime_error("Unable to open file: " + file_path.string());
-    }
-
-    // Determine the number of lines to keep to approximately get 3000 lines.
-    int total_lines = evaluations.size();
-    int interval = std::ceil(total_lines / 200.0);
-
-    // Use a counter to write every interval-th line
-    int counter = 0;
-
-    for (const auto& evaluation : evaluations) {
-        if (counter % interval == 0) {
-            // Check if the current evaluation is a scalar multiple of the identity
-            if (is_scalar_identity(evaluation.second, p)) {
-                file << "Beseda " << evaluation.first << " je zakon v grupi PSL_2(" << p << ")" << std::endl;
-            }
-        }
-        ++counter;
-    }
-
-    // Close the file
-    file.close();
-}
 
 
 
 // Function that writes a summary to a file as specified
-void write_summary_to_file(const std::vector<std::pair<std::string, Matrix2x2>>& evaluations, int p, int n) {
-    // Create directories if they do not exist
-    std::filesystem::path dir = "Rezultati/Zakoni za grupo PSL_2_" + std::to_string(p);
-    std::filesystem::create_directories(dir);
+// void write_summary_to_file(const std::vector<std::pair<std::string, Matrix2x2>>& evaluations, int p, int n) {
+//     // Create directories if they do not exist
+//     std::filesystem::path dir = "Rezultati/Zakoni za grupo PSL_2_" + std::to_string(p);
+//     std::filesystem::create_directories(dir);
 
-    // File to write to
-    std::filesystem::path file_path = dir / ("Zakoni dolzine " + std::to_string(n) + " full.txt");
-    std::ofstream file(file_path);
+//     // File to write to
+//     std::filesystem::path file_path = dir / ("Zakoni dolzine " + std::to_string(n) + " full.txt");
+//     std::ofstream file(file_path);
 
-    if (!file.is_open()) {
-        throw std::runtime_error("Unable to open file: " + file_path.string());
+//     if (!file.is_open()) {
+//         throw std::runtime_error("Unable to open file: " + file_path.string());
+//     }
+
+//     // Map to count the successful evaluations per word
+//     std::map<std::string, int> success_counts;
+//     std::map<std::string, int> word_counts;
+
+//     // Count the number of successful evaluations and the total evaluations for each word
+//     for (const auto& evaluation : evaluations) {
+//         word_counts[evaluation.first]++;
+//         if (is_scalar_identity(evaluation.second)) {
+//             success_counts[evaluation.first]++;
+//         }
+//     }
+
+//     // Write a summary line for each word to the file
+//     for (const auto& word : word_counts) {
+//         int total_evaluations = word.second;
+//         int successful_evaluations = success_counts[word.first];
+//         double success_rate = 100.0 * successful_evaluations / total_evaluations;
+//         file << "Word: " << word.first << ", Number of successful evaluations: "
+//              << successful_evaluations << "/" << total_evaluations
+//              << " (" << success_rate << "%)";
+//         if (success_rate == 100.0) {
+//             file << " Beseda je zakon!";
+//         }
+//         file << std::endl;
+//     }
+
+//     // Close the file
+//     file.close();
+// }
+
+
+void write_extended_words(const std::filesystem::path& input_filename, int n) {
+    // Generate the input and output file paths
+    std::filesystem::path output_filename = input_filename.parent_path() / ("Besede dolzine " + std::to_string(n) + ".txt");
+
+    // Open the input file for reading
+    std::ifstream input_file(input_filename);
+    if (!input_file.is_open()) {
+        throw std::runtime_error("Unable to open file: " + input_filename.string());
     }
 
-    // Map to count the successful evaluations per word
-    std::map<std::string, int> success_counts;
-    std::map<std::string, int> word_counts;
+    // Open the output file for writing
+    std::ofstream output_file(output_filename);
+    if (!output_file.is_open()) {
+        throw std::runtime_error("Unable to open file: " + output_filename.string());
+    }
 
-    // Count the number of successful evaluations and the total evaluations for each word
-    for (const auto& evaluation : evaluations) {
-        word_counts[evaluation.first]++;
-        if (is_scalar_identity(evaluation.second, p)) {
-            success_counts[evaluation.first]++;
+    // Read lines from the input file and write to the output file
+    std::string word;
+    while (std::getline(input_file, word)) {
+        // Use a switch statement to append characters that don't cancel
+        switch (word.back()) {
+            case 'x':
+                output_file << word << 'x' << '\n';
+                output_file << word << 'y' << '\n';
+                output_file << word << 'Y' << '\n';
+                break;
+            case 'X':
+                output_file << word << 'x' << '\n';
+                output_file << word << 'y' << '\n';
+                output_file << word << 'Y' << '\n';
+                break;
+            case 'y':
+                output_file << word << 'x' << '\n';
+                output_file << word << 'X' << '\n';
+                output_file << word << 'Y' << '\n';
+                break;
+            case 'Y':
+                output_file << word << 'x' << '\n';
+                output_file << word << 'X' << '\n';
+                output_file << word << 'y' << '\n';
+                break;
+            default:
+                // Handle other characters if necessary
+                break;
         }
     }
 
-    // Write a summary line for each word to the file
-    for (const auto& word : word_counts) {
-        int total_evaluations = word.second;
-        int successful_evaluations = success_counts[word.first];
-        double success_rate = 100.0 * successful_evaluations / total_evaluations;
-        file << "Word: " << word.first << ", Number of successful evaluations: "
-             << successful_evaluations << "/" << total_evaluations
-             << " (" << success_rate << "%)";
-        if (success_rate == 100.0) {
-            file << " Beseda je zakon!";
-        }
-        file << std::endl;
-    }
-
-    // Close the file
-    file.close();
+    // Close the files
+    input_file.close();
+    output_file.close();
 }
-
 
 
 
@@ -720,24 +839,35 @@ int main() {
     auto start = std::chrono::high_resolution_clock::now();
 
    
-     int p = 7; // Prime number
+     int p = 5; // Prime number
         // Set n and p to the values you are working with
         // ...
     int n = 10;
     
+    for (int i = 5; i <= 5; i++){
+        int n = i;
+
+        std::filesystem::path matrix_pairs_filename = "Grupe_in_besede\\Pari_PSL_2_matrik\\pari_matrik_PSL_2_" + std::to_string(p) + ".txt";
+        std::filesystem::path words_filename = "Grupe_in_besede\\Besede\\Besede dolzine " + std::to_string(n) + ".txt";
+
+       auto words = (n <= 17) ? read_words_from_file(words_filename) : generate_words_smarter(n);
+
+        auto matrix_pairs = read_matrix_pairs_from_file(matrix_pairs_filename); // Assuming you have implemented this function
+        // auto evaluations = evaluate_words_on_matrices(words, matrix_pairs, p);
+
+        // if (n <= 8) {
+        //     write_summary_to_file(evaluations, p, n);
+        // }
+        write_laws_only_simplified(words, matrix_pairs, p, n);
+
+    }
+
+    
+
+
     // To zahteva preveč spomina!! Ugotovi, kako popraviti stvari!
 
-    std::filesystem::path matrix_pairs_filename = "Grupe_in_besede\\Pari_PSL_2_matrik\\pari_matrik_PSL_2_" + std::to_string(p) + ".txt";
-    std::filesystem::path words_filename = "Grupe_in_besede\\Besede\\Besede dolzine " + std::to_string(n) + ".txt";
-
-    auto words = read_words_from_file(words_filename);
-    auto matrix_pairs = read_matrix_pairs_from_file(matrix_pairs_filename); // Assuming you have implemented this function
-    auto evaluations = evaluate_words_on_matrices(words, matrix_pairs, p);
-
-    if (n <= 8) {
-        write_summary_to_file(evaluations, p, n);
-    }
-    write_laws_only_limited(evaluations, p, n);
+    
    
     // POMEMBNO: Za grupe 19 in 23 sem datoteke izbrisal, ker je bilo skupaj več kot 1,5 GB
 
