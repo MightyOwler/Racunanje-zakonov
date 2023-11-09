@@ -776,9 +776,10 @@ void write_laws_only_simplified(const std::vector<std::string>& words, const std
 // }
 
 
-void write_extended_words(const std::filesystem::path& input_filename, int n) {
+void write_extended_words(int n) {
     // Generate the input and output file paths
-    std::filesystem::path output_filename = input_filename.parent_path() / ("Besede dolzine " + std::to_string(n) + ".txt");
+    std::filesystem::path input_filename = "Grupe_in_besede\\Besede\\Besede dolzine " + std::to_string(n-1) + ".txt";
+    std::filesystem::path output_filename = "Grupe_in_besede\\Besede\\Besede dolzine " + std::to_string(n) + ".txt";
 
     // Open the input file for reading
     std::ifstream input_file(input_filename);
@@ -835,6 +836,8 @@ int main() {
     // Za compilanje: g++ -std=c++17 -o .\Racunsko_iskanje_zakonov.exe .\Racunsko_iskanje_zakonov.cpp -lstdc++fs
 
 
+    write_extended_words(20);
+
     // Start timing
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -862,7 +865,7 @@ int main() {
 
     }
 
-    
+
 
 
     // To zahteva preveč spomina!! Ugotovi, kako popraviti stvari!
