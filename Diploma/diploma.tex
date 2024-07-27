@@ -185,23 +185,23 @@ Z uporabo te leme direktno sledi, da je grupa $K(k)$ podgrupa končnega indeksa 
 je $k$-črkovna dolžina grupe $G$.  
 \end{definicija}
 
-Ime ožina je smiselno v kontekstu definicije Cayleyjevega grafa grupe.
+TODO tukaj poveži ožino grafa z bistvom naloge
 
 \begin{definicija}
 \label{def_cayleyev_graf}
-Naj bo $G$ grupa in $S \subseteq G$ njena podmnožica, za katero velja $S = S^{-1}$. Potem $\operatorname{Cay}(G, S)$ označuje graf z množico vozlišč $V = G$ in povezavami
+Naj bo $G$ grupa in $S \subseteq G$ njena podmnožica, za katero velja $S = S^{-1}$. Potem $\operatorname{Cay}(G, S)$ označuje graf z vozlišči $V = G$ in povezavami
 $E = \left\{ (p, q) \middle|\, p^{-1}q \in  S \right\}$. Imenujemo ga Cayleyjev graf grupe $G$, generiran z množico $S$.  
 \end{definicija}
 
 \begin{opomba}
-Pogoj $S = S^{-1}$ nam pove, da je $\operatorname{Cay}(G, S)$ res pravi graf in ne zgolj usmerjen. Imamo namreč \begin{equation*}
+Pogoj simetričnosti $S = S^{-1}$ nam pove, da je $\operatorname{Cay}(G, S)$ pravi graf in ne zgolj usmerjen. Imamo namreč \begin{equation*}
 (p,q) \in  E \iff p^{-1}q \iff q^{-1}p \iff (q,p) \in  E.
 \end{equation*}  
 \end{opomba}
 
 \begin{primer}
-Na spodnjih slikah imamo Cayleyjev graf grupe $D_{10}$ (diedrske grupe z $10$ elementi) za različni generatorski množici.
-TODO nariši grafa, enega imaš iz predstaviltve, drugega postavi zraven
+Na spodnjih slikah imamo Cayleyjev graf grupe diedrske grupe $D_{10} = \langle r, Z \rangle$ za različni generatorski množici.
+TODO nariši desno od tega še graf s 5 generatorji
 \begin{center}
     \begin{tikzpicture}[rotate=90, scale=1.5]
     \tikzset{vertex/.style={draw, thick, circle, fill=orange!50, minimum size=20pt, inner sep=0pt}}
@@ -234,26 +234,131 @@ TODO nariši grafa, enega imaš iz predstaviltve, drugega postavi zraven
     \draw (v9) -- (v10);
     \end{tikzpicture}
     \end{center}
-\end{frame}
-
 \end{primer}
+
+
+\begin{opomba}
+Ime ožina je smiselno v kontekstu definicije Cayleyjevega grafa grupe. TODO zakaj, 
+\end{opomba}
 
 
 Izkaže se, da so najbolj zanimivi zakoni za obravnavo dvočrkovni. To utemeljimo z dokazom naslednje trditve.
 
 \begin{trditev}
 \label{trd_vlozitev_proste_grupe}
- Obstaja vložitev $F_{2 \cdot 3^{k}} = \langle x_1, \ldots, x_{2 \cdot 3^{k}} \rangle$ v $F_2 = \langle x,y \rangle $, da velja $l(x_i) = 2k + 1$, kjer $l(w)$ označuje dolžino besede $w \in F_2 = \langle x,y \rangle$. 
+ Obstaja vložitev grupe $F_{2 \cdot 3^{k}} = \langle x_1, \ldots, x_{2 \cdot 3^{k}} \rangle$ v grupo $F_2 = \langle x,y \rangle $, da velja $l(x_i) = 2k + 1$, kjer $l(w)$ označuje dolžino besede $w \in F_2 = \langle x,y \rangle$. 
 \end{trditev}
+
+\noindent
+Dokaz trditve je naveden v \cite{Schneider_2016}. Najprej moramo uvesti nekaj pojmov. 
+
+\begin{definicija}
+\label{def_schreierjev_graf}
+TODO, to se da verjetno izpustiti
+\end{definicija}
+
+\begin{definicija}
+\label{def_fundamentalna_grupa_grafa}
+TODO
+\end{definicija}    
+
 \begin{dokaz}
     TODO, treba je še prej definirati Schreierjev graf in fundamentalno grupo grafa
+        TODO vstavi sliko fraktalnega drevesa
+    TODO ta dokaz je nekoliko bolj tehničen, kot sem pričakoval, lahko ga tudi samo opišem, ker bi bilo treba definirati veliko pojmov,
+    ki so v nadaljevanju naloge neuporanbni
 \end{dokaz}
 
 
+% TOOD tukaj je treba povedati posledico tega izreka z omejitvijo girth_k od spodaj in zgoraj z girth_2
 
 \section{Komutatorska in razširitvena lema}
+\subsection{Komutatorska lema}
 
-~\cite{Schneider_2016}
+Recimo da nekatere že poznamo zakone za grupe oziroma njihove podmnožice, zanima pa nas, kako bi iz njih zgradili nove zakone. Na to vprašanje odgovarjata komutatorska in razširitvena lema,
+ki sta ključni orodji pri obravnavanju zakonov. Preden ju dokažemo moramo pokazati nekaj rezultatov.
+
+\begin{definicija}
+\label{def_netrivialna_potenca}
+Naj bo $G$ grupa. Element $g \in  G$ je netrivialna potenca, če obstajata $h \in G$ in naravno število $n > 1$, da je $g = h^{n}$.
+\end{definicija}
+
+\begin{lema}[\cite{Lyndon_Schupp_2015}[str.~8, trditev 2.7]]
+\label{lem_uporaba_nielsen}
+Naj bo $U$ množica s $k$-elementi in naj bo $F_k = \langle U \rangle$. Potem je $U$ baza $F_k$.  
+\end{lema}
+
+
+\begin{lema}
+    \label{lem_komutatorska_lema}
+     Naj bo $k \ge 2$, $e \in  \mathbb{N}$ in naj bodo besede $w_1, \ldots, w_m \in F_k$ netrivialne, pri čemer je $m = 2^{e}$. Potem obstaja beseda $w \in F_k$
+     dolžine \begin{equation*}
+     l(w) \le 2m \left(m + \sum_{i=1}^{m} l(w_{i}) \right),
+     \end{equation*}  
+    ki ni netrivialna potenca, da za vsako grupo $G$ velja \begin{equation*}
+    Z(G, w) \supseteq \operatorname{Z}(G, w_1) \cup \ldots \cup \operatorname{Z}(G, w_m).
+    \end{equation*}       
+    \end{lema}
+    \begin{dokaz}
+        Dokaz poteka z indukcijo po $e \in  \mathbb{N}$. Naj bo $F_k = \langle S \rangle$.  Za $e = 0$ (oziroma $m = 1$) vzamemo $w = [s, w_1]$, kjer je $s \in S$ takšen element, da $w_1$ ni potenca $s$. To lahko storimo zaradi pogoja $k \ge 2$. Zaradi ustrezne izbire komutator $[s, w_1]$ ne more biti netrivialna potenca, njegova dolžina pa je kvečjem $2(l(w_1)  + 1)$.
+        Hkrati za poljubno grupo $G$ velja $\operatorname{Z}(G, w) \supseteq \operatorname{Z}(G, s) \cup \operatorname{Z}(G, w_1)$.
+        
+        Zdaj se lotimo indukcijskega koraka v primeru $e \ge 1$ oziroma $m \ge 2$. Naj bodo podane besede $w_1, \ldots, w_{m / 2}, w_{m / 2 + 1}, \ldots, w_{2m}$. Po indukcijski predpostavki obstajata besedi $v_1, v_2 \in  F_{k}$, ki nista netrivialni potenci, da velja
+        \begin{equation*}
+        l(v_1) \le m \left(\frac{m}{2} + \sum_{i=1}^{m / 2} l(w_{i}) \right),
+        \end{equation*}  
+        \begin{equation*}
+            l(v_2) \le m \left(\frac{m}{2} + \sum_{i= m / 2 + 1}^{m} l(w_{i}) \right)
+        \end{equation*}  
+        in \begin{equation*}
+        \operatorname{Z}(G, v_1) \supseteq \operatorname{Z}(G, w_1) \cup \ldots \cup \operatorname{Z}(G, w_{m / 2}),
+        \end{equation*}  
+        \begin{equation*}
+            \operatorname{Z}(G, v_2) \supseteq \operatorname{Z}(G, w_{m / 2 + 1}) \cup \ldots \cup \operatorname{Z}(G, w_{m})
+        \end{equation*}  
+        za vsako grupo $G$.
+
+        Zdaj moramo le še utemeljiti, da lahko besedi $v_1$ ter $v_2$ ustrezno združimo. Po lemi (TODO citiraj prejšnjo lemo) vemo, da bo komutator $[v_1, v_2]$ trivialen zgolj v primeru $v_1 = v_2^{\pm 1}$, ker sta $v_1$ in $v_2$ netrivialni potenci. V primeru, da sta trivialni, imamo \begin{equation*}
+        \operatorname{Z}(G, w_1) = \operatorname{Z}(G, w_2)
+        \end{equation*}  
+         in lahko nastavimo $w := v_1$ ali $w := v_2$, v obeh primerih je pogoj na dolžino besede $w$ očitno izpolnjen. Če $v_1 \neq v_2^{\pm 1}$, nastavimo $w := [v_1, v_2]$. Po prejšnji lemi (TODO sklicuj se!) je beseda $w$ netrivialna, hkrati pa po (TODO Schutzenbergovi lemi) tudi ni netrivialna potenca. Poleg tega po indukcijski predpostavki velja
+         \begin{equation*}
+         l(w) \le 2m  \left(\frac{m}{2} + \sum_{i=1}^{m / 2} l(w_{i}) \right) + 2m \left(\frac{m}{2} + \sum_{i= m / 2 + 1}^{m} l(w_{i}) \right) = 2m \left( m + \sum_{i = 1}^{m} l(w_{i}) \right).
+         \end{equation*}  
+    \end{dokaz}
+
+To lemo lahko posplošimo tako, da velja tudi za števila besed, ki niso dvojiške potence.
+
+\begin{lema}
+\label{lem_komutatorska_lema_posplositev}
+Naj bo $k \ge 2$ in naj bodo podane netrivialne besede $w_1, \ldots, w_{m} \in  F_m$. Potem obstaja beseda $w \in F_k$ dolžine \begin{equation*}
+l(w) \le 8m \left(m +  \sum_{i = 1}^{m} l(w_{i}) \right),
+\end{equation*}  
+ki ni netrivialna potenca, da za vsako grupo $G$ velja \begin{equation*}
+\operatorname{Z}(G, w) \supseteq \operatorname{Z}(G, w_1) \cup \ldots \cup  \operatorname{Z}(G, w_{m}).
+\end{equation*}    
+\end{lema}
+\begin{dokaz}
+    Naj bo $2^{e}$ najmanjša dvojiška potenca, večja ali enaka $m$. Potem velja $2^{e} < 2m$ in nastavimo \begin{equation*}
+    w_1' := w_1, \ldots, w_{m}' := w_{m}, w_{m+1}' := w_1, \ldots, w_{2^{e}}' := w_{2^{e} - m}. 
+    \end{equation*}  
+\end{dokaz}
+
+Ta rezultat lahko nekoloko omilimo, da dobimo bolj praktično oceno.
+\begin{posledica}
+\label{psl_komutatorska_lema_prakticna}
+Naj bo $k \ge 2$ in naj bodo podane netrivialne besede $w_1, \ldots, w_m \in  F_k$. Potem obstaja beseda $w \in  F_k$ dolžine \begin{equation*}
+l(w) \le 8m^2 \left(1 + \max_{i = 1, \ldots, m} l(w_i) \right)
+\end{equation*}      
+\end{posledica}
+\begin{dokaz}
+    To je direktna posledica leme \href{lem_komutatorska_lema_posplositev} skupaj z dejstvom, da je \begin{equation*}
+    \sum_{i = 1}^{m} l(w_{i}) \le m \max_{i = 1, \ldots, m} l(w_i).
+    \end{equation*}  
+\end{dokaz}
+
+
+\subsection{Razširitvena lema}
 
 \section{Nilpotentne in rešljive grupe}
 
