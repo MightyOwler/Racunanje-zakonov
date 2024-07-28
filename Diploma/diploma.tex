@@ -14,7 +14,7 @@
 \naslov{Kratki zakoni v grupah}
 
 % - naslov dela v angleščini
-\title{Short group laws}
+\title{Short Group Laws}
 
 % - ime mentorja/mentorice s polnim nazivom:
 %   - doc.~dr.~Ime Priimek
@@ -77,6 +77,11 @@
 % deklarirajte vse matematične operatorje, da jih bo LaTeX pravilno stavil
 % \DeclareMathOperator{\...}{...}
 
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+\numberwithin{equation}{section}  % števec za enačbe zgleda kot (2.7) in se resetira v vsakem razdelku
+\newenvironment{skica}[1][Skica dokaza]{\begin{proof}[#1]}{\end{proof}}
+
 % vstavite svoje definicije ...
 % \newcommand{\...}{...}
 
@@ -125,7 +130,7 @@ prosti grupi ranga $k$, ki jo označimo z $F_k$.
 \end{opomba}
 
 \noindent
-V viru (TODO, morda \cite[str.~4]{Lyndon_Schupp_2015}) je natančno razloženo znano dejstvo, da lahko elemente proste grupe $F(S)$ predstavimo v obliki okrajšanih besed,
+V viru (\cite[str.~4, tridtev 1.9]{Lyndon_Schupp_2015}) je natančno razloženo znano dejstvo, da lahko elemente proste grupe $F(S)$ predstavimo v obliki okrajšanih besed,
 torej besed oblike $w = s_1 \cdots s_n$, kjer je $s_i \in S \cup S^{-1}$ za $i = 1, \ldots, n$ in $s_i \neq s_{i+1}^{-1}$ za $i = 1, \ldots, n-1$. Tu je $S^{-1} = \left\{ s^{-1}  \middle|\, s \in  S \right\}$.
 Z upoštevanjem tega dejstva lahko elementom proste grupe $F(S)$ določimo dolžino.
 
@@ -180,7 +185,7 @@ Z uporabo te leme direktno sledi, da je grupa $K(k)$ podgrupa končnega indeksa 
 \begin{definicija}
 \label{def_ozina}
 Število \begin{equation*}
-\text{girth}_{k}(G) := \min \left\{ l(w)  \middle|\,  w \in F_k \setminus \left\{ 1\right\} \text{ je zakon v } G  \right\} \cup \left\{ \infty\right\} 
+\operatorname{girth}_{k}(G) := \min \left\{ l(w)  \middle|\,  w \in F_k \setminus \left\{ 1\right\} \text{ je zakon v } G  \right\} \cup \left\{ \infty\right\} 
 \end{equation*}  
 je $k$-črkovna dolžina grupe $G$.  
 \end{definicija}
@@ -264,7 +269,7 @@ TODO
 
 \begin{dokaz}
     TODO, treba je še prej definirati Schreierjev graf in fundamentalno grupo grafa
-        TODO vstavi sliko fraktalnega drevesa
+    TODO vstavi sliko fraktalnega drevesa
     TODO ta dokaz je nekoliko bolj tehničen, kot sem pričakoval, lahko ga tudi samo opišem, ker bi bilo treba definirati veliko pojmov,
     ki so v nadaljevanju naloge neuporanbni
 \end{dokaz}
@@ -283,10 +288,19 @@ ki sta ključni orodji pri obravnavanju zakonov. Preden ju dokažemo moramo poka
 Naj bo $G$ grupa. Element $g \in  G$ je netrivialna potenca, če obstajata $h \in G$ in naravno število $n > 1$, da je $g = h^{n}$.
 \end{definicija}
 
-\begin{lema}[\cite{Lyndon_Schupp_2015}[str.~8, trditev 2.7]]
+\begin{lema}[\cite{Lyndon_Schupp_2015}[str.~8, trditev 2.6]]
 \label{lem_uporaba_nielsen}
-Naj bo $U$ množica s $k$-elementi in naj bo $F_k = \langle U \rangle$. Potem je $U$ baza $F_k$.  
+Vsaka končnogenerirana podgrupa proste grupe je prosta.   
 \end{lema}
+\begin{skica}
+    TODO, tu je treba le približno opisati postopek
+    -najprej Nielsenove transformacije
+    -nato N-okrajšanost
+    -ideja, da lahko prevedeš vse U na N-okrajšane
+    -lema, da N-okrajšane ravno pravšnje
+Ta lema je posebni primer Nielsen-Schreierjevega izreka, ki trdi, da je vsaka podgrupa proste grupe prosta \cite{Lyndon_Schupp_2015}[str.~8, trditev 2.11]. Njen dokaz je podan na straneh 5--7 v istega vira,  
+
+\end{skica}
 
 
 \begin{lema}
@@ -318,10 +332,11 @@ Naj bo $U$ množica s $k$-elementi in naj bo $F_k = \langle U \rangle$. Potem je
         \end{equation*}  
         za vsako grupo $G$.
 
-        Zdaj moramo le še utemeljiti, da lahko besedi $v_1$ ter $v_2$ ustrezno združimo. Po lemi (TODO citiraj prejšnjo lemo) vemo, da bo komutator $[v_1, v_2]$ trivialen zgolj v primeru $v_1 = v_2^{\pm 1}$, ker sta $v_1$ in $v_2$ netrivialni potenci. V primeru, da sta trivialni, imamo \begin{equation*}
+        Zdaj moramo le še utemeljiti, da lahko besedi $v_1$ ter $v_2$ ustrezno združimo. Vemo, da je komutator $[a,b]$ za $a,b \in F_k \setminus \left\{ 1\right\}$ trivialen natanko tedaj, ko $a$ in $b$ generirata prosto grupo ranga $1$. Po lemi \href{lem_uporaba_nielsen} namreč vemo, da je podgrupa $\langle a, b \rangle \le F_k$ prosta,
+        hkrati pa $a$ in $b$ po pogoju komutirata. Implikacija v levo je očitna. Zato vemo, da bo komutator $[v_1, v_2]$ trivialen zgolj v primeru $v_1 = v_2^{\pm 1}$, ker sta $v_1$ in $v_2$ po predpostavki netrivialni potenci. V primeru, da sta trivialni, imamo \begin{equation*}
         \operatorname{Z}(G, w_1) = \operatorname{Z}(G, w_2)
         \end{equation*}  
-         in lahko nastavimo $w := v_1$ ali $w := v_2$, v obeh primerih je pogoj na dolžino besede $w$ očitno izpolnjen. Če $v_1 \neq v_2^{\pm 1}$, nastavimo $w := [v_1, v_2]$. Po prejšnji lemi (TODO sklicuj se!) je beseda $w$ netrivialna, hkrati pa po (TODO Schutzenbergovi lemi) tudi ni netrivialna potenca. Poleg tega po indukcijski predpostavki velja
+         in lahko nastavimo $w := v_1$ ali $w := v_2$, v obeh primerih je pogoj na dolžino besede $w$ očitno izpolnjen. Če imamo $v_1 \neq v_2^{\pm 1}$, nastavimo $w := [v_1, v_2]$. V tem primeru po (TODO Schutzenbergovi lemi) beseda $w$ ni netrivialna potenca.Indukcijska predpostavka nam zagotavlja 
          \begin{equation*}
          l(w) \le 2m  \left(\frac{m}{2} + \sum_{i=1}^{m / 2} l(w_{i}) \right) + 2m \left(\frac{m}{2} + \sum_{i= m / 2 + 1}^{m} l(w_{i}) \right) = 2m \left( m + \sum_{i = 1}^{m} l(w_{i}) \right).
          \end{equation*}  
@@ -359,6 +374,47 @@ l(w) \le 8m^2 \left(1 + \max_{i = 1, \ldots, m} l(w_i) \right)
 
 
 \subsection{Razširitvena lema}
+
+Nekoliko bolj povezana s strukturo grup je razširitvena lema. Za njeno formulacijo najprej definirajmo kratka eksaktna zaporedja.
+
+\begin{definicija}
+\label{def_kratko_eksaktno_zaporedje}
+Naj bodo $A, B, C$ grupe in naj $\mathbf{1}$ označuje trivialno grupo. Kratko eksaktno zaporedje je zaporedje homomorfizmov
+\begin{equation*}
+\mathbf{1} \to A \xrightarrow{\varphi} B \xrightarrow{\psi} C \to \mathbf{1},
+\end{equation*}  
+kjer je $\operatorname{ker} \psi = \operatorname{im} \varphi$, $\varphi$ je injektivni in $\psi$ surjektivni homomorfizem.
+\end{definicija}
+
+\begin{lema}
+    Naj bo \begin{equation*}
+        \mathbf{1} \to N \to G \to G / N \to  \mathbf{1}  
+    \end{equation*}  
+    kratko eksaktno zaporedje grup. Naj bo $F_k = \langle x_1, \ldots, x_k \rangle  = \langle S \rangle$. Naj bo $w_N \in F_k$ netrivialni zakon za $N$ in $\bigslant{w_{G}{N}} \in  F_k$ netrivialni zakon za $G / N$. 
+    Potem obstaja netrivialni $k$-črkovni zakon za grupo $G$ dolžine kvečjem $l(w_N) l( w_{ G / N } )$. Od tod sledi \begin{equation*}
+    \operatorname{girth}_{k}(G) \le \operatorname{girth}_{k}(N) \operatorname{girth}_{k}( G / N ). 
+    \end{equation*}  
+\end{lema}
+\begin{dokaz}
+    Dokaz obravnava dva možna primera oblike zakona za $w_{ G / N }$. 
+    \begin{enumerate}
+        \item Če je $w_{ G / N } = s^{n}$ za neki $s \in S$, $n \in  \mathbb{Z} \setminus \left\{ 0\right\} $, so vse besede oblike $t^{n}$, kjer je $t \in S$, zakoni za $G / N$. Zato lahko vzamemo besedo
+        \item \begin{equation*}
+        w = w_N(x_1^{n}, \ldots, x_{k}^{n}),
+        \end{equation*}  
+        ki je netrivialni zakon za $G$. To sledi iz dejstev, da preslikava $g \mapsto g^{n}$ slika $G$ v $N$ (ker je $s^{n}$ zakon za $G / N$), $w_N$ pa je netrivialni zakon za $N$.    
+    \item Sicer lahko brez škode za splošnost predpostavimo, da je zakon oblike $w_{ G / N} = x_1 w_{ G / N}' x_2$, kjer se $w_{ G / N}'$ niti ne začne z $x_1^{-1}$ niti konča z $x_2^{-1}$. To smemo storiti, ker lahko na besedi uporabimo ciklino rotacijo in vzamemo 
+    $w_{ G / N}'' = s w' t$, pri čemer $s, t \in  S \cup  S^{-1}$ in $st \neq 1$. Če je potrebno, lahko na tej besedi uporabimo avtomorfizem grupe $F_k$, ki ga inducirajo $s \mapsto x_1$, $x_1 \to s$, $x_2 \mapsto t$, $t \mapsto x_2$ in $r \mapsto r$ za vse ostale $r \in S$.  
+   Nato definiramo besede \begin{equation*}
+   w_i := w_{ G / N}(a_{i}, \ldots, a_{k}, a_1, \ldots, a_{i - 1}). 
+   \end{equation*}  
+   Ni težko preveriti, da so netrivialne kombinacije besed $w_i$, torej $w_{i} w_{j}$, $w_{i}^{-1} w_{j}$, $w_{i}^{-1} w_{j}^{-1}$, $w_{i} w_{j}^{-1}$, $w_{i} w_{i}$, $w_{i}^{-1} w_{i}^{-1}$ za vse $i,j \in \left\{ 1, \ldots, k \right\}, \, i \neq j$, v okrajšani obliki.
+   Zato je \begin{equation*}
+   w := w_N (w_1, \ldots, w_{k})
+   \end{equation*}  
+    netrivialni zakon za grupo $G$. Vse besede $w_{i}$ namreč inducirajo preslikave, ki $G$ slikajo v $N$, $w_N$ pa je netrivialni zakon za $N$.       
+    \end{enumerate}
+\end{dokaz}
 
 \section{Nilpotentne in rešljive grupe}
 
