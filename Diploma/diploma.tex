@@ -53,7 +53,7 @@
 \kljucnebesede{...\sep ...} % TODO
 
 % - angleški prevod ključnih besed
-\keywords{...\sep ...} % angleški prevod ključnih besed TODO
+\keywords{...\sep ...} % angleški prevod ključnih besed % TODO
 
 % - angleško-slovenski slovar strokovnih izrazov
 % TODO
@@ -154,23 +154,21 @@ induciranim s preslikavo $\varphi: a_{i} \mapsto g_{i}$ za $i = 1,\ldots, n$ v s
 \indent
 Zdaj lahko natančno formuliramo definicjo zakona.
 
-\begin{definicija}
-\label{def_zakon_formalna}
+\begin{definicija}\label{def_zakon_formalna}
 Beseda $w \in F_k$ je $k$-črkovni zakon v grupi $G$, če je $Z(G, w) = G^{k}$. Alternativno, beseda $w \in F_k$ je $k$-črkovni zakon v grupi $G$, če jo vsak homomorfizem $\varphi: F_k \to G$ slika v enoto $1 \in G$.   
 \end{definicija}
 
 Ta definicija nam omogoča vpogled v strukturo zakonov. Naj $K(k) \subseteq F_k$ označuje množico $k$-črkovnih zakonov. Potem v luči prejšnje definicije velja
 \begin{equation*}
-K(k)  = \bigcap_{\varphi: F_k \to G} \operatorname{ker}(\varphi).   
+K(k)  = \bigcap_{\varphi: F_k \to G} \ker(\varphi).   
 \end{equation*}  
 Ta množica je končni presek edink v $G$ in posledično tudi sama edinka. Še več, invariantna je za vsak avtomorfizem $\alpha: F_k \to  F_k$, saj
 \begin{equation*}
-    K(k)  = \bigcap_{\varphi: F_k \to G} \operatorname{ker}(\varphi) = \bigcap_{\varphi: F_k \to G} \operatorname{ker}(\varphi \circ \alpha). 
+    K(k)  = \bigcap_{\varphi: F_k \to G} \ker(\varphi) = \bigcap_{\varphi: F_k \to G} \ker(\varphi \circ \alpha). 
 \end{equation*}  
 To je preprosta posledica dejstva, da $\varphi$ preteče grupo $\operatorname{Hom}(F_k, G)$ natanko tedaj, ko jo preteče $\varphi \circ \alpha$.     
 
-\begin{lema}
-\label{lem_koncni_indeks_koncnega_preseka}
+\begin{lema}\label{lem_koncni_indeks_koncnega_preseka}
 Naj bo $G$ grupa ter $H_1, \ldots, H_n$ njene podgrupe končnega indeksa, torej $[G: H_i] < \infty$ za $i = 1, \ldots, n$. Potem je tudi $\bigcap_{i = 1}^{n} H_i$ podgrupa končnega indeksa v $G$ in velja
 \begin{equation*}
 \left[ G: \bigcap_{i = 1}^{n} H_i \right]  \le \prod_{i=1}^{n} [G: H_i].  
@@ -178,12 +176,14 @@ Naj bo $G$ grupa ter $H_1, \ldots, H_n$ njene podgrupe končnega indeksa, torej 
 \end{lema}
 
 \begin{dokaz}
-TODO
+Dovolj je dokazati trditev za $n = 2$, za višje vrednosti sledi z indukcijo. Naj bosta $H_1, H_2 \le G$ podgrupi končnega indeksa, označimo $S: = H_1 \cup H_2$. Naj bosta $C_1$ in $C_2$ množici odsekov podgrup $H_1$ in $H_2$ v $G$ ter naj bo $C$ množica odsekov podgrupe $S$ v $G$. Definiramo preslikavo $f : C \to  C_1 \times C_2$ s predpisom $f(g S ) = (g H_1, g H_2)$. Desna smer sklepa \begin{equation*}
+ g S = h S \iff gh^{-1} \in H_1, \, gh^{-1} \in H_2  \iff g H_1 = h H_1, \, g H_2 = h H_2
+\end{equation*}  
+nam podaja dobro definiranost, leva pa injektivnost preslikave $f$, ki nam da $\lvert C \rvert \le  \lvert C_1 \rvert \lvert C_2 \rvert $.    
 \end{dokaz}
 Z uporabo te leme direktno sledi, da je grupa $K(k)$ podgrupa končnega indeksa v $F_k$. To dejstvo bo še posebej pobmembno pri iskanju zakonov z računalnikom.
 
-\begin{definicija}
-\label{def_ozina}
+\begin{definicija}\label{def_ozina}
 Število \begin{equation*}
 \operatorname{girth}_{k}(G) := \min \left\{ l(w)  \middle|\,  w \in F_k \setminus \left\{ 1\right\} \text{ je zakon v } G  \right\} \cup \left\{ \infty\right\} 
 \end{equation*}  
@@ -206,7 +206,7 @@ Pogoj simetričnosti $S = S^{-1}$ nam pove, da je $\operatorname{Cay}(G, S)$ pra
 
 \begin{primer}
 Na spodnjih slikah imamo Cayleyjev graf grupe diedrske grupe $D_{10} = \langle r, Z \rangle$ za različni generatorski množici.
-TODO nariši desno od tega še graf s 5 generatorji
+TODO nariši desno od tega še graf s 5 generatorji, morda raje Cayleyjev graf proste grupe F2, saj nastopa naslednji trditvi
 \begin{center}
     \begin{tikzpicture}[rotate=90, scale=1.5]
     \tikzset{vertex/.style={draw, thick, circle, fill=orange!50, minimum size=20pt, inner sep=0pt}}
@@ -247,35 +247,33 @@ Ime ožina je smiselno v kontekstu definicije Cayleyjevega grafa grupe. TODO zak
 \end{opomba}
 
 
-Izkaže se, da so najbolj zanimivi zakoni za obravnavo dvočrkovni. To utemeljimo z dokazom naslednje trditve.
-
+Izkaže se, da so najbolj zanimivi in za obravnavo relevantni dvočrkovni zakoni. To nam sporočata naslednji dve trditvi.
 \begin{trditev}
 \label{trd_vlozitev_proste_grupe}
  Obstaja vložitev grupe $F_{2 \cdot 3^{k}} = \langle x_1, \ldots, x_{2 \cdot 3^{k}} \rangle$ v grupo $F_2 = \langle x,y \rangle $, da velja $l(x_i) = 2k + 1$, kjer $l(w)$ označuje dolžino besede $w \in F_2 = \langle x,y \rangle$. 
 \end{trditev}
 
-\noindent
-Dokaz trditve je naveden v \cite{Schneider_2016}. Najprej moramo uvesti nekaj pojmov. 
-
-\begin{definicija}
-\label{def_schreierjev_graf}
-TODO, to se da verjetno izpustiti
-\end{definicija}
-
-\begin{definicija}
-\label{def_fundamentalna_grupa_grafa}
-TODO
-\end{definicija}    
+% TODO morda vstavi Cayleyjev graf proste grupe F2
 
 \begin{dokaz}
-    TODO, treba je še prej definirati Schreierjev graf in fundamentalno grupo grafa
-    TODO vstavi sliko fraktalnega drevesa
-    TODO ta dokaz je nekoliko bolj tehničen, kot sem pričakoval, lahko ga tudi samo opišem, ker bi bilo treba definirati veliko pojmov,
-    ki so v nadaljevanju naloge neuporanbni
+    Dokaz trditve je nekoliko preveč tehničen za potrebe te naloge, naveden v~\cite{Schneider_2016}. Glavna ideja je, da obravnavamo Cayleyev graf proste grupe $F_2$ z dvema generatorjema.
+Drevo vseh besed dolžine $k$ na ustrezen način dopolnimo tako, da dodamo povezave listom. Pri tem dobimo cikle dolžine $2k + 1$ in utemeljimo, da lahko jih lahko obravnavamo kot elemente $F_{2 \cdot 3^{k}}$, vložene v $F_2$. 
 \end{dokaz}
 
 
-% TOOD tukaj je treba povedati posledico tega izreka z omejitvijo girth_k od spodaj in zgoraj z girth_2
+\begin{posledica}\label{psl_veccrkovni_zakoni_meje}
+Naj bo $G$ grupa in $k \ge 2$ naravno število. Potem velja \begin{equation*}
+     \operatorname{girth}_{k}(G) \le  \operatorname{girth}{2}(G) 
+\end{equation*}  
+in \begin{equation*}
+\operatorname{girth}_{2}(G) \le \left( {2 \left\lceil \log_3(\frac{k}{2}) \right\rceil + 1  } \right) \operatorname{girth}_{k}(G).
+\end{equation*}  
+\end{posledica}
+\begin{dokaz}
+    Prva neenakost je očitna, saj so vsi dvočrkovni zakoni tudi $k$-črkovni zakoni. Druga neenakost drži, saj lahko po prejšnji trditvi vložimo $F_{{2 \left\lceil \log_3(\frac{k}{2}) \right\rceil}}$ v $F_2$
+    tako, da noben generator ni daljši od ${2 \left\lceil \log_3(\frac{k}{2}) \right\rceil + 1  }$. Hkrati velja $F_k \subseteq F_{{2 \left\lceil \log_3(\frac{k}{2}) \right\rceil}}$, kar nam da želeno neenakost.
+\end{dokaz}
+
 
 \section{Komutatorska in razširitvena lema}
 \subsection{Komutatorska lema}
@@ -283,25 +281,24 @@ TODO
 Recimo da nekatere že poznamo zakone za grupe oziroma njihove podmnožice, zanima pa nas, kako bi iz njih zgradili nove zakone. Na to vprašanje odgovarjata komutatorska in razširitvena lema,
 ki sta ključni orodji pri obravnavanju zakonov. Preden ju dokažemo moramo pokazati nekaj rezultatov.
 
-\begin{definicija}
-\label{def_netrivialna_potenca}
+\begin{definicija}\label{def_netrivialna_potenca}
 Naj bo $G$ grupa. Element $g \in  G$ je netrivialna potenca, če obstajata $h \in G$ in naravno število $n > 1$, da je $g = h^{n}$.
 \end{definicija}
 
-\begin{lema}[\cite{Lyndon_Schupp_2015}[str.~8, trditev 2.6]]
-\label{lem_uporaba_nielsen}
+\begin{lema}[\cite{Lyndon_Schupp_2015}[str.~8, trditev 2.6]]\label{lem_uporaba_nielsen}
 Vsaka končnogenerirana podgrupa proste grupe je prosta.   
 \end{lema}
-\begin{skica}
-    TODO, tu je treba le približno opisati postopek
-    -najprej Nielsenove transformacije
-    -nato N-okrajšanost
-    -ideja, da lahko prevedeš vse U na N-okrajšane
-    -lema, da N-okrajšane ravno pravšnje
-Ta lema je posebni primer Nielsen-Schreierjevega izreka, ki trdi, da je vsaka podgrupa proste grupe prosta \cite{Lyndon_Schupp_2015}[str.~8, trditev 2.11]. Njen dokaz je podan na straneh 5--7 v istega vira,  
+% \begin{skica}
+%     -najprej Nielsenove transformacije
+%     -nato N-okrajšanost
+%     -ideja, da lahko prevedeš vse U na N-okrajšane
+%     -lema, da N-okrajšane ravno pravšnje
+% Ta lema je posebni primer Nielsen-Schreierjevega izreka, ki trdi, da je vsaka podgrupa proste grupe prosta \cite{Lyndon_Schupp_2015}[str.~8, trditev 2.11]. Njen dokaz je podan na straneh 5--7 v istega vira,  
 
-\end{skica}
+% \end{skica}
 
+\noindent
+Ta lema je posebni primer klasičnega Nielsen--Schreierjevega izreka, ki pravi, da je vsaka podgrupa proste grupe prosta. Dokazana je v \cite{Lyndon_Schupp_2015}[5--7] z uporabo Nielsenovih transformacij. 
 
 \begin{lema}
     \label{lem_komutatorska_lema}
@@ -383,10 +380,10 @@ Naj bodo $A, B, C$ grupe in naj $\mathbf{1}$ označuje trivialno grupo. Kratko e
 \begin{equation*}
 \mathbf{1} \to A \xrightarrow{\varphi} B \xrightarrow{\psi} C \to \mathbf{1},
 \end{equation*}  
-kjer je $\operatorname{ker} \psi = \operatorname{im} \varphi$, $\varphi$ je injektivni in $\psi$ surjektivni homomorfizem.
+kjer je $\ker \psi = \operatorname{im} \varphi$, $\varphi$ je injektivni in $\psi$ surjektivni homomorfizem.
 \end{definicija}
 
-\begin{lema}
+\begin{lema}\label{lem_razsiritvena_lema}
     Naj bo \begin{equation*}
         \mathbf{1} \to N \to G \to G / N \to  \mathbf{1}  
     \end{equation*}  
@@ -416,12 +413,130 @@ kjer je $\operatorname{ker} \psi = \operatorname{im} \varphi$, $\varphi$ je inje
     \end{enumerate}
 \end{dokaz}
 
+% TODO dodaj nekaj primerov uporabe komutatorske in razširitvene leme (na produktu in na diedrskih grupah)
+% oba ta primera vsebinsko poveži - komutatorska - s problemom, razširitvena - z enostavnimi, nilpotentnimi in rešljivimi grupami
+
 \section{Nilpotentne in rešljive grupe}
+
+% nekaj o centralnih in spodnjih zaporedjih (ekvivalenco definicij lahko daš v appendix)
+% definicija nilpotentnih in rešljivih grup 
+% vse p-grupe so nilpotentne (klasična ekvivalenca z nilpotentnimi p-grupami)
+% dodaj primere nilptotentnih grup (predvsem tiste, ki nastopajo v računalniškem delu!)
+% vse nilpotentne grupe so rešljive
+% konstrukcija zakonov za nilpotentne grupe s pomočjo zaporedja (morda lahko zapišeš prvih nekaj členov zaporedja)
+% tri klasične ugotovitve o enostavnih grupah (isto kot nilpotenih, kako se prenaša lastnost rešljivosti)
+% omejitev zakonov za rešljive grupe razreda $d$ z $4^{d}$
+% konstrukcija zakonov za rešljive grupe 
+% rešljiv radikal, razmislek o razdelitvi splošnega problema na rešljive in polenostavne grupe
+
+% napiši nekaj malega o tem, kako dolžina zakonov v grobem lahko predstavlja kompleksnost strukture grupe. Ene izmed najosnovnejših - poleg Abelovih - so nilpotentne in rešljive,
+% slednje igrajo tudi pomembno vlogoo pri reševanju splošnega problema
+
+\begin{definicija}
+\label{def_centralna_vrsta}
+Naj bo $G$ grupa in $H$ njena podgrupa. Centralna vrsta je zaporedje njenih podgrup $(H_k)_{k \ge 1}$, za katerega velja $H_1 = H$ in $H / Z(G / H_{i + 1})$ oziroma ekvivalentno $[H_i, G] \subseteq H_{i + 1}$ za vsak $i \ge 1$.
+Rečemo, da se centralna vrsta izteče z grupo $K$, če obstaja naravno število $n$, da velja $H_k = K$ za vsako naravno število $k \ge n$.
+\end{definicija}
+
+% TODO tole definicijo spustiš, ker nima pravega pomena, razen tega, da se zadeva izteče ... 
+
+\subsection{Nilpotentne grupe}
+
+\begin{definicija}
+\label{def_nilpotentna_grupa}
+Grupa $G$ je nilpotentna, če se spodnja centralna vrsta $(\gamma_k(G))_{k \ge 1}$, podana rekurzivno z \begin{equation*}
+\gamma_1(G) := G \text{ in } \gamma_{k +1}(G) := [\gamma_k(G), G],
+\end{equation*}  
+izteče s trivialno grupo. Najmanjšemu številu $d$, za katero je $G^{(d)} = \mathbf{1}$ rečemo razred rešljivosti grupe $G$.    
+\end{definicija}
+
+Celo družino primerov nilpotentnih grup nam podaja naslednja ugotovitev.
+
+\begin{trditev}
+\label{trd_p_grupe_so_nilpotentne}
+    Vse $p$-grupe so nilpotentne. Natančneje, če je $\lvert G \rvert  = p^{d}$ za neko naravno število $d \ge 1$, potem je $G$ nilpotentna razreda največ $d$. 
+\end{trditev}
+\begin{dokaz}
+    TODO, tole ne bi smelo biti težko, samo moraš paziti, da je v skladu s spodnjo centralno vrsto.
+\end{dokaz}
+
+\begin{primer}
+Trditev \href{trd_p_grupe_so_nilpotentne} nam sporoča, da so vse diedrske grupe oblike $D_{2 \cdot 2^{k}}$ nilpotentne. Izkaže se, da so to tudi vse, saj (TODO tukaj moraš končati razmislek z dokazom https://math.stackexchange.com/questions/834966/is-the-dihedral-group-d-n-nilpotent-solvable). 
+\end{primer}
+
+% TODO zdaj si moraš natančno prebrati prispevek o nilpotentnih grupah in razbrati bistvo. 
+
+\subsubsection{Konstrukcija zakonov za nilpotentne grupe}
+
+\subsection{Rešljive grupe}
+
+\begin{definicija}
+\label{def_resljiva_grupa}
+Grupa $G$ je rešljiva, če se izpeljana vrsta $(G^{(k)})_{k \ge 0}$, podana rekurzivno z \begin{equation*}
+    G^{(0)} := G \text{ in } G^{(k + 1)} := [G^{(k)}, G^{(k)}],
+    \end{equation*}  
+    izteče s trivialno grupo. Najmanjšemu številu $d$, za katero je $\gamma_{d +1}(G) = \mathbf{1}$ rečemo razred nilpotentnosti grupe $G$.    
+\end{definicija}
+
+\begin{primer}
+Diedrske grupe $D_2n$ so rešljive razreda $2$, saj imamo zaporedje (TOOD dokaži, kako izgleda to zaporedje: https://math.stackexchange.com/questions/834966/is-the-dihedral-group-d-n-nilpotent-solvable). 
+\end{primer}
+
+\begin{primer}
+    Vse nilpotentne grupe so rešljive, saj po definiciji za vsako število $k \ge 0$ velja \begin{equation*}
+    G^{(k)} = [G^{(k-1)}, G^{(k-1)}] \subseteq  [\gamma_k(G), G] = \gamma_{k +1}(G).
+    \end{equation*}
+    Niso pa vse nilpotentne grupe rešljive, primer so recimo diedrske grupe $D_2n$, kjer $2n$ ni dvojiška potenca. 
+\end{primer}
+
+Za rešljive grupe veljajo naslednje osnovne lasnosti.
+
+\begin{trditev}
+\label{trd_lastnosti_resljivih_grup}
+ \begin{enumerate}
+    \item Vsaka podgrupa rešljive grupe je rešljiva.
+    \item Vsak kvocient rešljive grupe je rešljiv.
+    \item Naj bo $N \triangleleft G$ in naj bosta $N$ in $G / N$ rešljivi grupi razreda $n_{N}$ oziroma $n_{G / N}$. Potem je $G$ rešljiva grupa razreda največ $d_N + d_{G / N}$.
+    \item Naj bosta $M, N \triangleleft G$ rešljivi razreda $d_M$ oziroma $d_N$. Potem je podgrupa $MN$ rešljiva razreda največ $d_M + d_N$.   
+ \end{enumerate}
+\end{trditev}
+\begin{dokaz}
+    TODO večina jih je dokaj očitnih, malo težja je le četrta, vendar jo imaš v Schneider konec strani 27
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{dokaz}
+
+\begin{trditev}
+\label{trd_ocitna_meja_za_kratke_zakone_resljive_grupe}
+ Obstaja beseda $w \in F_2$ dolžine $l(w) \le 4^{d}$, ki je zakon v vseh grupah rešljivostnega razreda $d$ ali manj.  
+\end{trditev}
+\begin{dokaz}
+    Tritev je posledica razširitvene leme \href{lem_razsiritvena_lema}, dokaz poteka z indukcijo po $d$. Za $d = 1$ je grupa $G$ Abelova, zato je ustrezni zakon beseda $w = [x,y]$, ki je dolžine 4.
+    Za $d > 1$ opazimo, da je kvocient $G / G^{(1)}$ Abelova grupa, $G^{(1)}$ pa rešljiva grupa razreda največ $d - 1$. Zato z uporabo razširitvene leme in indukcijske predpostavke najdemo besedo $w \in  F_2$ dolžine \begin{equation*}
+        l(w) \le  4 \cdot 4^{d - 1} = 4^{d},
+    \end{equation*}  
+    ki je zakon za grupo $G$.      
+\end{dokaz}
+
+\begin{opomba}
+V članku (TODO najdi ta članek !!) je podana nekoliko šibkejša meja $l(w) \le  4 \cdot 6^{d-1}$, ker je avtor uporabil šibkejšo obliko razširitvene leme.
+\end{opomba}
+
+\subsubsection{Konstrukcija zakonov za rešljive grupe}
+
+Konstrukcija kratikih zakonov za rešljive grupe je veliko težja od konstrukcije za nilpotentne grupe, zato bom predstavil predvsem glavne ideje. 
+
+% TODO tukaj moraš razmisliti, kaj točno sploh hočeš predstaviti in na kakšen način. Vsekakor se ne da vsega ... 
 
 \cite{Schneider_2016}, \cite{Bradford_Thom_2022}, \cite{Kozma_Thom_2016}
 
 
-\section{Enostavne grupe}
+\section{Enostavne grupe in simetrične grupe}
+
+% najprej navezava na prejšnji razmislek, razloži zakaj so grupe PSL_2(q) problem
+
+\subsection{Grupe $PSL_2(q)$}
 
 \cite{Schneider_2016}
 
@@ -429,7 +544,17 @@ kjer je $\operatorname{ker} \psi = \operatorname{im} \varphi$, $\varphi$ je inje
 
 \cite{Bradford_Thom_2022}, \cite{Schneider_2016}
 
-\section{Simetrične grupe}
+\subsection{Simetrične grupe}
+
+% opis članka o Thom - Kozma, napišeš v čem se razlikuje postopek z naključnimi sprehodi
+% opišeš Liebeckov in kometiraš Liebeckov izrek
+% če boš napisal konkretno Liebeckov izrek, je treba definirati venčni produkt (morda malo zoprno, ampak ne bi smelo biti prehudo) 
+
+\subsection{Enostavne grupe}
+
+% kratek opis članka https://arxiv.org/abs/1811.05401v2 (TOOD treba ga je dodati v .bib file)
+% kako ta članek vpliva na grupe PSL_2(q)
+
 
 \cite{Kozma_Thom_2016}
 
