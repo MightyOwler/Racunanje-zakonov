@@ -116,7 +116,7 @@ Grupa $G$ je torej Abelova natanko tedaj, ko je štiričrkovna beseda $xyx^{-1}y
 
 \section{Osnovni pojmi}
 
-Definicijo zakona \href{def_zakon_osnovna} lahko bolj formalno zapišemo s pomočjo prostih grup.
+Definicijo zakona \ref{def_zakon_osnovna} lahko bolj formalno zapišemo s pomočjo prostih grup.
 
 \begin{definicija}
 \label{def_prosta_grupa}
@@ -148,7 +148,7 @@ Naj bo $w \in  F_k$. Potem množico \begin{equation*}
 Z(G, w) := \left\{ (g_1, .., g_{k}) \in  G^{k}  \middle|\, w(g_1, \ldots, g_{k}) = 1 \right\} 
 \end{equation*}  
 imenujemo izginajoča množica besede $w$ v grupi $G$. Tu $1$ označuje enoto v grupi $G$, $w(g_1, \ldots, g_{k})$ pa sliko elementa $w \in F_k = \langle a_{1}, \ldots , a_k \rangle$ s homomorfizmom,
-induciranim s preslikavo $\varphi: a_{i} \mapsto g_{i}$ za $i = 1,\ldots, n$ v skladu z definicijo \href{def_prosta_grupa}.  
+induciranim s preslikavo $\varphi: a_{i} \mapsto g_{i}$ za $i = 1,\ldots, n$ v skladu z definicijo \ref{def_prosta_grupa}.  
 \end{definicija}
 
 \indent
@@ -329,7 +329,7 @@ Ta lema je posebni primer klasičnega Nielsen--Schreierjevega izreka, ki pravi, 
         \end{equation*}  
         za vsako grupo $G$.
 
-        Zdaj moramo le še utemeljiti, da lahko besedi $v_1$ ter $v_2$ ustrezno združimo. Vemo, da je komutator $[a,b]$ za $a,b \in F_k \setminus \left\{ 1\right\}$ trivialen natanko tedaj, ko $a$ in $b$ generirata prosto grupo ranga $1$. Po lemi \href{lem_uporaba_nielsen} namreč vemo, da je podgrupa $\langle a, b \rangle \le F_k$ prosta,
+        Zdaj moramo le še utemeljiti, da lahko besedi $v_1$ ter $v_2$ ustrezno združimo. Vemo, da je komutator $[a,b]$ za $a,b \in F_k \setminus \left\{ 1\right\}$ trivialen natanko tedaj, ko $a$ in $b$ generirata prosto grupo ranga $1$. Po lemi \ref{lem_uporaba_nielsen} namreč vemo, da je podgrupa $\langle a, b \rangle \le F_k$ prosta,
         hkrati pa $a$ in $b$ po pogoju komutirata. Implikacija v levo je očitna. Zato vemo, da bo komutator $[v_1, v_2]$ trivialen zgolj v primeru $v_1 = v_2^{\pm 1}$, ker sta $v_1$ in $v_2$ po predpostavki netrivialni potenci. V primeru, da sta trivialni, imamo \begin{equation*}
         \operatorname{Z}(G, w_1) = \operatorname{Z}(G, w_2)
         \end{equation*}  
@@ -364,7 +364,7 @@ l(w) \le 8m^2 \left(1 + \max_{i = 1, \ldots, m} l(w_i) \right)
 \end{equation*}      
 \end{posledica}
 \begin{dokaz}
-    To je direktna posledica leme \href{lem_komutatorska_lema_posplositev} skupaj z dejstvom, da je \begin{equation*}
+    To je direktna posledica leme \ref{lem_komutatorska_lema_posplositev} skupaj z dejstvom, da je \begin{equation*}
     \sum_{i = 1}^{m} l(w_{i}) \le m \max_{i = 1, \ldots, m} l(w_i).
     \end{equation*}  
 \end{dokaz}
@@ -395,8 +395,7 @@ kjer je $\ker \psi = \operatorname{im} \varphi$, $\varphi$ je injektivni in $\ps
 \begin{dokaz}
     Dokaz obravnava dva možna primera oblike zakona za $w_{ G / N }$. 
     \begin{enumerate}
-        \item Če je $w_{ G / N } = s^{n}$ za neki $s \in S$, $n \in  \mathbb{Z} \setminus \left\{ 0\right\} $, so vse besede oblike $t^{n}$, kjer je $t \in S$, zakoni za $G / N$. Zato lahko vzamemo besedo
-        \item \begin{equation*}
+        \item Če je $w_{ G / N } = s^{n}$ za neki $s \in S$, $n \in  \mathbb{Z} \setminus \left\{ 0\right\} $, so vse besede oblike $t^{n}$, kjer je $t \in S$, zakoni za $G / N$. Zato lahko vzamemo besedo \begin{equation*}
         w = w_N(x_1^{n}, \ldots, x_{k}^{n}),
         \end{equation*}  
         ki je netrivialni zakon za $G$. To sledi iz dejstev, da preslikava $g \mapsto g^{n}$ slika $G$ v $N$ (ker je $s^{n}$ zakon za $G / N$), $w_N$ pa je netrivialni zakon za $N$.    
@@ -461,12 +460,130 @@ Celo družino primerov nilpotentnih grup nam podaja naslednja ugotovitev.
 \end{dokaz}
 
 \begin{primer}
-Trditev \href{trd_p_grupe_so_nilpotentne} nam sporoča, da so vse diedrske grupe oblike $D_{2 \cdot 2^{k}}$ nilpotentne. Izkaže se, da so to tudi vse, saj (TODO tukaj moraš končati razmislek z dokazom https://math.stackexchange.com/questions/834966/is-the-dihedral-group-d-n-nilpotent-solvable). 
+Trditev \ref{trd_p_grupe_so_nilpotentne} nam sporoča, da so vse diedrske grupe oblike $D_{2 \cdot 2^{k}}$ nilpotentne. Izkaže se, da so to tudi vse, saj (TODO tukaj moraš končati razmislek z dokazom https://math.stackexchange.com/questions/834966/is-the-dihedral-group-d-n-nilpotent-solvable). 
 \end{primer}
 
-% TODO zdaj si moraš natančno prebrati prispevek o nilpotentnih grupah in razbrati bistvo. 
-
 \subsubsection{Konstrukcija zakonov za nilpotentne grupe}
+
+Konstrukcija kratkih zakonov za nilpotentne grupe je opisana v članku \cite{Elkasapy_Thom_2013} in z razlagami dopolnjena v magistrskem delu \cite{Schneider_2016}.
+Glavna ideja je, da poiščemo kratke netrivialne besede, vsebovane v izpeljani vrsti proste grupe $F_2 = \langle a, b \rangle $. Najprej definiramo zaporedji $(a_n)_n$ in $(b_n)_n$ v $F_2$ s predpisoma
+\begin{equation*}
+a_0 = a, \, a_{n + 1} = [b_n^{-1}, a_{n}] \text{ in } b_0 = b, \, b_{n + 1} = [a_{n}, b_{n}]. 
+\end{equation*}  
+Besede, ki jih bomo konstruirali s tema zaporedjema, morajo biti netrivialne, zato potrebujemo naslednjo lemo (lema 3.1 v viru TODO).
+\begin{lema}
+\label{lem_ni_krajsanj_produkti_ab}
+Za vsak $n \in  \mathbb{N}$ so besede $a_{n} a_{n}$, $a_{n}^{-1} a_{n}^{-1}$, $b_{n} b_{n}$, $b_{n}^{-1} b_{n}^{-1}$, $a_{n}^{-1} b_{n}$, $b_{n}^{-1} a_{n}$, $a_{n} b_{n}^{-1}$, $b_{n} a_{n}^{-1}$, $a_{n}^{-1} b_{n}^{-1}$ in $b_{n} a_{n}$ v okrajšani obliki.   
+\end{lema}
+\begin{dokaz}
+    Dokaz poteka z indukcijo po $n$. Za $n = 0$ je tridtev očitna, ker sta $a$ in $b$ različna generatorja grupe $F_2$. Za $n > 0$ razpišimo produkt $a_n a_n$.
+    \begin{equation*}
+    a_{n} a_{n} = [b_{n- 1}^{-1}, a_{n-1}]^2 = b_{n- 1}^{-1} a_{n-1} b_{n- 1} \underbrace{a_{n-1}^{-1} b_{n- 1}^{-1}}_{\text{ni krajšanja}}  a_{n-1} b_{n- 1} a_{n-1}^{-1} 
+    \end{equation*}  
+    Ker po indukcijski predpostavki vemo, da ne more priti do krajšanja v produktu $a_{n -1}^{-1} b_{n -1}^{-1}$, ne more priti do krajšanja v produktu $a_{n} a_{n}$ ali njegovem inverzu $a_{n}^{-1} a_{n}^{-1}$. Enako sklepamo za preostale produkte.
+    \begin{itemize}
+        \item Produkt $b_{n} b_{n}$ in njegov inverz sta okrajšana, ker je okrajšan $b_{n - 1}^{-1} a_{n-1}.$
+        \item Produkt $a_{n}^{-1} b_{n}$ in njegov inverz sta okrajšana, ker je okrajšan $b_{n - 1} a_{n-1}.$
+        \item Produkt $b_{n} b_{n}^{-1}$ in njegov inverz sta okrajšana, ker je okrajšan $a_{n - 1}^{-1} b_{n-1}.$
+        \item Produkt $a_{n}^{-1} b_{n}^{-1}$ in njegov inverz sta okrajšana, ker je okrajšan $b_{n - 1} b_{n-1}.$
+    \end{itemize}     
+\end{dokaz}
+
+\begin{opomba}
+Produkti oblike $a_n b_n$ oziroma njihovi inverzi $b_n ^{-1} a_n ^{-1}$ niso nujno okrajšane besede, na primer že za $n = 1$ dobimo $a_1 b_1 = b^{-1} a b a a^{-1} b a^{-1} b^{-1}$. To dejstvo bomo izkoristili v nadaljevanju. 
+\end{opomba}
+
+Najprej se prepričajmo, da so besede $a_n$ oziroma $b_n$ res elementi izpeljane grupe $F_2^{(n)}$.
+
+\begin{lema}
+\label{lem_besede_ab_so_elementi_izpeljane_grupe}
+\end{lema}
+\begin{dokaz}
+    Dokaz poteka z indukcijo po $n$. Za $n = 0$ je očitno $a_0 = a \in F_2 = F_2^{(0)}$ in $b_0 = b \in F_2 = F_2^{(0)}$. Za $n > 0$ velja $a_{n + 1} = [b_n^{-1}, a_n] \in \left[ F_2^{(n)}, F_2^{(n)} \right] = F_2^{(n + 1)}$ in $b_{n+1} = [a_{n}, b_{n}] \in  \left[ F_2^{(n)}, F_2^{(n)} \right] = F_2^{(n + 1)}$. 
+\end{dokaz}
+% TODO tole indukcijo bolje opiši
+
+Nato ocenimo dolžino členov zaporedij $(a_{n})_n$ in $(b_{n})_n$.
+
+\begin{lema}
+\label{lem_ocena_dolzine_clenov_zaporedij_ab}
+Za vsak $n \in \mathbb{N} \cup \left\{ 0\right\}$ velja $4^{n} \ge l(a_{n}) = l(b_{n}) \ge 2^{n}$.
+\end{lema}
+\begin{dokaz}
+Po definiciji zaporedja $(b_n)_n$ velja \begin{align*}
+    l(b_{n+1}) &= l(a_{n} b_{n} a_{n}^{-1} b_{n}^{-1}) \\
+     &= l(a_{n} b_{n}) + l(a_{n}) + l(b_{n}) \\
+     &= l(b_{n}^{-1} a_{n} b_{n} a_{n}^{-1}) \\
+     &= l(a_{n + 1})
+\end{align*}
+Za sklep v drugi in tretji vrstici je bila potrebna lema \ref{lem_ni_krajsanj_produkti_ab} ter preprost sklep, da za besedi $w_1, w_2 \in F_2$, za kateri je produkt $w_1 w_2$ okrajšan, velja $l(w_1 w_2) = l(w_1) + l(w_2)$.
+Iz druge vrstice sledi $l(b_{n+1}) \ge  2 l(b_n)$ od koder z indukcijo dobimo $l(a_{n}) = l(b_{n}) \ge 2^{n}$. Iz tretje vrstice dobimo $l(b_{n+1}) \le 4 l(b_n)$ od koder z indukcijo sledi $l(b_n) \le 4^{n}$.    
+\end{dokaz}
+% TODO tole se da neoliko lepše utemeljiti, samo upoštevati je treba trikotniško neenakost za l
+
+Vrednost splošnega člena zaporedja $c_n := l(a_n) = l(b_n)$ nam podaja dolžino netrivialne besede v grupi $F_2^{(n)}$.
+
+\begin{lema}
+\label{lem_vrednost_cn}
+Zaporedje $(c_n)_n$ ustreza rekurzivni zvezi $c_{n+2} = 3 c_{n+1} + 2c_{n}$ z začetnima členoma $c_0 = 1$ in $c_1 = 4$. Od tod lahko izrazimo \begin{equation*}
+c_{n} = \left( \frac{1}{2} + \frac{5}{2 \sqrt{17}} \right) \left( \frac{3 + \sqrt{17} }{2} \right)^{n} +  \left( \frac{1}{2} - \frac{5}{2 \sqrt{17}} \right) \left( \frac{3 - \sqrt{17} }{2} \right)^{n} \le C_1 \iota^{n} + o(1),
+\end{equation*}
+kjer je $\iota := (3 + \sqrt{17} ) / 2 = 3{,}5615528 \ldots $ in $C_1 = 1/ 2 + 5 / (2 \sqrt{17} )$. 
+\end{lema}  
+\begin{dokaz}
+    Dokaz je v isti obliki podan v \cite{Schneider_2016} in uporablja lemo \ref{lem_ni_krajsanj_produkti_ab}.
+    \begin{align*}
+        c_{n+2} &= l(b_{n+2}) \\
+         &= l([a_{n + 1}, b_{n+1}])\\
+         &= l([[b_n ^{-1}, a_{n}], [a_{n}, b_{n}]]) \\
+         &= l(b_{n} ^{-1} a_{n} b_{n} \underbrace{a_{n} ^{-1} a_{n}}_{\text{se pokrajša}}  b_{n} a_{n} ^{-1} b_{n} ^{-1}) + l([a_{n}, b_{n} ^{-1}]) + l([b_{n}, a_{n}]) \\
+         &= \underbrace{l(b_{n} ^{-1} a_{n} b_{n})}_{l(a_{n + 1}) - l(a_{n}^{-1}) = c_{n+1} - c_{n}}  + \underbrace{l(b_{n}) + l(a_{n} ^{-1}) + l(b_{n} ^{-1})}_{3 c_{n}}  + \underbrace{l([a_{n} , b_{n}^{-1}])}_{l(a_{n + 1}) = c_{n+1}}  + \underbrace{l([b_{n}, a_{n}])}_{l(b_{n+1}) = c_{n+1}}. 
+    \end{align*}
+    To nam da za $n \in \mathbb{N} \cup  \left\{ 0 \right\}$ želeno zvezo $c_{n+2} = 3 c_{n+1} + 2c_{n}$ skupaj z začetnima vrednostima $c_0 = 1$ in $c_1 = 4$, kar nam podaja zvezo \begin{equation*}
+    \begin{pmatrix}
+        c_{n+ 1}\\
+        c_{n} 
+    \end{pmatrix} = {\underbrace{\begin{pmatrix}
+        3 & 2\\
+        1 & 0
+    \end{pmatrix}}_{A}}^{n}  \begin{pmatrix}
+        4 \\
+        1 
+    \end{pmatrix}.
+    \end{equation*}  
+    Z diagonalizacijo matrike $A$ lahko iz druge vrstice razberemo zvezo iz trditve. Neenakost je posledica dejstva, da je po absolutni vrednosti največja lastna vrednost matrike $A$ enaka $\iota = (3 + \sqrt{17})  / 2 = 3{,}5615528 \ldots$, kar je asimptotsko gledano veliko boljši rezultat od trditve \ref{trd_ocitna_meja_za_kratke_zakone_resljive_grupe}.
+\end{dokaz} 
+
+Direktna posledica te leme je naslednja ugotovitev za rešljive grupe.
+
+\begin{trditev}
+\label{trd_osnovna_ocena_resljive_grupe} 
+ Obstaja netrivialna besede $w \in F_2$, ki je zakon za vse grupe rešljivostnega razreda $n$ ali manj, dolžine \begin{equation*}
+ l(w) \le C_1 \iota^{n} + o(1),
+ \end{equation*}  
+ kjer sta konstanti $C_1$ in $\iota$ enaki kot v lemi \ref{lem_vrednost_cn}.  
+\end{trditev}
+\begin{dokaz}
+    Naj bo $G$ rešljiva grupa razreda $k$. Za poljubno besedo $w \in F_2^{(n)}$ za vsaka $g, h \in G$ velja -- v skladu z oznakami iz definicije \ref{def_izginjajoca_mnozica} -- $w(g,h) \in G^{(n)}$. Ker je grupa $G$ rešljiva razreda $k \le n$, je $G^{(n)} = G^{(k)} = \left\{  1_G \right\}$,
+    torej bo $w$ zakon za grupo $G$. Po prejšnji lemi obstaja netrivialna beseda dolžine $C_1 \iota^{n} +o(1)$ v $F_2^{(n)}$, ki je iskani netrivialni zakon za grupo $G$.
+\end{dokaz}
+
+Zdaj moramo to znanje le še prevesti na nilpotentne grupe. Brez dokaza (najdemo ga lahko v TODO, ideja je ... ) bomo privzeli naslednjo lemo. 
+
+\begin{lema}
+\label{lem_povezava_med_spodnjo_in_izpeljano_vrsto}
+Za vsak $n \in \mathbb{N} \cup \left\{ 0\right\} $ velja inkluzija
+\begin{equation*}
+G^{(n)} \subseteq \gamma_{2^{n}}(G).
+\end{equation*}    
+\end{lema}
+
+\begin{trditev}
+\label{trd_}
+ 
+\end{trditev}
+
+
 
 \subsection{Rešljive grupe}
 
@@ -479,14 +596,14 @@ Grupa $G$ je rešljiva, če se izpeljana vrsta $(G^{(k)})_{k \ge 0}$, podana rek
 \end{definicija}
 
 \begin{primer}
-Diedrske grupe $D_2n$ so rešljive razreda $2$, saj imamo zaporedje (TOOD dokaži, kako izgleda to zaporedje: https://math.stackexchange.com/questions/834966/is-the-dihedral-group-d-n-nilpotent-solvable). 
+Diedrske grupe $D_2n$ so rešljive razreda $2$, saj imamo zaporedje (TOOD dokaži, kako izgleda to zaporedje. ).  % https://math.stackexchange.com/questions/834966/is-the-dihedral-group-d-n-nilpotent-solvable
 \end{primer}
 
 \begin{primer}
     Vse nilpotentne grupe so rešljive, saj po definiciji za vsako število $k \ge 0$ velja \begin{equation*}
     G^{(k)} = [G^{(k-1)}, G^{(k-1)}] \subseteq  [\gamma_k(G), G] = \gamma_{k +1}(G).
     \end{equation*}
-    Niso pa vse nilpotentne grupe rešljive, primer so recimo diedrske grupe $D_2n$, kjer $2n$ ni dvojiška potenca. 
+    Niso pa vse nilpotentne grupe rešljive, primer so recimo diedrske grupe $D_{2n}$, kjer $2n$ ni dvojiška potenca. 
 \end{primer}
 
 Za rešljive grupe veljajo naslednje osnovne lasnosti.
@@ -501,7 +618,7 @@ Za rešljive grupe veljajo naslednje osnovne lasnosti.
  \end{enumerate}
 \end{trditev}
 \begin{dokaz}
-    TODO večina jih je dokaj očitnih, malo težja je le četrta, vendar jo imaš v Schneider konec strani 27
+    TODO dokaži četrto točko, prvih nekaj lahko izbrišeš ... - Četrto imaš v Schneider konec strani 27
     \begin{enumerate}
         \item 
     \end{enumerate}
@@ -512,7 +629,7 @@ Za rešljive grupe veljajo naslednje osnovne lasnosti.
  Obstaja beseda $w \in F_2$ dolžine $l(w) \le 4^{d}$, ki je zakon v vseh grupah rešljivostnega razreda $d$ ali manj.  
 \end{trditev}
 \begin{dokaz}
-    Tritev je posledica razširitvene leme \href{lem_razsiritvena_lema}, dokaz poteka z indukcijo po $d$. Za $d = 1$ je grupa $G$ Abelova, zato je ustrezni zakon beseda $w = [x,y]$, ki je dolžine 4.
+    Tritev je posledica razširitvene leme \ref{lem_razsiritvena_lema}, dokaz poteka z indukcijo po $d$. Za $d = 1$ je grupa $G$ Abelova, zato je ustrezni zakon beseda $w = [x,y]$, ki je dolžine 4.
     Za $d > 1$ opazimo, da je kvocient $G / G^{(1)}$ Abelova grupa, $G^{(1)}$ pa rešljiva grupa razreda največ $d - 1$. Zato z uporabo razširitvene leme in indukcijske predpostavke najdemo besedo $w \in  F_2$ dolžine \begin{equation*}
         l(w) \le  4 \cdot 4^{d - 1} = 4^{d},
     \end{equation*}  
@@ -520,12 +637,19 @@ Za rešljive grupe veljajo naslednje osnovne lasnosti.
 \end{dokaz}
 
 \begin{opomba}
-V članku (TODO najdi ta članek !!) je podana nekoliko šibkejša meja $l(w) \le  4 \cdot 6^{d-1}$, ker je avtor uporabil šibkejšo obliko razširitvene leme.
+V članku \cite[str.~8]{Kozma_Thom_2016} je podana nekoliko šibkejša meja $l(w) \le  4 \cdot 6^{d-1}$, ker je avtor uporabil šibkejšo obliko razširitvene leme.
 \end{opomba}
 
 \subsubsection{Konstrukcija zakonov za rešljive grupe}
 
-Konstrukcija kratikih zakonov za rešljive grupe je veliko težja od konstrukcije za nilpotentne grupe, zato bom predstavil predvsem glavne ideje. 
+Najprej predstavimo način, kako zakone za rešljive grupe najdemo s pomočjo znanja o zakonih za nilpotentne grupe.  
+
+% 1. LEMA - 
+% 2. LEMA - 
+% 3. POSLEDICA + predpis za kratke zakone za rešljive grupe
+
+
+Konstrukcija krajših zakonov za rešljive grupe je veliko težja od konstrukcije za nilpotentne grupe, zato bom predstavil predvsem glavne ideje. 
 
 % TODO tukaj moraš razmisliti, kaj točno sploh hočeš predstaviti in na kakšen način. Vsekakor se ne da vsega ... 
 
