@@ -190,7 +190,7 @@ Z uporabo te leme direktno sledi, da je grupa $K(k)$ podgrupa končnega indeksa 
 je $k$-črkovna dolžina grupe $G$.  
 \end{definicija}
 
-TODO tukaj poveži ožino grafa z bistvom naloge
+% TODO tukaj poveži ožino grafa z bistvom naloge
 
 \begin{definicija}
 \label{def_cayleyev_graf}
@@ -243,7 +243,7 @@ TODO nariši desno od tega še graf s 5 generatorji, morda raje Cayleyjev graf p
 
 
 \begin{opomba}
-Ime ožina je smiselno v kontekstu definicije Cayleyjevega grafa grupe. TODO zakaj, 
+Ime ožina je smiselno v kontekstu definicije Cayleyjevega grafa grupe. TODO zakaj
 \end{opomba}
 
 
@@ -470,7 +470,7 @@ Glavna ideja je, da poiščemo kratke netrivialne besede, vsebovane v izpeljani 
 \begin{equation*}
 a_0 = a, \, a_{n + 1} = [b_n^{-1}, a_{n}] \text{ in } b_0 = b, \, b_{n + 1} = [a_{n}, b_{n}]. 
 \end{equation*}  
-Besede, ki jih bomo konstruirali s tema zaporedjema, morajo biti netrivialne, zato potrebujemo naslednjo lemo (lema 3.1 v viru TODO).
+Besede, ki jih bomo konstruirali s tema zaporedjema, morajo biti netrivialne, zato potrebujemo naslednjo lemo (lema 3.1 v viru \cite{Kozma_Thom_2016} oziroma lema 8 v \cite{Schneider_2016}).
 \begin{lema}
 \label{lem_ni_krajsanj_produkti_ab}
 Za vsak $n \in  \mathbb{N}$ so besede $a_{n} a_{n}$, $a_{n}^{-1} a_{n}^{-1}$, $b_{n} b_{n}$, $b_{n}^{-1} b_{n}^{-1}$, $a_{n}^{-1} b_{n}$, $b_{n}^{-1} a_{n}$, $a_{n} b_{n}^{-1}$, $b_{n} a_{n}^{-1}$, $a_{n}^{-1} b_{n}^{-1}$ in $b_{n} a_{n}$ v okrajšani obliki.   
@@ -564,7 +564,8 @@ Direktna posledica te leme je naslednja ugotovitev za rešljive grupe.
  kjer sta konstanti $C_1$ in $\iota$ enaki kot v lemi \ref{lem_vrednost_cn}.  
 \end{trditev}
 \begin{dokaz}
-    Naj bo $G$ rešljiva grupa razreda $k$. Za poljubno besedo $w \in F_2^{(n)}$ za vsaka $g, h \in G$ velja -- v skladu z oznakami iz definicije \ref{def_izginjajoca_mnozica} -- $w(g,h) \in G^{(n)}$. Ker je grupa $G$ rešljiva razreda $k \le n$, je $G^{(n)} = G^{(k)} = \left\{  1_G \right\}$,
+    Naj bo $G$ rešljiva grupa razreda $k$. Za poljubno besedo $w \in F_2^{(n)}$ za vsaka $g, h \in G$ velja -- v skladu z oznakami iz definicije \ref{def_izginjajoca_mnozica} -- $w(g,h) \in G^{(n)}$. 
+    Ker je grupa $G$ rešljiva razreda $k \le n$, je $G^{(n)} = G^{(k)} = \left\{  1_G \right\}$,
     torej bo $w$ zakon za grupo $G$. Po prejšnji lemi obstaja netrivialna beseda dolžine $C_1 \iota^{n} +o(1)$ v $F_2^{(n)}$, ki je iskani netrivialni zakon za grupo $G$.
 \end{dokaz}
 
@@ -578,12 +579,32 @@ G^{(n)} \subseteq \gamma_{2^{n}}(G).
 \end{equation*}    
 \end{lema}
 
+Naslednja trditev je kombinacija posledice 4 in leme 11 iz vira \cite{Schneider_2016}.
+
 \begin{trditev}
-\label{trd_}
- 
+\label{trd_koncna_ugotovitev_nilpotentne_v_nalogi}
+ Obstaja netrivialna beseda $w \in F_2$, ki je zakon za vse nilpotentne grupe $G$ moči največ $n$, dolžine \begin{equation*}
+ l(w) \le  C_3 \log(n)^{\kappa} + o(1),
+ \end{equation*}  
+ kjer sta $C_3 = 7{,}712869694 \ldots$ in $\kappa = \log_2(\iota) = 1{,}832506 \ldots$ konstanti.    
 \end{trditev}
 
-
+\begin{dokaz}
+    Za vsako število $k \in  \mathbb{N}$ je
+    število $e = \left\lceil \log_2(k) \right\rceil$ najmanjše naravno število, da velja $k \le 2^{e} \le 2k$.
+    Od tod po lemi \ref{lem_povezava_med_spodnjo_in_izpeljano_vrsto} sledi \begin{equation*}
+    F_2^{(e)} \subseteq \gamma_{2^{e}}(F_2) \subseteq \gamma_k(F_2).
+    \end{equation*}  
+     Po trditvi \ref{trd_osnovna_ocena_resljive_grupe} obstaja netrivialna beseda $w \in  F_2^{(e)}$ dolžine največ $C_1 \iota^{e} + o(1)$.
+    Zaradi izbira števila $e$ lahko zapišemo \begin{equation*}
+    l(w) \le  C_1 \iota^{e} = C_1 2^{\log_2(\iota) e} \le C_1 (2k)^{\log_2(\iota)} = C_1 \iota k^{\log_2(\kappa)} = C_2  k^{\log_2(\kappa)}.
+    \end{equation*}
+    Nadalje naj bo grupa $G$ nilpotentna razreda $d$, moči $n$ ali manj. Zaradi nilpotentnosti $G$ iz netrivialnosti grupe $\gamma_i(G)$ (za $i \in \mathbb{N} \cup \left\{ 0 \right\}$) sledi netrivialnost kvocienta $\gamma_i(G) / \gamma_{i + 1}(G)$, saj je centralna vrsta pred iztekom strogo padajoča.
+    Za razred nilpotentnosti $d$ velja ocena (TODO najdi vir) $d \le \left\lfloor \log_2(G)  \right\rfloor \le \log_2(n)$. Zato po prvem sklepu dokaza obstaja netrivialna beseda $w \in \gamma_d(G)$ dolžine \begin{equation*}
+    l(w) \le C_2 d^{\kappa} \le C_2 \log_2(n)^{\kappa} = \frac{C_2}{\log_2(n)^{\kappa}} \log(n)^{\kappa} = C_3 \log(n)^{\kappa}, 
+    \end{equation*}  
+     saj velja $w \in \gamma_{\left\lfloor \log_2(n) \right\rfloor}(F_2) \subseteq \gamma_{d}(F_2)$. Od tod z analognim razmislekom kot v trditvi \ref{trd_osnovna_ocena_resljive_grupe} sledi, da je $w$ netrivialni zakon za vse nilpotentne grupe razreda $d$. 
+\end{dokaz}
 
 \subsection{Rešljive grupe}
 
@@ -640,23 +661,20 @@ Za rešljive grupe veljajo naslednje osnovne lasnosti.
 V članku \cite[str.~8]{Kozma_Thom_2016} je podana nekoliko šibkejša meja $l(w) \le  4 \cdot 6^{d-1}$, ker je avtor uporabil šibkejšo obliko razširitvene leme.
 \end{opomba}
 
+% TODO preuredi to celotno poglavje, da bo imelo rep in glavo
+
 \subsubsection{Konstrukcija zakonov za rešljive grupe}
 
 Najprej predstavimo način, kako zakone za rešljive grupe najdemo s pomočjo znanja o zakonih za nilpotentne grupe.  
 
-% 1. LEMA - 
-% 2. LEMA - 
-% 3. POSLEDICA + predpis za kratke zakone za rešljive grupe
-
-
 Konstrukcija krajših zakonov za rešljive grupe je veliko težja od konstrukcije za nilpotentne grupe, zato bom predstavil predvsem glavne ideje. 
 
-% TODO tukaj moraš razmisliti, kaj točno sploh hočeš predstaviti in na kakšen način. Vsekakor se ne da vsega ... 
-
-\cite{Schneider_2016}, \cite{Bradford_Thom_2022}, \cite{Kozma_Thom_2016}
-
+% tukaj moraš razmisliti, kaj točno sploh hočeš predstaviti in na kakšen način. Vsekakor se ne da vsega ... 
 
 \section{Enostavne grupe in simetrične grupe}
+
+
+\cite{Schneider_2016}, \cite{Bradford_Thom_2022}, \cite{Kozma_Thom_2016}
 
 % najprej navezava na prejšnji razmislek, razloži zakaj so grupe PSL_2(q) problem
 
