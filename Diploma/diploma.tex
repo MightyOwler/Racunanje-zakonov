@@ -190,7 +190,7 @@ Z uporabo te leme direktno sledi, da je grupa $K(k)$ podgrupa končnega indeksa 
 je $k$-črkovna dolžina grupe $G$.  
 \end{definicija}
 
-% TODO tukaj poveži ožino grafa z bistvom naloge
+% TODO tukaj poveži ožino grafa z bistvom naloge, morda poveži z https://www.researchgate.net/publication/2441748_On_The_Girth_Of_Groups
 
 \begin{definicija}
 \label{def_cayleyev_graf}
@@ -253,7 +253,6 @@ Izkaže se, da so najbolj zanimivi in za obravnavo relevantni dvočrkovni zakoni
  Obstaja vložitev grupe $F_{2 \cdot 3^{k}} = \langle x_1, \ldots, x_{2 \cdot 3^{k}} \rangle$ v grupo $F_2 = \langle x,y \rangle $, da velja $l(x_i) = 2k + 1$, kjer $l(w)$ označuje dolžino besede $w \in F_2 = \langle x,y \rangle$. 
 \end{trditev}
 
-% TODO morda vstavi Cayleyjev graf proste grupe F2
 
 \begin{dokaz}
     Dokaz trditve je nekoliko preveč tehničen za potrebe te naloge, naveden v~\cite{Schneider_2016}. Glavna ideja je, da obravnavamo Cayleyev graf proste grupe $F_2$ z dvema generatorjema.
@@ -373,7 +372,6 @@ l(w) \le 8m^2 \left(1 + \max_{i = 1, \ldots, m} l(w_i) \right)
 \subsection{Razširitvena lema}
 
 Nekoliko bolj povezana s strukturo grup je razširitvena lema. Za njeno formulacijo najprej definirajmo kratka eksaktna zaporedja.
-
 \begin{definicija}
 \label{def_kratko_eksaktno_zaporedje}
 Naj bodo $A, B, C$ grupe in naj $\mathbf{1}$ označuje trivialno grupo. Kratko eksaktno zaporedje je zaporedje homomorfizmov
@@ -413,33 +411,30 @@ kjer je $\ker \psi = \operatorname{im} \varphi$, $\varphi$ je injektivni in $\ps
 \end{dokaz}
 
 % TODO dodaj nekaj primerov uporabe komutatorske in razširitvene leme (na produktu in na diedrskih grupah)
-% oba ta primera vsebinsko poveži - komutatorska - s problemom, razširitvena - z enostavnimi, nilpotentnimi in rešljivimi grupami
+% oba ta primera vsebinsko poveži - komutatorska - s problemom, razširitvena - z enostavnimi, nilpotentnimi in rešljivimi grupami + virtualno nilpotentnimi grupami
 
 \section{Nilpotentne in rešljive grupe}
 
 % nekaj o centralnih in spodnjih zaporedjih (ekvivalenco definicij lahko daš v appendix)
-% definicija nilpotentnih in rešljivih grup 
 % vse p-grupe so nilpotentne (klasična ekvivalenca z nilpotentnimi p-grupami)
 % dodaj primere nilptotentnih grup (predvsem tiste, ki nastopajo v računalniškem delu!)
-% vse nilpotentne grupe so rešljive
-% konstrukcija zakonov za nilpotentne grupe s pomočjo zaporedja (morda lahko zapišeš prvih nekaj členov zaporedja)
-% tri klasične ugotovitve o enostavnih grupah (isto kot nilpotenih, kako se prenaša lastnost rešljivosti)
-% omejitev zakonov za rešljive grupe razreda $d$ z $4^{d}$
-% konstrukcija zakonov za rešljive grupe 
 % rešljiv radikal, razmislek o razdelitvi splošnega problema na rešljive in polenostavne grupe
 
 % napiši nekaj malega o tem, kako dolžina zakonov v grobem lahko predstavlja kompleksnost strukture grupe. Ene izmed najosnovnejših - poleg Abelovih - so nilpotentne in rešljive,
 % slednje igrajo tudi pomembno vlogoo pri reševanju splošnega problema
 
+% \begin{definicija}
+% \label{def_centralna_vrsta}
+% Naj bo $G$ grupa in $H$ njena podgrupa. Centralna vrsta je zaporedje njenih podgrup $(H_k)_{k \ge 1}$, za katerega velja $H_1 = H$ in $H / Z(G / H_{i + 1})$ oziroma ekvivalentno $[H_i, G] \subseteq H_{i + 1}$ za vsak $i \ge 1$.
+% Rečemo, da se centralna vrsta izteče z grupo $K$, če obstaja naravno število $n$, da velja $H_k = K$ za vsako naravno število $k \ge n$.
+% \end{definicija}
+
 \begin{definicija}
-\label{def_centralna_vrsta}
-Naj bo $G$ grupa in $H$ njena podgrupa. Centralna vrsta je zaporedje njenih podgrup $(H_k)_{k \ge 1}$, za katerega velja $H_1 = H$ in $H / Z(G / H_{i + 1})$ oziroma ekvivalentno $[H_i, G] \subseteq H_{i + 1}$ za vsak $i \ge 1$.
-Rečemo, da se centralna vrsta izteče z grupo $K$, če obstaja naravno število $n$, da velja $H_k = K$ za vsako naravno število $k \ge n$.
+\label{def_iztek_zaporedja}
+Naj bo $G$ grupa in $(H_k)_{k \ge 1}$ padajoče zaporedje njenih podgrup, torej $H_{i + 1} \subseteq H_{i}$ za vsak $i \ge 1$. 
+Rečemo, da se zaporedje $(H_k)_{k \ge 1}$ izteče z grupo $K$, če obstaja naravno število $n$, da velja $H_k = K$ za vsako naravno število $k \ge n$.
 \end{definicija}
 
-% TODO tole definicijo spustiš, ker nima pravega pomena, razen tega, da se zadeva izteče ... 
-
-\subsection{Nilpotentne grupe}
 
 \begin{definicija}
 \label{def_nilpotentna_grupa}
@@ -463,7 +458,67 @@ Celo družino primerov nilpotentnih grup nam podaja naslednja ugotovitev.
 Trditev \ref{trd_p_grupe_so_nilpotentne} nam sporoča, da so vse diedrske grupe oblike $D_{2 \cdot 2^{k}}$ nilpotentne. Izkaže se, da so to tudi vse, saj (TODO tukaj moraš končati razmislek z dokazom https://math.stackexchange.com/questions/834966/is-the-dihedral-group-d-n-nilpotent-solvable). 
 \end{primer}
 
-\subsubsection{Konstrukcija zakonov za nilpotentne grupe}
+\begin{definicija}
+    \label{def_resljiva_grupa}
+    Grupa $G$ je rešljiva, če se izpeljana vrsta $(G^{(k)})_{k \ge 0}$, podana rekurzivno z \begin{equation*}
+        G^{(0)} := G \text{ in } G^{(k + 1)} := [G^{(k)}, G^{(k)}],
+        \end{equation*}  
+        izteče s trivialno grupo. Najmanjšemu številu $d$, za katero je $G^{(d)} = \mathbf{1}$ rečemo razred rešljivosti grupe $G$.    
+    \end{definicija}
+    
+    \begin{primer}
+    Diedrske grupe $D_2n$ so rešljive razreda $2$, saj imamo zaporedje (TOOD dokaži, kako izgleda to zaporedje. ).  % https://math.stackexchange.com/questions/834966/is-the-dihedral-group-d-n-nilpotent-solvable
+    \end{primer}
+    
+    \begin{primer}
+        Vse nilpotentne grupe so rešljive, saj po definiciji za vsako število $k \ge 0$ velja \begin{equation*}
+        G^{(k)} = [G^{(k-1)}, G^{(k-1)}] \subseteq  [\gamma_k(G), G] = \gamma_{k +1}(G).
+        \end{equation*}
+        Niso pa vse nilpotentne grupe rešljive, primer so recimo diedrske grupe $D_{2n}$, kjer $2n$ ni dvojiška potenca. 
+    \end{primer}
+    
+    Za rešljive grupe veljajo naslednje osnovne lasnosti.
+    
+    \begin{trditev}
+    \label{trd_lastnosti_resljivih_grup}
+     \begin{enumerate}
+        \item Vsaka podgrupa rešljive grupe je rešljiva.
+        \item Vsak kvocient rešljive grupe je rešljiv.
+        \item Naj bo $N \triangleleft G$ in naj bosta $N$ in $G / N$ rešljivi grupi razreda $d_{N}$ oziroma $d_{G / N}$. Potem je $G$ rešljiva grupa razreda največ $d_N + d_{G / N}$.
+        \item Naj bosta $M, N \triangleleft G$ rešljivi razreda $d_M$ oziroma $d_N$. Potem je podgrupa $MN$ rešljiva razreda največ $d_M + d_N$.   
+     \end{enumerate}
+    \end{trditev}
+    \begin{dokaz}
+        \begin{enumerate}
+            \item To je očitna posledica dejstva, da za $H \le G$ velja $H^{(k)} \subseteq G^{(k)}$ za vsak $k \in \mathbb{N} \cup \left\{ 0\right\} $
+            \item Naj bo $G$ rešljiva in naj bo $N \triangleleft G$. Zaradi rešljivosti grupe $G$ obstaja naravno število $d$, da je $G^{k} \subseteq N$ za vse $k \ge d$, kar implicira $ (G / N)^{(k)} = \left\{ 1_{G / N}\right\}$ za vse $k \ge d$. 
+            \item Ker je $G / N$ rešljiva grupa razreda $n_{G / N}$, bo $G^{(k)} \subseteq N$ za vse $k \ge d_{G / N}$. Ker je $N$ rešljiva razreda $d_N$, bo nadalje veljalo $G^{(k)} = \left\{ 1_G\right\}$ za vse $k \ge d_M + d_N$.
+            \item Dokaz je povzet po opombi 4 iz \cite[str.4]{Schneider_2016}. Po drugem izreku o izomorfizmu lahko zapišemo kratko eksaktno zaporedje \begin{equation*}
+            \mathbf{1} \to M \to MN \to MN / M \cong N / (N \cap M) \to \mathbf{1}.
+            \end{equation*}  
+            Ker je $N$ rešljiva, sta po drugi točki trditve tudi grupi $ N / (N \cap M)$ in $ MN / M $ rešljivi razreda $d_N$. Ker je $M$ rešljiva razreda $d_M$, po tretji točki trditve sledi $(MN)^{(k)} = \left\{ 1_{G}\right\}$ za vse $k \ge d_N + d_M$.
+        \end{enumerate}
+    \end{dokaz}
+
+    Razširitvena lema nam ponuja naslednjo skromno oceno dolžine kratkih netrivialnih zakonov v rešljivih oziroma nilpotentnih grupah.
+
+    \begin{trditev}
+    \label{trd_ocitna_meja_za_kratke_zakone_resljive_grupe}
+     Obstaja beseda $w \in F_2$ dolžine $l(w) \le 4^{d}$, ki je zakon v vseh grupah razreda rešljivosti (ali nilpotentnosti) $d$ ali manj.  
+    \end{trditev}
+    \begin{dokaz}
+        Tritev je posledica razširitvene leme \ref{lem_razsiritvena_lema}, dokaz poteka z indukcijo po $d$. Za $d = 1$ je grupa $G$ Abelova, zato je ustrezni zakon beseda $w = [x,y]$, ki je dolžine 4.
+        Za $d > 1$ opazimo, da je kvocient $G / G^{(1)}$ Abelova grupa, $G^{(1)}$ pa rešljiva grupa razreda največ $d - 1$. Zato z uporabo razširitvene leme in indukcijske predpostavke najdemo besedo $w \in  F_2$ dolžine \begin{equation*}
+            l(w) \le  4 \cdot 4^{d - 1} = 4^{d},
+        \end{equation*}  
+        ki je zakon za grupo $G$. Za nilpotentne grupe upoštevamo dejstvo $G^{(1)} \subseteq \gamma_1(G)$, kar implicira komutativnost grupe $G / \gamma_1(G)$. 
+    \end{dokaz}
+    
+    \begin{opomba}
+    V članku \cite[str.~8]{Kozma_Thom_2016} je podana nekoliko šibkejša meja $l(w) \le  4 \cdot 6^{d-1}$, ker je avtor uporabil šibkejšo obliko razširitvene leme.
+    \end{opomba}
+
+\subsection{Konstrukcija kratkih zakonov za nilpotentne in rešljive grupe}
 
 Konstrukcija kratkih zakonov za nilpotentne grupe je opisana v članku \cite{Elkasapy_Thom_2013} in z razlagami dopolnjena v magistrskem delu \cite{Schneider_2016}.
 Glavna ideja je, da poiščemo kratke netrivialne besede, vsebovane v izpeljani vrsti proste grupe $F_2 = \langle a, b \rangle $. Najprej definiramo zaporedji $(a_n)_n$ in $(b_n)_n$ v $F_2$ s predpisoma
@@ -517,12 +572,11 @@ Po definiciji zaporedja $(b_n)_n$ velja \begin{align*}
      &= l(a_{n + 1})
 \end{align*}
 Za sklep v drugi in tretji vrstici je bila potrebna lema \ref{lem_ni_krajsanj_produkti_ab} ter preprost sklep, da za besedi $w_1, w_2 \in F_2$, za kateri je produkt $w_1 w_2$ okrajšan, velja $l(w_1 w_2) = l(w_1) + l(w_2)$.
-Iz druge vrstice sledi $l(b_{n+1}) \ge  2 l(b_n)$ od koder z indukcijo dobimo $l(a_{n}) = l(b_{n}) \ge 2^{n}$. Iz tretje vrstice dobimo $l(b_{n+1}) \le 4 l(b_n)$ od koder z indukcijo sledi $l(b_n) \le 4^{n}$.    
+Iz druge vrstice sledi $l(b_{n+1}) \ge  2 l(b_n)$ od koder z indukcijo dobimo $l(a_{n}) = l(b_{n}) \ge 2^{n}$. Iz tretje vrstice dobimo $l(b_{n+1}) \le 4 l(b_n)$ od koder z indukcijo sledi $l(b_n) \le 4^{n}$, kar zopet dokaže oceno \ref{trd_osnovna_ocena_resljive_grupe}.    
 \end{dokaz}
 % TODO tole se da neoliko lepše utemeljiti, samo upoštevati je treba trikotniško neenakost za l
 
 Vrednost splošnega člena zaporedja $c_n := l(a_n) = l(b_n)$ nam podaja dolžino netrivialne besede v grupi $F_2^{(n)}$.
-
 \begin{lema}
 \label{lem_vrednost_cn}
 Zaporedje $(c_n)_n$ ustreza rekurzivni zvezi $c_{n+2} = 3 c_{n+1} + 2c_{n}$ z začetnima členoma $c_0 = 1$ in $c_1 = 4$. Od tod lahko izrazimo \begin{equation*}
@@ -540,18 +594,33 @@ kjer je $\iota := (3 + \sqrt{17} ) / 2 = 3{,}5615528 \ldots $ in $C_1 = 1/ 2 + 5
          &= \underbrace{l(b_{n} ^{-1} a_{n} b_{n})}_{l(a_{n + 1}) - l(a_{n}^{-1}) = c_{n+1} - c_{n}}  + \underbrace{l(b_{n}) + l(a_{n} ^{-1}) + l(b_{n} ^{-1})}_{3 c_{n}}  + \underbrace{l([a_{n} , b_{n}^{-1}])}_{l(a_{n + 1}) = c_{n+1}}  + \underbrace{l([b_{n}, a_{n}])}_{l(b_{n+1}) = c_{n+1}}. 
     \end{align*}
     To nam da za $n \in \mathbb{N} \cup  \left\{ 0 \right\}$ želeno zvezo $c_{n+2} = 3 c_{n+1} + 2c_{n}$ skupaj z začetnima vrednostima $c_0 = 1$ in $c_1 = 4$, kar nam podaja zvezo \begin{equation*}
-    \begin{pmatrix}
+    \begin{bmatrix}
         c_{n+ 1}\\
         c_{n} 
-    \end{pmatrix} = {\underbrace{\begin{pmatrix}
+    \end{bmatrix} = {\underbrace{\begin{bmatrix}
         3 & 2\\
         1 & 0
-    \end{pmatrix}}_{A}}^{n}  \begin{pmatrix}
+    \end{bmatrix}}_{A}}^{n}  \begin{bmatrix}
         4 \\
         1 
-    \end{pmatrix}.
+    \end{bmatrix} = \begin{bmatrix}
+        \frac{3 - \sqrt{17} }{2} & \frac{3 + \sqrt{17} }{2}\\
+        1 & 1
+    \end{bmatrix} \begin{bmatrix}
+        \frac{3 - \sqrt{17} }{2} & 0\\
+        0 & \frac{3 + \sqrt{17} }{2}
+    \end{bmatrix}^{n} 
+    \begin{bmatrix}
+        - \frac{1}{\sqrt{17} } & \frac{1}{2} + \frac{3}{2 \sqrt{17} }\\
+        \frac{1}{\sqrt{17} } & \frac{1}{2} - \frac{3}{2 \sqrt{17} }
+    \end{bmatrix}
+    \begin{bmatrix}
+        4 \\
+        1 
+    \end{bmatrix}.
     \end{equation*}  
-    Z diagonalizacijo matrike $A$ lahko iz druge vrstice razberemo zvezo iz trditve. Neenakost je posledica dejstva, da je po absolutni vrednosti največja lastna vrednost matrike $A$ enaka $\iota = (3 + \sqrt{17})  / 2 = 3{,}5615528 \ldots$, kar je asimptotsko gledano veliko boljši rezultat od trditve \ref{trd_ocitna_meja_za_kratke_zakone_resljive_grupe}.
+    Z diagonalizacijo matrike $A$ lahko iz druge vrstice razberemo zvezo iz trditve. Neenakost je posledica dejstva,
+     da je po absolutni vrednosti največja lastna vrednost matrike $A$ enaka $\iota = (3 + \sqrt{17})  / 2 = 3{,}5615528 \ldots$, kar je asimptotsko gledano veliko boljši rezultat od trditve \ref{trd_ocitna_meja_za_kratke_zakone_resljive_grupe}.
 \end{dokaz} 
 
 Direktna posledica te leme je naslednja ugotovitev za rešljive grupe.
@@ -597,7 +666,7 @@ Naslednja trditev je kombinacija posledice 4 in leme 11 iz vira \cite{Schneider_
     \end{equation*}  
      Po trditvi \ref{trd_osnovna_ocena_resljive_grupe} obstaja netrivialna beseda $w \in  F_2^{(e)}$ dolžine največ $C_1 \iota^{e} + o(1)$.
     Zaradi izbira števila $e$ lahko zapišemo \begin{equation*}
-    l(w) \le  C_1 \iota^{e} = C_1 2^{\log_2(\iota) e} \le C_1 (2k)^{\log_2(\iota)} = C_1 \iota k^{\log_2(\kappa)} = C_2  k^{\log_2(\kappa)}.
+    l(w) \le  C_1 \iota^{e} = C_1 2^{\log_2(\iota) e} \le C_1 (2k)^{\log_2(\iota)} = C_1 \iota k^{\log_2(\iota)} = C_2  k^\kappa.
     \end{equation*}
     Nadalje naj bo grupa $G$ nilpotentna razreda $d$, moči $n$ ali manj. Zaradi nilpotentnosti $G$ iz netrivialnosti grupe $\gamma_i(G)$ (za $i \in \mathbb{N} \cup \left\{ 0 \right\}$) sledi netrivialnost kvocienta $\gamma_i(G) / \gamma_{i + 1}(G)$, saj je centralna vrsta pred iztekom strogo padajoča.
     Za razred nilpotentnosti $d$ velja ocena (TODO najdi vir) $d \le \left\lfloor \log_2(G)  \right\rfloor \le \log_2(n)$. Zato po prvem sklepu dokaza obstaja netrivialna beseda $w \in \gamma_d(G)$ dolžine \begin{equation*}
@@ -606,72 +675,26 @@ Naslednja trditev je kombinacija posledice 4 in leme 11 iz vira \cite{Schneider_
      saj velja $w \in \gamma_{\left\lfloor \log_2(n) \right\rfloor}(F_2) \subseteq \gamma_{d}(F_2)$. Od tod z analognim razmislekom kot v trditvi \ref{trd_osnovna_ocena_resljive_grupe} sledi, da je $w$ netrivialni zakon za vse nilpotentne grupe razreda $d$. 
 \end{dokaz}
 
-\subsection{Rešljive grupe}
+V nadaljevanju članka \cite{Elkasapy_Thom_2013} avtorja eksponent $\kappa$ iz prejšnje trditve izboljšata na $\lambda := 1{,}44115577 \ldots$, pri čemer je treba namesto konstante $C_3$ vzeti faktor oblike $8{,}395184144 \ldots + o(1)$. To storita s preučevanjem funkcije \begin{equation*}
+\gamma(w) := \max \left\{ n \in  \mathbb{N}  \middle|\, w \in \gamma_{n}(F_2) \right\} \cup \left\{ \infty\right\}. 
+\end{equation*}  
+Če namreč definiramo $\gamma_n := \gamma(a_{n}) = \gamma(b_{n})$, se da pokazati zvezo $\gamma_{n + 2} - 2 \gamma_{n+1}  - \gamma_{n} \ge  0$ za vse $n \in  \mathbb{N} \cup \left\{ 0\right\}$, s čimer se da po enakem postopku kot v dokazu \ref*{lem_vrednost_cn} izračunati spodnjo mejo $\gamma_n \ge C_4 (1 + \sqrt{2})^{n} - o(1)$.
+Avtorja razmislek zaključita z ugotovitvijo, da je namesto eksponenta $\kappa = \log_2( \iota)$ ustrezen $\lambda := \log_{1 + \sqrt{2}}(\iota)$.
 
-\begin{definicija}
-\label{def_resljiva_grupa}
-Grupa $G$ je rešljiva, če se izpeljana vrsta $(G^{(k)})_{k \ge 0}$, podana rekurzivno z \begin{equation*}
-    G^{(0)} := G \text{ in } G^{(k + 1)} := [G^{(k)}, G^{(k)}],
-    \end{equation*}  
-    izteče s trivialno grupo. Najmanjšemu številu $d$, za katero je $\gamma_{d +1}(G) = \mathbf{1}$ rečemo razred nilpotentnosti grupe $G$.    
-\end{definicija}
+Da dobimo primerljiv rezultat za rešljive grupe, se moramo precej bolj potruditi. Postopek je opisan v \cite[str.~3--4]{Thom_2015}, sklicuje se na lastnosti grup avtomorfizmov nilpotentnih grup, ki jih vložimo
+v primerne splošne linearne grupe, ki jim lahko dokaj učinkovito ocenimo razred rešljivosti. Ker je jedro te vložitve nilpotentno, se lahko skličemo na izrek \cite{trd_koncna_ugotovitev_nilpotentne_v_nalogi}, kar nam zagotovi naslednji izrek (formulacija iz \cite[str.~25]{Schneider_2016}).  
 
-\begin{primer}
-Diedrske grupe $D_2n$ so rešljive razreda $2$, saj imamo zaporedje (TOOD dokaži, kako izgleda to zaporedje. ).  % https://math.stackexchange.com/questions/834966/is-the-dihedral-group-d-n-nilpotent-solvable
-\end{primer}
+\begin{izrek}
+\label{izr_glavni_izrek_resljive}
+ Za vsako število $n \in  \mathbb{N} \cup  \left\{ 0\right\}$ obstaja netrivialna beseda $w \in F_2$ dolžine \begin{equation*}
+ l(w) \le (C_{10} + o(1)) \log(n)^{\lambda},
+ \end{equation*}  
+   ki je zakon za vse rešljive grupe moči $n$ ali manj, kjer sta konstanti enaki $C_{10} := 86.321{,}05422 \ldots$ in $\lambda := 4{,}331612776 \ldots$ 
+\end{izrek}
 
-\begin{primer}
-    Vse nilpotentne grupe so rešljive, saj po definiciji za vsako število $k \ge 0$ velja \begin{equation*}
-    G^{(k)} = [G^{(k-1)}, G^{(k-1)}] \subseteq  [\gamma_k(G), G] = \gamma_{k +1}(G).
-    \end{equation*}
-    Niso pa vse nilpotentne grupe rešljive, primer so recimo diedrske grupe $D_{2n}$, kjer $2n$ ni dvojiška potenca. 
-\end{primer}
+% TODO urediti je treba številčenje konstant v tem poglavju, ni posebej smiselno ...
 
-Za rešljive grupe veljajo naslednje osnovne lasnosti.
-
-\begin{trditev}
-\label{trd_lastnosti_resljivih_grup}
- \begin{enumerate}
-    \item Vsaka podgrupa rešljive grupe je rešljiva.
-    \item Vsak kvocient rešljive grupe je rešljiv.
-    \item Naj bo $N \triangleleft G$ in naj bosta $N$ in $G / N$ rešljivi grupi razreda $n_{N}$ oziroma $n_{G / N}$. Potem je $G$ rešljiva grupa razreda največ $d_N + d_{G / N}$.
-    \item Naj bosta $M, N \triangleleft G$ rešljivi razreda $d_M$ oziroma $d_N$. Potem je podgrupa $MN$ rešljiva razreda največ $d_M + d_N$.   
- \end{enumerate}
-\end{trditev}
-\begin{dokaz}
-    TODO dokaži četrto točko, prvih nekaj lahko izbrišeš ... - Četrto imaš v Schneider konec strani 27
-    \begin{enumerate}
-        \item 
-    \end{enumerate}
-\end{dokaz}
-
-\begin{trditev}
-\label{trd_ocitna_meja_za_kratke_zakone_resljive_grupe}
- Obstaja beseda $w \in F_2$ dolžine $l(w) \le 4^{d}$, ki je zakon v vseh grupah rešljivostnega razreda $d$ ali manj.  
-\end{trditev}
-\begin{dokaz}
-    Tritev je posledica razširitvene leme \ref{lem_razsiritvena_lema}, dokaz poteka z indukcijo po $d$. Za $d = 1$ je grupa $G$ Abelova, zato je ustrezni zakon beseda $w = [x,y]$, ki je dolžine 4.
-    Za $d > 1$ opazimo, da je kvocient $G / G^{(1)}$ Abelova grupa, $G^{(1)}$ pa rešljiva grupa razreda največ $d - 1$. Zato z uporabo razširitvene leme in indukcijske predpostavke najdemo besedo $w \in  F_2$ dolžine \begin{equation*}
-        l(w) \le  4 \cdot 4^{d - 1} = 4^{d},
-    \end{equation*}  
-    ki je zakon za grupo $G$.      
-\end{dokaz}
-
-\begin{opomba}
-V članku \cite[str.~8]{Kozma_Thom_2016} je podana nekoliko šibkejša meja $l(w) \le  4 \cdot 6^{d-1}$, ker je avtor uporabil šibkejšo obliko razširitvene leme.
-\end{opomba}
-
-% TODO preuredi to celotno poglavje, da bo imelo rep in glavo
-
-\subsubsection{Konstrukcija zakonov za rešljive grupe}
-
-Najprej predstavimo način, kako zakone za rešljive grupe najdemo s pomočjo znanja o zakonih za nilpotentne grupe.  
-
-Konstrukcija krajših zakonov za rešljive grupe je veliko težja od konstrukcije za nilpotentne grupe, zato bom predstavil predvsem glavne ideje. 
-
-% tukaj moraš razmisliti, kaj točno sploh hočeš predstaviti in na kakšen način. Vsekakor se ne da vsega ... 
-
-\section{Enostavne grupe in simetrične grupe}
+\section{Enostavne in simetrične grupe}
 
 
 \cite{Schneider_2016}, \cite{Bradford_Thom_2022}, \cite{Kozma_Thom_2016}
@@ -682,7 +705,7 @@ Konstrukcija krajših zakonov za rešljive grupe je veliko težja od konstrukcij
 
 \cite{Schneider_2016}
 
-\section{Grupe $\operatorname{PSL}_2(q)$ in $\operatorname{PSL}_n(q)$}
+\subsection{Grupe $\operatorname{PSL}_2(q)$ in $\operatorname{PSL}_n(q)$}
 
 \cite{Bradford_Thom_2022}, \cite{Schneider_2016}
 
@@ -692,7 +715,7 @@ Konstrukcija krajših zakonov za rešljive grupe je veliko težja od konstrukcij
 % opišeš Liebeckov in kometiraš Liebeckov izrek
 % če boš napisal konkretno Liebeckov izrek, je treba definirati venčni produkt (morda malo zoprno, ampak ne bi smelo biti prehudo) 
 
-\subsection{Enostavne grupe}
+\subsection{Ugotovitve s pomočjo klasifikacije končnih enostavnih grup}
 
 % kratek opis članka https://arxiv.org/abs/1811.05401v2 (TOOD treba ga je dodati v .bib file)
 % kako ta članek vpliva na grupe PSL_2(q)
