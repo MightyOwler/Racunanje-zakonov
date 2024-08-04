@@ -275,6 +275,9 @@ in \begin{equation*}
 
 
 \section{Komutatorska in razširitvena lema}
+
+% TODO namesto tega dokaza napiši svoj dokaz in povej, zakoj je boljši
+
 \subsection{Komutatorska lema}
 
 Recimo da nekatere že poznamo zakone za grupe oziroma njihove podmnožice, zanima pa nas, kako bi iz njih zgradili nove zakone. Na to vprašanje odgovarjata komutatorska in razširitvena lema,
@@ -762,7 +765,7 @@ Tako zgornjo enačbo prevedemo na \begin{equation*}
     l(w_{\operatorname{Aut}(H) }) \le  50 l(w_H).
 \end{equation*}  
 
-Ko vse to združimo, dobimo TOOO napiši po komponentah. Zdaj se lotimo posameznih delov te enačbe. Ker je obravnava spošnih enostavnih grup in simetričnih grup preobsežna za okvir te diplomske naloge, bomo zgolj navedli glavne ideje.
+Ko vse to združimo, dobimo TOOO napiši po komponentah. Zdaj se lotimo posameznih delov te enačbe. Ker je podrobna obravnava spošnih enostavnih grup in simetričnih grup preobsežna za okvir te diplomske naloge, bomo zgolj navedli glavne rezultate in povzeli njihove dokaze.
 
 % Posebno pozornost pa bomo namenili družini grup $\operatorname{PSL}_2(q)$, na kateri se bo izražala tako eleganca konstrukcije zakonov kot moč naključnih sprehodov.
 % Prav ta družina je najbolj problematična, 
@@ -775,6 +778,30 @@ Ko vse to združimo, dobimo TOOO napiši po komponentah. Zdaj se lotimo posamezn
 
 \subsection{Grupe $PSL_2(q)$}
 
+Tekom tega poglavja bo $p$ vedno označevalo praštevilo, $q$ pa praštevilsko potenco oblike $q = p^{k}$ za neko naravno število $k \ge $1. Začnimo z definicijo družine grup $\operatorname{PSL}_n(q)$.
+
+\begin{definicija}
+    Naj bo $n \in \mathbb{N}$ in $q \in \mathbb{N}$ praštevilska potenca, torej $q = p^{k}$. Potem definiramo \begin{equation*}
+        \operatorname{PSL}_n(q) = {\operatorname{SL}_n(q)} / {Z(\operatorname{SL}_n(q))}.
+     \end{equation*}   
+    V primeru $n = 2$ dobimo so elementi podgrupe $Z(\operatorname{SL}_n(q))$ skalarne $2 \times 2$ matrike oblike $\lambda I$ z lastnostjo $\det \lambda I = 1$. To enačbo prevedemo na obliko $(\lambda - 1)(\lambda + 1) = 0$.
+    Če ima polje $\mathbb{F}_q$ karakteristiko $2$ -- kar se zgodi natanko v primeru $q = 2^{k}$ -- sta $\lambda_{1,2} = \pm 1$ isti element, sicer pa dva različna. Tako dobimo
+    \begin{equation*}
+                \operatorname{PSL}_2(q) = \begin{cases}
+                    \operatorname{SL}_2(q); & p = 2,  \\
+                    {\operatorname{SL}_2(q)} / {\left\{ I, -I \right\} }; & p \neq 2.
+                \end{cases}
+             \end{equation*}   
+    \end{definicija}
+    
+    Družina $\operatorname{PSL}_2(q)$ ima -- poleg svoje problematičnosti pri iskanju kratkih zakonov -- zelo posebne lastnosti. Ena izmed glavnih je sledeča. 
+    \begin{lema}
+    Naj bo $p$ praštevilo. Potem ima vsak netrivialni zakon v grupi $\operatorname{PSL}_2(p)$ dolžino vsaj $p$.
+    \end{lema}
+    \noindent
+    Direktna posledica te leme je recimo dejstvo, da grupa $\text{Sym}(\mathbb{N})$ nima
+    netrivialnih zakonov, saj vsebuje vse $\operatorname{PSL}_2(p)$ kot podgrupe.
+    
 
 
 % opis članka o Thom - Kozma, napišeš v čem se razlikuje postopek z naključnimi sprehodi
