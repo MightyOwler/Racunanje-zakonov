@@ -766,19 +766,23 @@ Tako zgornjo enačbo prevedemo na \begin{equation*}
     l(w_{\operatorname{Aut}(H) }) \le  50 l(w_H).
 \end{equation*}  
 
-Ko vse to združimo, dobimo TOOO napiši po komponentah. Zdaj se lotimo posameznih delov te enačbe. Ker je podrobna obravnava spošnih enostavnih grup in simetričnih grup preobsežna za okvir te diplomske naloge, bomo zgolj navedli glavne rezultate in povzeli njihove dokaze.
+% TODO v resnici je bolj smiselno, če ta sklep spada na konec poglavja, saj skupaj poveže vse posamezne ugotovitve
 
-% Posebno pozornost pa bomo namenili družini grup $\operatorname{PSL}_2(q)$, na kateri se bo izražala tako eleganca konstrukcije zakonov kot moč naključnih sprehodov.
-% Prav ta družina je najbolj problematična, 
+Ko vse to združimo, dobimo (TODO napiši po komponentah kaj dobiš). Zdaj se lotimo posameznih delov te enačbe. Ker je podrobna obravnava spošnih enostavnih grup in simetričnih grup preobsežna za okvir te diplomske naloge, bomo zgolj navedli glavne rezultate in povzeli njihove dokaze.
 
 \subsection{Simetrične grupe}
 
 % opis članka o Thom - Kozma, napišeš v čem se razlikuje postopek z naključnimi sprehodi
-% opišeš Liebeckov in kometiraš Liebeckov izrek
-% če boš napisal konkretno Liebeckov izrek, je treba definirati venčni produkt (morda malo zoprno, ampak ne bi smelo biti prehudo) 
+% opišeš in kometiraš Liebeckov izrek
+% če boš napisal konkretno Liebeckov izrek, je treba definirati venčni produkt 
+% (morda malo zoprno, ampak ne bi smelo biti prehudo) 
 
 
 \subsection{Enostavne grupe}
+
+
+% kratek opis članka https://arxiv.org/abs/1811.05401v2
+% kako ta članek vpliva na grupe PSL_2(q)
 
 
 \subsection{Grupe $PSL_2(q)$}
@@ -820,17 +824,18 @@ Tekom tega poglavja bo $p$ vedno označevalo praštevilo, $q$ pa praštevilsko p
     Red poljubnega element $A \in  \operatorname{PSL}_2(q)$ deli vsaj eno izmed števil $p$, $q-1$ ali $q + 1$. 
     \end{lema}
     \begin{dokaz}
+    % (TODO popravi, da boš imel Jordanovo formo $J_A$ in ne matirke $A$)
     Naj bo matrika $A \in \operatorname{PSL}_2(q)$. Obravnavajmo primere glede na njeno Jordanovo formo. Naj bo $\chi_A(X) \in \mathbb{F}_q[X]$ karakteristični polinom matrike $A$. 
     \begin{enumerate}
         \item Če je $A$ diagonalizabilna, je oblike \begin{equation*}
-        A = \begin{bmatrix}
+        A \sim  \begin{bmatrix}
             \alpha & 0 \\
             0 & \beta \\
         \end{bmatrix},
         \end{equation*}  
           kjer sta $\alpha, \beta \in  \mathbb{F}_q^{*}$ (0 ne moreta biti, ker je matrika $A$ obrnljiva). Ker je $(\mathbb{F}_q^{*}, \cdot)$ grupa moči $q-1$, velja $\alpha^{q-1} = \beta^{q -1} = 1$ in od tod $A^{q-1} = I$.
           \item Če je $\chi_A(X)$ razcepen v $\mathbb{F}_q[X]$, vendar matrika $A$ ni diagonalizabilna, mora biti oblike \begin{equation*}
-          A = \begin{bmatrix}
+          A \sim  \begin{bmatrix}
             1 & \alpha\\
             0 & 1\\
           \end{bmatrix} = I + N.
@@ -841,7 +846,7 @@ Tekom tega poglavja bo $p$ vedno označevalo praštevilo, $q$ pa praštevilsko p
     0 = (\alpha^{q} + b \alpha + c)^q =  \alpha^{2q} + b^{q} \alpha^{q} + c^{q} =_\text{točka 1} \alpha^{2q} + b \alpha^{q} + c.    
     \end{equation*}  
     Tako lahko matriko $A$ diagonaliziramo v kolobarju $M_2(\mathbb{F}_{q^2})$ \begin{equation*}
-    A = \begin{bmatrix}
+    A \sim  \begin{bmatrix}
         \alpha & 0\\
         0 & \alpha^{q}\\
     \end{bmatrix}.
@@ -856,14 +861,42 @@ Tekom tega poglavja bo $p$ vedno označevalo praštevilo, $q$ pa praštevilsko p
     \end{equation*}  
     dolžine \begin{equation*}
     l(w) = 4(p + q) \le 8q. 
-    \end{equation*}  
-        
+    \end{equation*}
+    Pred uporabo komutatoske leme moramo navesti še dva rezultata.
+    \begin{lema}
+    \label{lem_velikost_grupe_psl2q}
+    \begin{equation*}
+        \lvert \operatorname{PSL}_2(q) \rvert   = \begin{cases}
+            (q^2 - 1) q; & p = 2,  \\
+            \frac{1}{2} (q^2 - 1) q ; & p \neq 2.
+        \end{cases}
+     \end{equation*} 
+    \end{lema}
+    \begin{dokaz}
+    Grupa $\operatorname{GL}_2(q)$ ima $(q^2  -1)(q^2 - q)$ elementov. Če hočemo, da je matrika $A \in M_2(\mathbb{F}_q)$ obrnljiva, imamo namreč za prvi stolpec $q^2 -1$ izbir, za drugega pa $q^2 - q$.
+    Od tod sledi, da ima $\operatorname{SL}_2(q)$ $(q^2  -1)q$ elementov, saj je $\lvert \mathbb{F}_q^{*} \rvert = q-1$. V primeru $p \neq 2$, nam kvocient po centru odbije še polovico elementov.   
+    \end{dokaz}
     
-    \subsubsection{Iskanje zakonov v grupah $PSL_2(q)$ z naključnimi sprehodi}
-    TODO
+    \begin{lema}
+    \label{lem_gostota_prastevil}
+    Naj bo preslikava $\tau : \mathbb{R} \to \mathbb{N} \cup \left\{ 0\right\}$, ki prešteje število praštevilskih potenc, podana s predpisom \begin{equation*}
+    \tau(x) = \sum_{p^{k} \le x, \, k \in \mathbb{N}} 1.
+    \end{equation*}  
+     Potem velja $\tau(x) = (1 + o(1)) \frac{n}{\log(n)}$.     
+    \end{lema}
+    Ta lema je ena izmed oblik osnovnega izreka o praštevilih, ki ga je prvi dokazal (TODO kdo, katerega leta). Ker je dokaz netrivialen, ga bomo opustili, bralec ga lahko najde v (TODO). 
+    Nekoliko več o tej lemi piše v članku \cite{Kozma_Thom_2016}.            
+    \noindent
+    Zdaj se lahko lotimo konstrukcije netrivialnega zakona za vse grupe oblike $\operatorname{PSL}_2(q)$, moči manjše ali enake številu $n \in \mathbb{N}$. Z uporabo lem \ref{lem_velikost_grupe_psl2q} in \ref{lem_gostota_prastevil}
+    vemo, da moramo moramo konstruirati zakone za vse grupe $\operatorname{PSL}_2(q)$, za katere je $q \le \sqrt[3]{(1 + o(1)) 2n}$. Od tod dobimo besedo $w \in F_2$ dolžine \begin{equation*}
+    l(w) \le 8 \left( \frac{3 \sqrt[3]{(1 + o(1)) 2n}}{\log((1 + o(1)) 2n))}  \right)^2 \cdot 8 \sqrt[3]{(1 + o(1)) 2n} \le 1152 (1 + o(1)) \frac{n}{\log(n)^2},
+    \end{equation*}  
+    ki je zakon za vse grupe $\operatorname{PSL}_2(q)$, moči $n$ ali manj. Ta rezultat ni najboljši in je predstavljal oviro, kot je omenjeno v tretjem odstavku \cite[str.~6]{Bradford_Thom_2017}.
+    Izognemo se ji lahko z uporabo naključnih sprehodov.
 
-% kratek opis članka https://arxiv.org/abs/1811.05401v2 (TOOD treba ga je dodati v .bib file)
-% kako ta članek vpliva na grupe PSL_2(q)
+    \subsubsection{Iskanje zakonov v grupah $PSL_2(q)$ z naključnimi sprehodi}
+    
+    % TODO na tej točki je treba vpeljati osnovne koncepte iz naključnih sprehodov ... 
 
 
 \cite{Kozma_Thom_2016}
