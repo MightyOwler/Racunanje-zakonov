@@ -73,6 +73,7 @@
 % \usepackage{...}
 
 \usepackage{tikz}
+\usepackage{cancel}
 
 % deklarirajte vse matematične operatorje, da jih bo LaTeX pravilno stavil
 % \DeclareMathOperator{\...}{...}
@@ -388,7 +389,7 @@ kjer je $\ker \psi = \operatorname{im} \varphi$, $\varphi$ je injektivni in $\ps
     Naj bo \begin{equation*}
         \mathbf{1} \to N \to G \to G / N \to  \mathbf{1}  
     \end{equation*}  
-    kratko eksaktno zaporedje grup. Naj bo $F_k = \langle x_1, \ldots, x_k \rangle  = \langle S \rangle$. Naj bo $w_N \in F_k$ netrivialni zakon za $N$ in $\bigslant{w_{G}{N}} \in  F_k$ netrivialni zakon za $G / N$. 
+    kratko eksaktno zaporedje grup. Naj bo $F_k = \langle x_1, \ldots, x_k \rangle  = \langle S \rangle$. Naj bo $w_N \in F_k$ netrivialni zakon za $N$ in $w_{ G / N} \in  F_k$ netrivialni zakon za $G / N$. 
     Potem obstaja netrivialni $k$-črkovni zakon za grupo $G$ dolžine kvečjem $l(w_N) l( w_{ G / N } )$. Od tod sledi \begin{equation*}
     \operatorname{girth}_{k}(G) \le \operatorname{girth}_{k}(N) \operatorname{girth}_{k}( G / N ). 
     \end{equation*}  
@@ -772,6 +773,10 @@ Ko vse to združimo, dobimo TOOO napiši po komponentah. Zdaj se lotimo posamezn
 
 \subsection{Simetrične grupe}
 
+% opis članka o Thom - Kozma, napišeš v čem se razlikuje postopek z naključnimi sprehodi
+% opišeš Liebeckov in kometiraš Liebeckov izrek
+% če boš napisal konkretno Liebeckov izrek, je treba definirati venčni produkt (morda malo zoprno, ampak ne bi smelo biti prehudo) 
+
 
 \subsection{Enostavne grupe}
 
@@ -780,11 +785,11 @@ Ko vse to združimo, dobimo TOOO napiši po komponentah. Zdaj se lotimo posamezn
 
 Tekom tega poglavja bo $p$ vedno označevalo praštevilo, $q$ pa praštevilsko potenco oblike $q = p^{k}$ za neko naravno število $k \ge $1. Začnimo z definicijo družine grup $\operatorname{PSL}_n(q)$.
 
-\begin{definicija}
+\begin{definicija}\label{def_pslnq_in_psl2q}
     Naj bo $n \in \mathbb{N}$ in $q \in \mathbb{N}$ praštevilska potenca, torej $q = p^{k}$. Potem definiramo \begin{equation*}
         \operatorname{PSL}_n(q) = {\operatorname{SL}_n(q)} / {Z(\operatorname{SL}_n(q))}.
      \end{equation*}   
-    V primeru $n = 2$ dobimo so elementi podgrupe $Z(\operatorname{SL}_n(q))$ skalarne $2 \times 2$ matrike oblike $\lambda I$ z lastnostjo $\det \lambda I = 1$. To enačbo prevedemo na obliko $(\lambda - 1)(\lambda + 1) = 0$.
+    V primeru $n = 2$ dobimo so elementi podgrupe $Z(\operatorname{SL}_n(q))$ skalarne $2 \times 2$ matrike oblike $\lambda I$ z lastnostjo $\det \lambda I = 1$. To enačbo prevedemo na enačbo oblike $(\lambda - 1)(\lambda + 1) = 0$.
     Če ima polje $\mathbb{F}_q$ karakteristiko $2$ -- kar se zgodi natanko v primeru $q = 2^{k}$ -- sta $\lambda_{1,2} = \pm 1$ isti element, sicer pa dva različna. Tako dobimo
     \begin{equation*}
                 \operatorname{PSL}_2(q) = \begin{cases}
@@ -795,20 +800,67 @@ Tekom tega poglavja bo $p$ vedno označevalo praštevilo, $q$ pa praštevilsko p
     \end{definicija}
     
     Družina $\operatorname{PSL}_2(q)$ ima -- poleg svoje problematičnosti pri iskanju kratkih zakonov -- zelo posebne lastnosti. Ena izmed glavnih je sledeča. 
-    \begin{lema}
+    \begin{trditev}\label{trd_dolzina_zakonov_za_psl2p}
     Naj bo $p$ praštevilo. Potem ima vsak netrivialni zakon v grupi $\operatorname{PSL}_2(p)$ dolžino vsaj $p$.
-    \end{lema}
+    \end{trditev}
+    \begin{dokaz}
+        TODO, imaš v Schneiderju
+    \end{dokaz}
     \noindent
-    Direktna posledica te leme je recimo dejstvo, da grupa $\text{Sym}(\mathbb{N})$ nima
-    netrivialnih zakonov, saj vsebuje vse $\operatorname{PSL}_2(p)$ kot podgrupe.
+    Direktna posledica te leme je recimo dejstvo, da grupa $\text{Sym}(\mathbb{N})$ nima netrivialnih zakonov, saj vsebuje vse $\operatorname{PSL}_2(p)$ kot podgrupe.
+    Druga taka grupa je recimo $\operatorname{SL}_2(\mathbb{Z})$, saj vsebuje vse grupe $\operatorname{PSL}_2(q)$ kot kvociente (TODO najdi vir in razloži). 
+    Ker se zakoni prenašajo na kvociente, enako kot v prvem primeru sklepamo, da $\operatorname{SL}_2(\mathbb{Z})$ ne more imeti netrivialnih zakonov.   
+
+    \subsubsection{Konstrukcija zakonov v grupah $PSL_2(q)$}
+
+    Osnovna konstrukcija zakonov za grupe $\operatorname{PSL}_2(q)$ poteka prek obravnave redov elementov in uporabe komutatorske leme \ref{lem_komutatorska_lema_posplositev}.
+    Dokaz je prirejen po \cite[str.~36--37]{Schneider_2016}. 
+    \begin{lema}
+    \label{lem_redi_elementov_v_psl2q}
+    Red poljubnega element $A \in  \operatorname{PSL}_2(q)$ deli vsaj eno izmed števil $p$, $q-1$ ali $q + 1$. 
+    \end{lema}
+    \begin{dokaz}
+    Naj bo matrika $A \in \operatorname{PSL}_2(q)$. Obravnavajmo primere glede na njeno Jordanovo formo. Naj bo $\chi_A(X) \in \mathbb{F}_q[X]$ karakteristični polinom matrike $A$. 
+    \begin{enumerate}
+        \item Če je $A$ diagonalizabilna, je oblike \begin{equation*}
+        A = \begin{bmatrix}
+            \alpha & 0 \\
+            0 & \beta \\
+        \end{bmatrix},
+        \end{equation*}  
+          kjer sta $\alpha, \beta \in  \mathbb{F}_q^{*}$ (0 ne moreta biti, ker je matrika $A$ obrnljiva). Ker je $(\mathbb{F}_q^{*}, \cdot)$ grupa moči $q-1$, velja $\alpha^{q-1} = \beta^{q -1} = 1$ in od tod $A^{q-1} = I$.
+          \item Če je $\chi_A(X)$ razcepen v $\mathbb{F}_q[X]$, vendar matrika $A$ ni diagonalizabilna, mora biti oblike \begin{equation*}
+          A = \begin{bmatrix}
+            1 & \alpha\\
+            0 & 1\\
+          \end{bmatrix} = I + N.
+          \end{equation*}  
+        Diagonalna elementa morata namreč oba biti enaka $1$ po razmisleku v definiciji \ref{def_pslnq_in_psl2q}. Ker velja $A^{p} = (I + N)^{p} = I^{p} + N^{p} = I$, red matrike $A$ deli $p$.  
+    \item Če $\chi_A(X)$ ni razcepen v $\mathbb{F}_q[X]$, je razpecen v  $\mathbb{F}_{q^2}[X] = \mathbb{F}_q[X] / (\chi_A(X))$. Naj bo $\alpha \in \mathbb{F}_{q^2}$ neka ničla $\chi_A(X)$. Pokazati moramo, da je potem tudi $\alpha^q$ njegova ničla.
+    Naj bo $\chi_A(X) = X^2 + bX + c$ za neka $b ,c \in \mathbb{F}_q^{*}$. Potem iz enačbe $\alpha^2 + b \alpha + c  = 0$ sledi \begin{equation*}
+    0 = (\alpha^{q} + b \alpha + c)^q =  \alpha^{2q} + b^{q} \alpha^{q} + c^{q} =_\text{točka 1} \alpha^{2q} + b \alpha^{q} + c.    
+    \end{equation*}  
+    Tako lahko matriko $A$ diagonaliziramo v kolobarju $M_2(\mathbb{F}_{q^2})$ \begin{equation*}
+    A = \begin{bmatrix}
+        \alpha & 0\\
+        0 & \alpha^{q}\\
+    \end{bmatrix}.
+    \end{equation*}  
+    Ker velja $\det A = \alpha \alpha^{q} = 1$, red $A$ deli število $q-1$.
+    \end{enumerate}   
+\end{dokaz}
+\noindent
+    Za konkretno grupo $G = \operatorname{PSL}_2(q)$ definirajmo podmnožice $H_m := \left\{ A \in \operatorname{PSL}_2(q)  \middle|\,  A^{m} = I \right\}$ za števila $m \in \left\{ p, q-1 , q+1\right\}$.
+    Po razmisleku iz prejšnje leme te podmnožice tvorijo pokritje $G$. Z uporabo komutatorske leme (TOOO tu se moraš slikati na svojo obliko !!), je netrivialni zakon v grupi $G$ oblike \begin{equation*}
+    w = [[x^{p}, y^{q-1}], y^{q + 1}] = x^{p} y^{q-1} x^{-p} \cancel{ y^{1 - q}} y^{q + 1} \cancel{y^{q -1}} x^{p} y^{1 - q} x^{-p} y^{- q - 1}= x^{p} y^{q-1} x^{-p}  y^{q + 1} x^{p} y^{1 - q} x^{-p} y^{- q - 1} 
+    \end{equation*}  
+    dolžine \begin{equation*}
+    l(w) = 4(p + q) \le 8q. 
+    \end{equation*}  
+        
     
-
-
-% opis članka o Thom - Kozma, napišeš v čem se razlikuje postopek z naključnimi sprehodi
-% opišeš Liebeckov in kometiraš Liebeckov izrek
-% če boš napisal konkretno Liebeckov izrek, je treba definirati venčni produkt (morda malo zoprno, ampak ne bi smelo biti prehudo) 
-
-
+    \subsubsection{Iskanje zakonov v grupah $PSL_2(q)$ z naključnimi sprehodi}
+    TODO
 
 % kratek opis članka https://arxiv.org/abs/1811.05401v2 (TOOD treba ga je dodati v .bib file)
 % kako ta članek vpliva na grupe PSL_2(q)
