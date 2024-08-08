@@ -94,6 +94,9 @@
 
 \section{Uvod}
 
+% TODO Vse izraze, ki jih uvedemo v definicijah, trditvah ali v veznem besedilu, pišemo poudarjeno, torej znotraj ukaza \emph{...}
+
+
 % TODO tale uvod je treba še kar lepo urediti, da bo v smiselni obliki
 % treba je popraviti definicijo zakona, trenutno ni najbolj logično ...
 % treba je obrazložiti kaj je sploh poanta diplome
@@ -286,14 +289,105 @@ in \begin{equation*}
 \end{dokaz}
 
 
+\section{Teorija naključnih sprehodov}
+
+Za obravnavo zakonov v simetričnih grupah bomo potrebovali naključne sprehode, natančneje lene naključne sprehode (TODO poglej, če se res tako imenuje).
+Naj bo grupa $G$ generirana s simetrično podmnožico $S \subseteq G$. Tekom tega razdelka naj bo $\Gamma = \operatorname{Cay}(G, S)$, ki je po prejšnjem premisleku (TODO dokaz, da je Cayleyjev graf regularen in povezan).
+
+\begin{definicija}
+\label{def_leni_nakljucni_sprehod}
+    Leni naključni sprehod je naključno zaporedje elementov $w_n \in S$ za $n \in \mathbb{N} \cup \left\{ 0\right\} $, porojeno s formulo \begin{equation*}
+        \mathbb{P}(w_{n+1} = g   \vert \,  w_n = h) = \begin{cases}
+            \frac{1}{2}; & \text{če }  g = h, \\
+            \frac{1}{2 \lvert S \rvert }; & \text{če } g = sh \text{ za neki } s \in S.
+        \end{cases}
+    \end{equation*}  
+\end{definicija}
+Na vsakem koraku lenega naključnega sprehoda se torej z verjetnostjo $1 / 2$ element ne spremeni, z verjetnostjo $1 / 2$ pa se naključno spremeni v enega od svojih sosedov, ki jih je $\lvert S \rvert$.
+To lahko opišemo tudi z matrikami. Recimo, da je $u_n$ vejretnostna porazdelitev $\lvert G \rvert$ razsežnega vektorja, ki predstavlja vozlišča grafa $\Gamma$, po $n$-tem koraku in recimo, da začetno porazdelitev $u_0$ poznamo. Dalje, definiramo matriko lenega naključnega sprehoda $M \in M_{\lvert G \rvert }(\mathbb{R})$, s predpisom    
+\begin{equation*}
+M = \frac{1}{2} \left(I + \frac{1}{\lvert S \rvert } A \right) = \frac{1}{2} (I + \tilde{A}),
+\end{equation*}  
+kjer smo z $A$ označili matriko soseščine grafa $\Gamma$, z $\tilde{A}$ pa smo označili matriko $\frac{1}{\lvert S \rvert} A$, da . Ni težko premisliti, da po definiciji \ref{def_leni_nakljucni_sprehod} sledi zveza 
+\begin{equation*}
+u_n = M^{n} u_0,
+\end{equation*}  
+ki nam omogoča vpogled v lastnosti naključnih sprehodov. 
+
+\begin{lema}
+\label{lem_M_je_sebiadjungirana}
+Matrika $M$ je diagonalizabilna, sebiadjungirana in njene lastne vrednosti ležijo v intervalu $[0, 1]$.
+\end{lema}
+\begin{dokaz}
+Ker je realna matrika $M$ simetrična, je diagonalizabilna, sebiadjungirana in velja, da so vektorji, ki pripadajo paroma različnim lastnim vrednostim, med seboj ortogonalni. Enako velja za matriko $A$. Sebiadjungiranost nam implicira realnost lastnih vrednosti matrik $M$ in $A$.
+Z oceno matričnih norm \begin{equation*}
+    \sqrt{ \lambda_{\max} (\tilde{A}^2)} = \sqrt{\lambda_{\max} (\tilde{A}^{T} \tilde{A} )}  = \lvert\lvert \tilde{A} \rvert\rvert_2 \le \sqrt{\lvert\lvert A \rvert\rvert_1}  \lvert\lvert \tilde{A} \rvert\rvert_{\infty} = 1 
+\end{equation*}  
+sledi, da ima matrika $\tilde{A}$ lastne vrednosti v intervalu $[-1 ,1]$, kar pomeni, da lastne vrednosti matrike $M$ ležijo v intevalu $[0, 1]$. 
+\end{dokaz}
+
+Ker vemo, da so vse lastne vrednosti realne, jih lahko po razvrstimo po velikosti: 
+\begin{equation*}
+1 \ge \lambda_1(G, S) \ge \lambda_2(G, S) \ge \ldots \ge \lambda_{\lvert G \rvert }(G, S).  
+\end{equation*}  
+Izkaže se, da je glede na izbiro grupe $G$ in njene generirajoče množice $S$ lastna vrednost $\lambda_1(G, S) = 1 > \lambda_2(G, S)$. (TODO, posledica tega, da je $\Gamma$ povezan + konvergence zaporedja)
+Razliko $1 - \lambda_2(G, 2)$ imenujemo \emph{spektralna razlika} grafa $\Gamma$. 
+
+\begin{definicija}
+\label{def_diameter_cayleyjevega_grafa}
+Diameter Cayleyjevega grafa $\Gamma = \operatorname{Cay}(G, S)$ je število \begin{equation*}
+    \operatorname{diam}(G, S) := \min \left\{ n \in \mathbb{N}  \middle|\, \forall g \in G. \exists s_1, \ldots , s_n \in S \cup \left\{ 1_G \right\} . g = s_1 \cdots s_n \right\} 
+\end{equation*}  
+\end{definicija}
+Intuitivno nam diameter Cayleyjevega grafa poda najmanjše število korakov, po katerem lahko naključni sprehod po grafu $\Gamma$ doseže poljubni element grupe $G$. Za vse končnogenerirane in posledično končne grupe je diameter dobro definiran.
+Za ocenjevanje dolžin zakonov v grafih je bistvena sledeča zveza med diametrom grafa in spektralno razliko lenega naključnega sprehoda.
+
+\begin{trditev}
+\label{trd_zveza_med_diametrom_grafa_in_spektralno_razliko}
+ Velja zveza \begin{equation*}
+ 1 - \lambda_1(G, S) \ge \frac{1}{2 \lvert S \rvert \operatorname{diam}(G, S)^2}.
+ \end{equation*}  
+\end{trditev}
+\begin{dokaz}
+% TODO najdi referenco za dokaz te leme, oz si poglej vir, na katerega se sliče Thom
+\end{dokaz}
+
+Od tod sledi pomembna posledica \begin{posledica}
+\label{psl_posledica_zveze_diameter}
+Naj bo vektor $u = \frac{1}{\lvert G \rvert} I$ in naj bo $e_1$ bazni vektor enote $1_G$ (TODO tole bolje razloži). Potem velja ocena \begin{equation*}
+\lvert M^{n} e_1 - u \rvert \le \lambda_1(G, S) \le \left( 1 - \frac{1}{2 \lvert S \rvert \operatorname{diam}(G, S)^2 } \right)^{n}. 
+\end{equation*}    
+\end{posledica}
+\begin{dokaz}
+Desna neenakost je direktna posledica trditve \ref{trd_zveza_med_diametrom_grafa_in_spektralno_razliko}. (TODO zakaj leva stran enačbe ... to bi se moralo dati intuitivno dokazati )
+\end{dokaz}
+
+Za konec potrebujemo še zadnjo lemo. \begin{equation*}
+Naj bo $E$ podmnožica grupe $G$ in naj bo $\alpha := \lvert E \rvert / \lvert G \rvert$ in naj bo $(w_n)_{n \in  \mathbb{N}}$ leni naključni sprehod.
+Če velja ocena \begin{equation*}
+n \ge 2 \lvert S \rvert \operatorname{diam}(G, S)^2 \log(2 \lvert G \rvert ), 
+\end{equation*}  
+    velja $\mathbb{P}(w_n \in E) \ge \alpha / 2$.
+\end{equation*}  
+\begin{dokaz}
+TODO, to je Cauchy--Schwarz
+\end{dokaz}
+
+% TOOD tukaj poveži besedilo z intuitivno razloago
+
+Glavni rezultat, ki zagotovi obstoj kratkih zakonov, je Helfgott--Seressov izrek. \begin{equation*}
+Naj par $(\sigma, \tau) \in S_n^2$ generira grupo $S_n$, torej $\langle \sigma, \tau \rangle = S_n$. Potem je diameter grafa $\Gamma = \operatorname{Cay}(S_n, \left\{ \sigma^{\pm 1}, \tau^{\pm 1} \right\} )$ največ \begin{equation*}
+\exp(C \log(n)^{4} \log(\log(n))).
+\end{equation*}  
+Dokaz tega izreka je zelo težek in se moćno nanaša na klasifikacijo končnih enostavnih grup, zato ga opuščamo. Bralec ga lahko najde v \cite{Helfgott_Seress_2013}.
 \section{Komutatorska in razširitvena lema}
 
 \subsection{Komutatorska lema}
 
 
 
-Recimo že poznamo zakone v nekaterih podmnožicah grupe $G$, zanima pa nas, kako bi iz njih zgradili zakone za večje podmnožice te grupe. Na to vprašanje odgovarjata komutatorska in razširitvena lema,
-ki sta ključni orodji pri obravnavanju zakonov. Preden ju dokažemo moramo pokazati nekaj rezultatov.
+Recimo, da poznamo zakone v nekaterih podmnožicah grupe $G$, zanima pa nas, kako bi iz njih zgradili zakone za večje podmnožice te grupe. Na to vprašanje odgovarjata komutatorska in razširitvena lema,
+ki sta ključni orodji pri obravnavanju zakonov.
 
 \begin{definicija}\label{def_netrivialna_potenca}
 Naj bo $G$ grupa. Element $g \in  G$ je netrivialna potenca, če obstajata $h \in G$ in naravno število $n > 1$, da je $g = h^{n}$.
@@ -376,12 +470,11 @@ l(w) \le  m \sum_{i = 1}^{n} l(w_i),
 za katero velja $H_1 \cup  \ldots \cup H_m \subseteq  Z(G, w)$, torej je zakon v vseh podgrupah $H_i$. 
 \end{lema}
 \begin{dokaz}
-Ideja dokaza je pokazati, da lahko v dokazu komutatorske leme lahko bolj elementarno -- brez uporabe Nielsenovega izreka -- pokažemo netrivialnost komutatorjev.
 Dokaz poteka z indukcijo po $e \in  \mathbb{N}$ za primer $k = 2$, za $k \ge 3$ je dokaz praktično enak oziroma lažji. Naj bo $F_2 = \langle a , b \rangle$. Za $e = 0$ (oziroma $m = 1$) vzamemo zadostuje $w$, njena dolžina je $l(w_1)$, za poljubno grupo $G$ velja $\operatorname{Z}(G, w) \supseteq \operatorname{Z}(G, w_1)$. 
-        Zdaj se lotimo indukcijskega koraka v primeru $e \ge 1$ oziroma $m \ge 2$. Naj bodo podane besede $w_1, \ldots, w_{m / 2}, w_{m / 2 + 1}, \ldots, w_{m}$. Po indukcijski predpostavki obstajata besedi $v_1, v_2 \in  F_{k}$, da velja
+        Zdaj se lotimo indukcijskega koraka v primeru $e \ge 1$ oziroma $m \ge 2$. Naj bodo podane besede $w_1, \ldots, w_{m / 2}, w_{m / 2 + 1}, \ldots, w_{m}$. Po indukcijski predpostavki obstajata besedi $v_1, v_2 \in  F_{2}$, da velja
         \begin{equation*}
         l(v_1) \le \frac{m}{2} \sum_{i=1}^{m / 2} l(w_{i}) , \,\,\, l(v_2) \le \frac{m}{2} \sum_{i= m / 2 + 1}^{m} l(w_{i})
-        \end{equation*}  
+        \end{equation*}
         in \begin{equation*}
         \operatorname{Z}(G, v_1) \supseteq \bigcup_{i = 1}^{m / 2} H_i^2, \,\,\,  \operatorname{Z}(G, v_2) \supseteq \bigcup_{i = m / 2 + 1}^{m} H_i^2,
         \end{equation*}  
@@ -583,6 +676,8 @@ Trditev \ref{trd_p_grupe_so_nilpotentne} nam sporoča, da so vse diedrske grupe 
         Niso pa vse nilpotentne grupe rešljive, primer so recimo diedrske grupe $D_{2n}$, kjer $2n$ ni dvojiška potenca. 
     \end{primer}
     
+    % TODO: Naštevalna okolja enumerate, itemize ... uporabljamo za nizanje kratkih izjav, npr. delov trditev, niso pa primerna za pisanje daljših delov besedila. Tudi če v trditvi uporabimo naštevalno okolje, tega ni primerno uporabiti v dokazu te trditve, razen če so dokazi posameznih točk enovrstični. Namesto tega v dokazu točke ločimo tako, da dokaz vsake tvori svoj odstavek, oznako točke pa postavimo na začetek tega odstavka. Če so dokazi posameznih točk sestavljeni iz več odstavkov, lahko dokaze različnih točk bolj nazorno ločimo s prazno vrstico med odstavkoma, ki pripadata različnima točkama, ali pa oznako točke na začetku odstavka napišemo krepko. Podobno velja tudi za druga naštevanja, kjer ob vsaki točki napišemo daljšo razlago.
+
     \begin{trditev}
     \label{trd_lastnosti_resljivih_grup}
     Za rešljive grupe veljajo naslednje osnovne lasnosti.
@@ -612,7 +707,7 @@ Trditev \ref{trd_p_grupe_so_nilpotentne} nam sporoča, da so vse diedrske grupe 
      Obstaja beseda $w \in F_2$ dolžine $l(w) \le 4^{d}$, ki je zakon v vseh grupah razreda rešljivosti (ali nilpotentnosti) $d$ ali manj.  
     \end{trditev}
     \begin{dokaz}
-        Tritev je posledica razširitvene leme \ref{lem_razsiritvena_lema}, dokaz poteka z indukcijo po $d$. Za $d = 1$ je grupa $G$ Abelova, zato je ustrezni zakon beseda $w = [x,y]$, ki je dolžine 4.
+        Trditev je posledica razširitvene leme \ref{lem_razsiritvena_lema}, dokaz poteka z indukcijo po $d$. Za $d = 1$ je grupa $G$ Abelova, zato je ustrezni zakon beseda $w = [x,y]$, ki je dolžine 4.
         Za $d > 1$ opazimo, da je kvocient $G / G^{(1)}$ Abelova grupa, $G^{(1)}$ pa rešljiva grupa razreda največ $d - 1$. Zato z uporabo razširitvene leme in indukcijske predpostavke najdemo besedo $w \in  F_2$ dolžine \begin{equation*}
             l(w) \le  4 \cdot 4^{d - 1} = 4^{d},
         \end{equation*}  
@@ -801,8 +896,8 @@ v primerne splošne linearne grupe, ki jim lahko dokaj učinkovito ocenimo razre
 
 \section{Enostavne, polenostavne in simetrične grupe}
 
-Na prvi pogled se zdi nenavadno obravnavati enostavne in simetrične grupe v istem poglavju. Po strukturi se namreč močno razlikuejo; simetrične grupe imajo bogato strukturo edink (kar nam kažejo recimo izrekih Sylowa), po drugi strani pa enostavne
-nimajo nobenih pravih netrivialnih. Razlog za takšno obravnavo se skriva v postopku za iskanje kratkih zakonov, ki poteka z uporabo naključnih sprehodov. Ta postopek ni konstruktiven, zgolj pokaže nam obstoj nekega kratkega zakona v grupi, vendar ne poznamo njegove oblike.
+Na prvi pogled se zdi nenavadno obravnavati enostavne in simetrične grupe v istem poglavju. Po strukturi se namreč močno razlikuejo; simetrične grupe imajo bogato strukturo edink (kar nam kažejo recimo izreki Sylowa ? TODO ali res), po drugi strani pa enostavne
+nimajo nobenih pravih netrivialnih. Razlog za takšno obravnavo se skriva v postopku za iskanje kratkih zakonov, ki poteka z uporabo naključnih sprehodov. Ta postopek ni konstruktiven, zgolj pokaže nam obstoj nekega kratkega zakona v grupi, čeprav njegove konkretne oblike ne poznamo.
 Naključni sprehodi so se izkazali za ključno orodje pri obravnavi družine enostavnih grup $\operatorname{PSL}_2(q)$, ki bo glavna tema poglavja.
 
 Začnimo z razmislekom o pomembnosti enostavnih grup pri iskanju kratkih zakonov v splošnih grupah. Glavno idejo smo pravzaprav že videli v opombi pod razširitveno lemo \ref{lem_razsiritvena_lema}, kjer smo ugotovili, da
@@ -841,7 +936,7 @@ Na straneh 28--31 vira \cite{Schneider_2016} je podan razmislek, kako problem v 
 
 \begin{definicija}
 \label{def_grupa_zunanjih_avtomorfizmov}
-Naj bo $G$ grupa in $\operatorname{Aut}(G)$ njena grupa avtomorfizmov. Znano dejstvo je, da je grupa notranjih avtomorfizmov $\operatorname{Inn}(G) = \left\{ x \mapsto g x g^{-1}  \middle|\,  g \in G  \right\}$ njena edinka.
+Naj bo $G$ grupa in $\operatorname{Aut}(G)$ njena grupa avtomorfizmov. Znano dejstvo je (TODO enovrstični račun), da je grupa notranjih avtomorfizmov $\operatorname{Inn}(G) = \left\{ x \mapsto g x g^{-1}  \middle|\,  g \in G  \right\}$ njena edinka.
 Kvocientu $\operatorname{Out}(G) :=  \operatorname{Aut}(G)  /  \operatorname{Inn}(G)$ rečemo grupa zunanjih avtomorfizmov grupe $G$. 
 \end{definicija}
 
@@ -850,7 +945,7 @@ Kvocientu $\operatorname{Out}(G) :=  \operatorname{Aut}(G)  /  \operatorname{Inn
  Naj bo $G$ končna enostavna grupa, ki ni Abelova. Potem je grupa $\operatorname{Out}(G)$ rešljiva razreda največ $3$.
 \end{izrek}
 
-To domnevo so potrdili z uporabo klasifikacije končnih enostavnih grup. Vprašanje, ali obstaja bolj elementaren dokaz, je še vedno odprto.
+To domnevo so potrdili z uporabo klasifikacije končnih enostavnih grup. Vprašanje, ali obstaja bolj elementaren dokaz, je še vedno odprto. % TODO kje je vir za to  
 Glede na to, da se iskanje zakonov v enostavnih grupah močno naslanja na to klasifikacijo, bomo domnevo brez zadržkov uporabili. Naj bo $H$ poljubna enostavna grupa. 
 S tvorjenjem kratkega eksaktnega zaporedja \begin{equation*}
     \mathbf{1} \to \operatorname{Inn}(H)  \to \operatorname{Aut}(H)  \to  \operatorname{Out}(H)  \to  \mathbf{1}
