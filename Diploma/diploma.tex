@@ -95,6 +95,7 @@
 \section{Uvod}
 
 % TODO tale uvod je treba še kar lepo urediti, da bo v smiselni obliki
+% treba je popraviti definicijo zakona, trenutno ni najbolj logično ...
 % treba je obrazložiti kaj je sploh poanta diplome
 
 Dvočrkovni zakon v grupi $G$ je abstrakten produkt elementov $x$, $y$ ter njunih inverzov $x^{-1}$ in $y^{-1}$, ki ima lastnost, da za vsako zamenjavo $x$ in $y$ s konkretnima
@@ -153,11 +154,21 @@ induciranim s preslikavo $\varphi: a_{i} \mapsto g_{i}$ za $i = 1,\ldots, n$ v s
 \end{definicija}
 
 \indent
-Zdaj lahko natančno formuliramo definicjo zakona.
+Zdaj lahko natančno formuliramo definicjo zakona. .
 
 \begin{definicija}\label{def_zakon_formalna}
 Beseda $w \in F_k$ je $k$-črkovni zakon v grupi $G$, če je $Z(G, w) = G^{k}$. Alternativno, beseda $w \in F_k$ je $k$-črkovni zakon v grupi $G$, če jo vsak homomorfizem $\varphi: F_k \to G$ slika v enoto $1 \in G$.   
 \end{definicija}
+
+Definirajmo še zakon v podmnožici grupe.
+\begin{definicija}
+    \label{def_zakon_v_podmnožici}
+    Naj bo $G$ grupa in $H$ njena podmnožica. Beseda $w \in F_k$ je zakon v podmnožici $H$, če za vse izbire $g_1, \ldots, g_k \in H$ velja $w(g_1, \ldots, g_{k}) = 1_G$.
+    \end{definicija}
+    
+    \begin{opomba}
+    Beseda $w \in F_k$ je zakon v podmnožici $H \subseteq G$ natanko tedaj, ko je $Z(G, w) \supseteq H^{k}$ ter zakon v vsaki podmnožici $H_1, \ldots, H_n \subseteq G$ natanko tedaj, ko je $Z(G, w) \supseteq \bigcup_{i = 1}^{n} H_i^{k}$.  
+    \end{opomba}
 
 Ta definicija nam omogoča vpogled v strukturo zakonov. Naj $K(k) \subseteq F_k$ označuje množico $k$-črkovnih zakonov. Potem v luči prejšnje definicije velja
 \begin{equation*}
@@ -279,68 +290,70 @@ in \begin{equation*}
 
 \subsection{Komutatorska lema}
 
-Recimo da nekatere že poznamo zakone za grupe oziroma njihove podmnožice, zanima pa nas, kako bi iz njih zgradili nove zakone. Na to vprašanje odgovarjata komutatorska in razširitvena lema,
+
+
+Recimo že poznamo zakone v nekaterih podmnožicah grupe $G$, zanima pa nas, kako bi iz njih zgradili zakone za večje podmnožice te grupe. Na to vprašanje odgovarjata komutatorska in razširitvena lema,
 ki sta ključni orodji pri obravnavanju zakonov. Preden ju dokažemo moramo pokazati nekaj rezultatov.
 
 \begin{definicija}\label{def_netrivialna_potenca}
 Naj bo $G$ grupa. Element $g \in  G$ je netrivialna potenca, če obstajata $h \in G$ in naravno število $n > 1$, da je $g = h^{n}$.
 \end{definicija}
 
-\begin{lema}[\cite{Lyndon_Schupp_2015}[str.~8, trditev 2.6]]\label{lem_uporaba_nielsen}
-Vsaka končnogenerirana podgrupa proste grupe je prosta.   
-\end{lema}
-% \begin{skica}
-%     -najprej Nielsenove transformacije
-%     -nato N-okrajšanost
-%     -ideja, da lahko prevedeš vse U na N-okrajšane
-%     -lema, da N-okrajšane ravno pravšnje
-% Ta lema je posebni primer Nielsen-Schreierjevega izreka, ki trdi, da je vsaka podgrupa proste grupe prosta \cite{Lyndon_Schupp_2015}[str.~8, trditev 2.11]. Njen dokaz je podan na straneh 5--7 v istega vira,  
+% \begin{lema}[\cite{Lyndon_Schupp_2015}[str.~8, trditev 2.6]]\label{lem_uporaba_nielsen}
+% Vsaka končnogenerirana podgrupa proste grupe je prosta.   
+% \end{lema}
+% % \begin{skica}
+% %     -najprej Nielsenove transformacije
+% %     -nato N-okrajšanost
+% %     -ideja, da lahko prevedeš vse U na N-okrajšane
+% %     -lema, da N-okrajšane ravno pravšnje
+% % Ta lema je posebni primer Nielsen-Schreierjevega izreka, ki trdi, da je vsaka podgrupa proste grupe prosta \cite{Lyndon_Schupp_2015}[str.~8, trditev 2.11]. Njen dokaz je podan na straneh 5--7 v istega vira,  
 
-% \end{skica}
+% % \end{skica}
 
-\noindent
-Ta lema je posebni primer klasičnega Nielsen--Schreierjevega izreka, ki pravi, da je vsaka podgrupa proste grupe prosta. Dokazana je v \cite{Lyndon_Schupp_2015}[5--7] z uporabo Nielsenovih transformacij. 
+% \noindent
+% Ta lema je posebni primer klasičnega Nielsen--Schreierjevega izreka, ki pravi, da je vsaka podgrupa proste grupe prosta. Dokazana je v \cite{Lyndon_Schupp_2015}[5--7] z uporabo Nielsenovih transformacij. 
 
-\begin{lema}
-    \label{lem_komutatorska_lema}
-     Naj bo $k \ge 2$, $e \in  \mathbb{N}$ in naj bodo besede $w_1, \ldots, w_m \in F_k$ netrivialne, pri čemer je $m = 2^{e}$. Potem obstaja beseda $w \in F_k$
-     dolžine \begin{equation*}
-     l(w) \le 2m \left(m + \sum_{i=1}^{m} l(w_{i}) \right),
-     \end{equation*}  
-    ki ni netrivialna potenca, da za vsako grupo $G$ velja \begin{equation*}
-    Z(G, w) \supseteq \operatorname{Z}(G, w_1) \cup \ldots \cup \operatorname{Z}(G, w_m).
-    \end{equation*}       
-    \end{lema}
-    \begin{dokaz}
-        Dokaz poteka z indukcijo po $e \in  \mathbb{N}$. Naj bo $F_k = \langle S \rangle$.  Za $e = 0$ (oziroma $m = 1$) vzamemo $w = [s, w_1]$, kjer je $s \in S$ takšen element, da $w_1$ ni potenca $s$. To lahko storimo zaradi pogoja $k \ge 2$. Zaradi ustrezne izbire komutator $[s, w_1]$ ne more biti netrivialna potenca, njegova dolžina pa je kvečjem $2(l(w_1)  + 1)$.
-        Hkrati za poljubno grupo $G$ velja $\operatorname{Z}(G, w) \supseteq \operatorname{Z}(G, s) \cup \operatorname{Z}(G, w_1)$.
+% \begin{lema}
+%     \label{lem_komutatorska_lema}
+%      Naj bo $k \ge 2$, $e \in  \mathbb{N}$ in naj bodo besede $w_1, \ldots, w_m \in F_k$ netrivialne, pri čemer je $m = 2^{e}$. Potem obstaja beseda $w \in F_k$
+%      dolžine \begin{equation*}
+%      l(w) \le 2m \left(m + \sum_{i=1}^{m} l(w_{i}) \right),
+%      \end{equation*}  
+%     ki ni netrivialna potenca, da za vsako grupo $G$ velja \begin{equation*}
+%     Z(G, w) \supseteq \operatorname{Z}(G, w_1) \cup \ldots \cup \operatorname{Z}(G, w_m).
+%     \end{equation*}       
+% \end{lema}
+%     \begin{dokaz}
+%         Dokaz poteka z indukcijo po $e \in  \mathbb{N}$. Naj bo $F_k = \langle S \rangle$.  Za $e = 0$ (oziroma $m = 1$) vzamemo $w = [s, w_1]$, kjer je $s \in S$ takšen element, da $w_1$ ni potenca $s$. To lahko storimo zaradi pogoja $k \ge 2$. Zaradi ustrezne izbire komutator $[s, w_1]$ ne more biti netrivialna potenca, njegova dolžina pa je kvečjem $2(l(w_1)  + 1)$.
+%         Hkrati za poljubno grupo $G$ velja $\operatorname{Z}(G, w) \supseteq \operatorname{Z}(G, s) \cup \operatorname{Z}(G, w_1)$.
         
-        Zdaj se lotimo indukcijskega koraka v primeru $e \ge 1$ oziroma $m \ge 2$. Naj bodo podane besede $w_1, \ldots, w_{m / 2}, w_{m / 2 + 1}, \ldots, w_{2m}$. Po indukcijski predpostavki obstajata besedi $v_1, v_2 \in  F_{k}$, ki nista netrivialni potenci, da velja
-        \begin{equation*}
-        l(v_1) \le m \left(\frac{m}{2} + \sum_{i=1}^{m / 2} l(w_{i}) \right),
-        \end{equation*}  
-        \begin{equation*}
-            l(v_2) \le m \left(\frac{m}{2} + \sum_{i= m / 2 + 1}^{m} l(w_{i}) \right)
-        \end{equation*}  
-        in \begin{equation*}
-        \operatorname{Z}(G, v_1) \supseteq \operatorname{Z}(G, w_1) \cup \ldots \cup \operatorname{Z}(G, w_{m / 2}),
-        \end{equation*}  
-        \begin{equation*}
-            \operatorname{Z}(G, v_2) \supseteq \operatorname{Z}(G, w_{m / 2 + 1}) \cup \ldots \cup \operatorname{Z}(G, w_{m})
-        \end{equation*}  
-        za vsako grupo $G$.
+%         Zdaj se lotimo indukcijskega koraka v primeru $e \ge 1$ oziroma $m \ge 2$. Naj bodo podane besede $w_1, \ldots, w_{m / 2}, w_{m / 2 + 1}, \ldots, w_{2m}$. Po indukcijski predpostavki obstajata besedi $v_1, v_2 \in  F_{k}$, ki nista netrivialni potenci, da velja
+%         \begin{equation*}
+%         l(v_1) \le m \left(\frac{m}{2} + \sum_{i=1}^{m / 2} l(w_{i}) \right),
+%         \end{equation*}  
+%         \begin{equation*}
+%             l(v_2) \le m \left(\frac{m}{2} + \sum_{i= m / 2 + 1}^{m} l(w_{i}) \right)
+%         \end{equation*}  
+%         in \begin{equation*}
+%         \operatorname{Z}(G, v_1) \supseteq \operatorname{Z}(G, w_1) \cup \ldots \cup \operatorname{Z}(G, w_{m / 2}),
+%         \end{equation*}  
+%         \begin{equation*}
+%             \operatorname{Z}(G, v_2) \supseteq \operatorname{Z}(G, w_{m / 2 + 1}) \cup \ldots \cup \operatorname{Z}(G, w_{m})
+%         \end{equation*}  
+%         za vsako grupo $G$.
 
-        Zdaj moramo le še utemeljiti, da lahko besedi $v_1$ ter $v_2$ ustrezno združimo. Vemo, da je komutator $[a,b]$ za $a,b \in F_k \setminus \left\{ 1\right\}$ trivialen natanko tedaj, ko $a$ in $b$ generirata prosto grupo ranga $1$. Po lemi \ref{lem_uporaba_nielsen} namreč vemo, da je podgrupa $\langle a, b \rangle \le F_k$ prosta,
-        hkrati pa $a$ in $b$ po pogoju komutirata. Implikacija v levo je očitna. Zato vemo, da bo komutator $[v_1, v_2]$ trivialen zgolj v primeru $v_1 = v_2^{\pm 1}$, ker sta $v_1$ in $v_2$ po predpostavki netrivialni potenci. V primeru, da sta trivialni, imamo \begin{equation*}
-        \operatorname{Z}(G, w_1) = \operatorname{Z}(G, w_2)
-        \end{equation*}  
-         in lahko nastavimo $w := v_1$ ali $w := v_2$, v obeh primerih je pogoj na dolžino besede $w$ očitno izpolnjen. Če imamo $v_1 \neq v_2^{\pm 1}$, nastavimo $w := [v_1, v_2]$. V tem primeru po (TODO Schutzenbergovi lemi) beseda $w$ ni netrivialna potenca. Indukcijska predpostavka nam zagotavlja 
-         \begin{equation*}
-         l(w) \le 2m  \left(\frac{m}{2} + \sum_{i=1}^{m / 2} l(w_{i}) \right) + 2m \left(\frac{m}{2} + \sum_{i= m / 2 + 1}^{m} l(w_{i}) \right) = 2m \left( m + \sum_{i = 1}^{m} l(w_{i}) \right).
-         \end{equation*}
-    \end{dokaz}
+%         Zdaj moramo le še utemeljiti, da lahko besedi $v_1$ ter $v_2$ ustrezno združimo. Vemo, da je komutator $[a,b]$ za $a,b \in F_k \setminus \left\{ 1\right\}$ trivialen natanko tedaj, ko $a$ in $b$ generirata prosto grupo ranga $1$. Po lemi \ref{lem_uporaba_nielsen} namreč vemo, da je podgrupa $\langle a, b \rangle \le F_k$ prosta,
+%         hkrati pa $a$ in $b$ po pogoju komutirata. Implikacija v levo je očitna. Zato vemo, da bo komutator $[v_1, v_2]$ trivialen zgolj v primeru $v_1 = v_2^{\pm 1}$, ker sta $v_1$ in $v_2$ po predpostavki netrivialni potenci. V primeru, da sta trivialni, imamo \begin{equation*}
+%         \operatorname{Z}(G, w_1) = \operatorname{Z}(G, w_2)
+%         \end{equation*}  
+%          in lahko nastavimo $w := v_1$ ali $w := v_2$, v obeh primerih je pogoj na dolžino besede $w$ očitno izpolnjen. Če imamo $v_1 \neq v_2^{\pm 1}$, nastavimo $w := [v_1, v_2]$. V tem primeru po Schutzenbergovi lemi beseda $w$ ni netrivialna potenca. Indukcijska predpostavka nam zagotavlja 
+%          \begin{equation*}
+%          l(w) \le 2m  \left(\frac{m}{2} + \sum_{i=1}^{m / 2} l(w_{i}) \right) + 2m \left(\frac{m}{2} + \sum_{i= m / 2 + 1}^{m} l(w_{i}) \right) = 2m \left( m + \sum_{i = 1}^{m} l(w_{i}) \right).
+%          \end{equation*}
+%     \end{dokaz}
 
-To lemo lahko posplošimo tako, da velja tudi za števila besed, ki niso dvojiške potence.
+Komutatorska lema se v sledeči obliki pojavi v magistrskem delu \cite{Schneider_2016} in članku \cite{Kozma_Thom_2016}. 
 
 \begin{lema}
 \label{lem_komutatorska_lema_posplositev}
@@ -351,46 +364,19 @@ ki ni netrivialna potenca, da za vsako grupo $G$ velja \begin{equation*}
 \operatorname{Z}(G, w) \supseteq \operatorname{Z}(G, w_1) \cup \ldots \cup  \operatorname{Z}(G, w_{m}).
 \end{equation*}    
 \end{lema}
-\begin{dokaz}
-    Naj bo $2^{e}$ najmanjša dvojiška potenca, večja ali enaka $m$. Potem velja $2^{e} < 2m$ in nastavimo \begin{equation*}
-    w_1' := w_1, \ldots, w_{m}' := w_{m}, w_{m+1}' := w_1, \ldots, w_{2^{e}}' := w_{2^{e} - m}. 
-    \end{equation*}  
-\end{dokaz}
 
-Ta rezultat lahko nekoliko omilimo, da dobimo bolj praktično oceno.
-\begin{posledica}
-\label{psl_komutatorska_lema_prakticna}
-Naj bo $k \ge 2$ in naj bodo podane netrivialne besede $w_1, \ldots, w_m \in  F_k$. Potem obstaja beseda $w \in  F_k$ dolžine \begin{equation*}
-l(w) \le 8m^2 \left(1 + \max_{i = 1, \ldots, m} l(w_i) \right)
-\end{equation*}      
-\end{posledica}
-\begin{dokaz}
-    To je direktna posledica leme \ref{lem_komutatorska_lema_posplositev} skupaj z dejstvom, da je \begin{equation*}
-    \sum_{i = 1}^{m} l(w_{i}) \le m \max_{i = 1, \ldots, m} l(w_i).
-    \end{equation*}  
-\end{dokaz}
-
-Izkaže se, da lahko z elementarnim dokazom dokažemo nekoliko močnejšo obliko komutatorske leme. Najprej moramo vpeljati naslednjo definicijo.
-
-\begin{definicija}
-\label{def_zakon_v_podmnožici}
-Naj bo $G$ grupa in $H$ njena podmnožica. Beseda $w \in F_k$ je zakon v podmnožici $H$, če za vse izbire $g_1, \ldots, g_k \in H$ velja $w(g_1, \ldots, g_{k}) = 1_G$.
-\end{definicija}
-
-\begin{opomba}
-Beseda $w \in F_k$ je zakon v podmnožici $H \subseteq G$ natanko tedaj, ko je $Z(G, w) \supseteq H^{k}$ ter zakon v vsaki podmnožici $(H_i)_{i = 1}^{n}$ natanko tedaj, ko je $Z(G, w) \supseteq \bigcup_{i = 1}^{n} H_i^{k}$.  
-\end{opomba}
-% TODO malo popravi tole opombo
+To lemo sem v praktično enaki obliki uspel dokazati na bolj elementaten način v obliki leme \ref{psl_komutatorska_lema_nova_splosna}, brez uporabe Nielsenovega izreka. % TODO katerega 
+Ideja za dokaz leme \ref{lem_komutaroska_lema_nova} izvira iz dokaza leme 2 v \cite[str.~7--8]{Schneider_2016}.  
 
 \begin{lema}
 \label{lem_komutaroska_lema_nova}
-Naj bo $G$ grupa, $H_i \subseteq  G$ njene simetrične podmnožice ($H_i = H_i ^{-1}$), in naj bodo $w_{i} \in F_k$ zakon v podmnožici $H_i$ za $i = 1, \ldots, 2^{e}$. Potem obstaja beseda $w \in F_k$ dolžine \begin{equation*}
+Naj bo $G$ grupa, $H_i \subseteq  G$ njene simetrične podmnožice ($H_i = H_i ^{-1}$), in naj bo za vsak $i  \in \{1, \ldots, 2^{e}\}$ beseda $w_{i} \in F_k$ zakon v podmnožici $H_i$. Potem obstaja beseda $w \in F_k$ dolžine \begin{equation*}
 l(w) \le  m \sum_{i = 1}^{n} l(w_i),
 \end{equation*}  
-za katero velja $H_1 \cup  \ldots \cup H_n \subseteq  Z(G, w)$, torej je zakon v vseh podgrupah $H_i$. 
+za katero velja $H_1 \cup  \ldots \cup H_m \subseteq  Z(G, w)$, torej je zakon v vseh podgrupah $H_i$. 
 \end{lema}
 \begin{dokaz}
-Ideja dokaza je pokazati, da lahko v dokazu leme \ref{lem_komutatorska_lema} lahko bolj elementarno -- brez uporabe Nielsenovega izreka -- pokažemo netrivialnost komutatorjev.
+Ideja dokaza je pokazati, da lahko v dokazu komutatorske leme lahko bolj elementarno -- brez uporabe Nielsenovega izreka -- pokažemo netrivialnost komutatorjev.
 Dokaz poteka z indukcijo po $e \in  \mathbb{N}$ za primer $k = 2$, za $k \ge 3$ je dokaz praktično enak oziroma lažji. Naj bo $F_2 = \langle a , b \rangle$. Za $e = 0$ (oziroma $m = 1$) vzamemo zadostuje $w$, njena dolžina je $l(w_1)$, za poljubno grupo $G$ velja $\operatorname{Z}(G, w) \supseteq \operatorname{Z}(G, w_1)$. 
         Zdaj se lotimo indukcijskega koraka v primeru $e \ge 1$ oziroma $m \ge 2$. Naj bodo podane besede $w_1, \ldots, w_{m / 2}, w_{m / 2 + 1}, \ldots, w_{m}$. Po indukcijski predpostavki obstajata besedi $v_1, v_2 \in  F_{k}$, da velja
         \begin{equation*}
@@ -403,7 +389,7 @@ Dokaz poteka z indukcijo po $e \in  \mathbb{N}$ za primer $k = 2$, za $k \ge 3$ 
         Zdaj moramo le še utemeljiti, da lahko besedi $v_1$ ter $v_2$ ustrezno združimo. Če bi takoj definirali $w = [v_1, v_2]$, bi v primeru $v_1 = v_2^{\pm 1}$ namreč dobili trivialno besedo, česar si ne želimo.
         Zato obravnavajmo besedi $v_1$ in $v_2$ glede na to, s katero črko se začneta oziroma končata. Za lažjo notacijo bomo pisali, da je beseda element $V_{s_1 s_2}$, če se začne s črko $s_1 \in \left\{ a^{\pm 1}, b^{\pm 1} \right\}$ in konča s črko $s_2 \in \left\{ a^{\pm 1}, b^{\pm 1}\right\}$.   
         Uvedimo še bijekciji $\tau, \kappa: F_2 \to F_2$, porojeni s predpisi $\tau: a \mapsto a^{-1} , b \mapsto b$ in $\kappa: a \mapsto b, b \mapsto a$. Ni težko preveriti, da z njima lahko vse besede prevedemo na eno izmed oblik $V_{ab}$, $V_{aa}$ ali $V_{aa^{-1}}$. Na primer za besedo $ba^{-1} \in V_{ba^{-1}}$ velja $\tau(\kappa(ba^{-1})) = ab \in V_{ab}$ in podobno za ostale.
-        Najprej besedi $v_1$ in $v_2$ prevedemo na besedi $v_1'$ in $v_2'$, ki sta ene izmed treh oblik. Nato ju z ustrezno uporabo preslikav $\tau$ in $\kappa$ pretvorimo v besedi $v_1''$ in $v_2'$ tako, da komutator $w = [v_1'', v_2'']$ gotovo ne bo trivialen.
+        Najprej besedi $v_1$ in $v_2$ prevedemo na besedi $v_1'$ in $v_2'$, ki sta ene izmed treh oblik. Nato ju z ustrezno uporabo preslikav $\tau$ in $\kappa$ pretvorimo v besedi $v_1''$ in $v_2''$ tako, da komutator $w = [v_1'', v_2'']$ gotovo ne bo trivialen.
         \begin{enumerate}
             \item V primeru $v_1', v_2' \in V_{aa } \cup V_{a a^{-1}}$ nastavimo $v_{2}'' = \kappa(v_2)$.
             \item V primeru $v_1' \in V_{aa}, v_2' \in V_{ab}$ ne pride do krajšanja, imamo namreč \begin{equation*}
@@ -435,14 +421,34 @@ Dokaz poteka z indukcijo po $e \in  \mathbb{N}$ za primer $k = 2$, za $k \ge 3$ 
          l(w) \le m  \sum_{i=1}^{m / 2} l(w_{i}) + m \sum_{i= m / 2 + 1}^{m} l(w_{i})  = m \sum_{i = 1}^{m} l(w_{i}) .
          \end{equation*}
 \end{dokaz}
-
-\begin{posledica}
-\label{psl_komutatorska_lema_splosna}
+To lemo brez težav posplošimo tudi na število besed, ki ni dvojiška potenca.
+\begin{lema}
+\label{psl_komutatorska_lema_nova_splosna}
 Naj bo $G$ grupa, $H_i \subseteq  G$ njene simetrične podmnožice ($H_i = H_i ^{-1}$), in naj bodo $w_{i} \in F_k$ zakon v podmnožici $H_i$ za $i = 1, \ldots, m$. Potem obstaja beseda $w \in F_k$ dolžine \begin{equation*}
-    l(w) \le  4 m \sum_{i = 1}^{n} l(w_i),
+    l(w) \le  4 m \sum_{i = 1}^{m} l(w_i),
     \end{equation*}  
-    za katero velja $H_1 \cup  \ldots \cup H_n \subseteq  Z(G, w)$, torej je zakon v vseh podgrupah $H_i$.
+    za katero velja $H_1 \cup  \ldots \cup H_m \subseteq  Z(G, w)$, torej je zakon v vseh podgrupah $H_i$.
+\end{lema}
+\begin{dokaz}
+    Naj bo $2^{e}$ najmanjša dvojiška potenca, večja ali enaka $m$. Potem velja $2^{e} < 2m$ in nastavimo \begin{equation*}
+    w_1' := w_1, \ldots, w_{m}' := w_{m}, w_{m+1}' := w_1, \ldots, w_{2^{e}}' := w_{2^{e} - m}. 
+    \end{equation*}
+    Ker velja $m < 2m$ in $\sum_{i = 1}^{2^{e}} w_i' \le 2 \sum_{i = 1}^{m} l(w_i)$, ocena sledi z uporabo \ref{lem_komutaroska_lema_nova}  
+\end{dokaz}
+
+
+Ta rezultat lahko nekoliko omilimo, da dobimo bolj praktično oceno.
+\begin{posledica}
+\label{psl_komutatorska_lema_prakticna}
+Naj bo $k \ge 2$ in naj bodo podane netrivialne besede $w_1, \ldots, w_m \in  F_k$. Potem obstaja beseda $w \in  F_k$ dolžine \begin{equation*}
+l(w) \le 4m^2  \max_{i = 1, \ldots, m} l(w_i)
+\end{equation*}      
 \end{posledica}
+\begin{dokaz}
+    To je direktna posledica leme \ref{psl_komutatorska_lema_nova_splosna} skupaj z dejstvom, da je \begin{equation*}
+    \sum_{i = 1}^{m} l(w_{i}) \le m \max_{i = 1, \ldots, m} l(w_i).
+    \end{equation*}  
+\end{dokaz}
 
 % TODO tukaj lahko komentiraš nekaj v zvezi z netrivialno potenco
 
@@ -452,7 +458,7 @@ V podgrupi $C_5$ imamo zakon $x^{5} \in F_2$ dolžine $5$, razširitvena lema \r
 netrivialna beseda $w \in F_2$ dolžine $2 \cdot (5 + 8) = 26$.
 \end{primer}
 
-Čeprav je ta primer enostaven, je ključ do praktično vseh konstrukcij zakonov za družine, kar bomo videli recimo na koncu razdelka \ref{sec_grupe_psl2q} o grupah $\operatorname{PSL}_2(q)$. 
+Čeprav je ta primer enostaven, je ključ do praktično vseh konstrukcij zakonov za družine, kar bomo videli recimo na koncu razdelka \ref{sec_grupe_psl2q} pri obravnavi družine grup $\operatorname{PSL}_2(q)$. 
 
 % Definirajmo namreč grupo \begin{equation*}
 % \Gamma_n = \prod_{G \text{ grupa},\, \lvert G \rvert \le n }  G 
@@ -501,28 +507,7 @@ kjer je $\ker \psi = \operatorname{im} \varphi$, $\varphi$ je injektivni in $\ps
     \end{enumerate}
 \end{dokaz}
 
-Izkaže se, da lahko z elementarnim dokazom dokažemo nekoliko močnejšo obliko komutatorske leme. Najprej moramo vpeljati naslednjo definicijo.
-
-\begin{definicija}
-\label{def_zakon_v_podmnožici}
-Naj bo $G$ grupa in $H$ njena podmnožica. Beseda $w$ je zakon v podmnožici $H$, če za vsak par $g, h \in H$ velja $w(g,h) = 1_G$.
-\end{definicija}
-
-\begin{lema}
-\label{lem_komutaroska_lema_nova}
-Naj bo $G$ grupa, $H_i \subseteq  G$ njene podmnožice in naj bodo $w_{i} \in F_k$ netrivialni zakoni v podmnožici $H_i$ za $i = 1, \ldots, n$. Potem obstaja beseda $w \in F_k$ dolžine \begin{equation*}
-l(w) \le 4 \sum_{i = 1}^{n} l(w_i),
-\end{equation*}  
-ki je zakon v podmnožici $H_1 \cup  \ldots \cup H_n$. 
-\end{lema}
-\begin{dokaz}
-Ideja dokaza je pokazati, da se lahko izognemo tehnični zahtevnosti v dokazu leme \ref{lem_komutatorska_lema}, saj lahko zakone za posamezne podmnožice med seboj združujemo na pameten način.
-
-\end{dokaz}
-
-
-% TODO dodaj nekaj primerov uporabe komutatorske in razširitvene leme (na produktu in na diedrskih grupah)
-% oba ta primera vsebinsko poveži - komutatorska - s problemom, razširitvena - z enostavnimi, nilpotentnimi in rešljivimi grupami + virtualno nilpotentnimi grupami
+% TODO dodaj nekaj primerov uporabe razširitvene leme (na produktu in na diedrskih grupah)
 
 \section{Nilpotentne in rešljive grupe}
 
@@ -588,26 +573,25 @@ Trditev \ref{trd_p_grupe_so_nilpotentne} nam sporoča, da so vse diedrske grupe 
         Niso pa vse nilpotentne grupe rešljive, primer so recimo diedrske grupe $D_{2n}$, kjer $2n$ ni dvojiška potenca. 
     \end{primer}
     
-    Za rešljive grupe veljajo naslednje osnovne lasnosti.
-    
     \begin{trditev}
     \label{trd_lastnosti_resljivih_grup}
+    Za rešljive grupe veljajo naslednje osnovne lasnosti.
      \begin{enumerate}
         \item Vsaka podgrupa rešljive grupe je rešljiva.
         \item Vsak kvocient rešljive grupe je rešljiv.
         \item Naj bo $N \triangleleft G$ in naj bosta $N$ in $G / N$ rešljivi grupi razreda $d_{N}$ oziroma $d_{G / N}$. Potem je $G$ rešljiva grupa razreda največ $d_N + d_{G / N}$.
-        \item Naj bosta $M, N \triangleleft G$ rešljivi razreda $d_M$ oziroma $d_N$. Potem je podgrupa $MN$ rešljiva razreda največ $d_M + d_N$.   
+        \item Naj bosta $M, N \triangleleft G$ rešljivi razreda $d_M$ oziroma $d_N$. Potem je edinka $MN$ rešljiva razreda največ $d_M + d_N$.   
      \end{enumerate}
     \end{trditev}
     \begin{dokaz}
         \begin{enumerate}
-            \item To je očitna posledica dejstva, da za $H \le G$ velja $H^{(k)} \subseteq G^{(k)}$ za vsak $k \in \mathbb{N} \cup \left\{ 0\right\} $
+            \item To je očitna posledica dejstva, da za $H \le G$ velja $H^{(k)} \subseteq G^{(k)}$ za vsak $k \in \mathbb{N} \cup \left\{ 0\right\}$.
             \item Naj bo $G$ rešljiva in naj bo $N \triangleleft G$. Zaradi rešljivosti grupe $G$ obstaja naravno število $d$, da je $G^{k} \subseteq N$ za vse $k \ge d$, kar implicira $ (G / N)^{(k)} = \left\{ 1_{G / N}\right\}$ za vse $k \ge d$. 
             \item Ker je $G / N$ rešljiva grupa razreda $n_{G / N}$, bo $G^{(k)} \subseteq N$ za vse $k \ge d_{G / N}$. Ker je $N$ rešljiva razreda $d_N$, bo nadalje veljalo $G^{(k)} = \left\{ 1_G\right\}$ za vse $k \ge d_M + d_N$.
-            \item Dokaz je povzet po opombi 4 iz \cite[str.4]{Schneider_2016}. Po drugem izreku o izomorfizmu lahko zapišemo kratko eksaktno zaporedje \begin{equation*}
+            \item Dokaz je prirejen po opombi 4 iz \cite[str.4]{Schneider_2016}. Po drugem izreku o izomorfizmu lahko zapišemo kratko eksaktno zaporedje \begin{equation*}
             \mathbf{1} \to M \to MN \to MN / M \cong N / (N \cap M) \to \mathbf{1}.
             \end{equation*}  
-            Ker je $N$ rešljiva, sta po drugi točki trditve tudi grupi $ N / (N \cap M)$ in $ MN / M $ rešljivi razreda $d_N$. Ker je $M$ rešljiva razreda $d_M$, po tretji točki trditve sledi $(MN)^{(k)} = \left\{ 1_{G}\right\}$ za vse $k \ge d_N + d_M$.
+            Ker je $N$ rešljiva, je po drugi točki trditve  njen kvocient $ N / (N \cap M)$ rešljiv razreda največ $d_N$ in posledično tudi kvocient $ MN / M $. Ker je $M$ rešljiva razreda $d_M$, po tretji točki trditve sledi $(MN)^{(k)} = \left\{ 1_{G}\right\}$ za vse $k \ge d_N + d_M$.
         \end{enumerate}
     \end{dokaz}
 
@@ -759,7 +743,7 @@ G^{(n)} \subseteq \gamma_{2^{n}}(G).
 \end{equation*}    
 \end{lema}
 
-Naslednja trditev je kombinacija posledice 4 in leme 11 iz vira \cite{Schneider_2016}.
+Naslednja trditev je kombinacija posledice 4 in leme 11 iz naloge \cite{Schneider_2016}.
 
 \begin{trditev}
 \label{trd_koncna_ugotovitev_nilpotentne_v_nalogi}
@@ -843,11 +827,7 @@ in uporabo razširitvene leme \ref{lem_razsiritvena_lema} vidimo, da za netrivia
 l(w_G) \le  l(w_{S(G)}) l (w_{G / S(G)}).
 \end{equation*}  
 
-TODO nekje dodaj razmislek o sporadičnih in enostavnih grupah
-TODO nekje napiši nekaj o klasifikaciji končnih enostavnih grup
-
 Na straneh 28--31 vira \cite{Schneider_2016} je podan razmislek, kako problem v polenostavnih grupah prevedemo na problem o simetričnih grupah in grupah avtomorfizmov enostavnih grupa. Slednjih se lahko presenetljivo elegantno lotimo s pomočjo Schreierjeve domneve, ki jo bomo formulirali.
-TODO napiši vsaj kot posledico razširivene leme
 
 \begin{definicija}
 \label{def_grupa_zunanjih_avtomorfizmov}
@@ -873,7 +853,7 @@ Tako zgornjo enačbo prevedemo na \begin{equation*}
     l(w_{\operatorname{Aut}(H) }) \le  50 l(w_H).
 \end{equation*}  
 
-% TODO v resnici je bolj smiselno, če ta sklep spada na konec poglavja, saj skupaj poveže vse posamezne ugotovitve
+% TODO v resnici je bolj smiselno, če ta sklep spada na konec poglavja, saj skupaj poveže vse posamezne ugotovitve + pojmi niso tako neznani
 
 Ko vse to združimo, dobimo (TODO napiši po komponentah kaj dobiš). Zdaj se lotimo posameznih delov te enačbe. Ker je podrobna obravnava spošnih enostavnih grup in simetričnih grup preobsežna za okvir te diplomske naloge, bomo zgolj navedli glavne rezultate in povzeli njihove dokaze.
 
@@ -894,17 +874,49 @@ Od tod po enakem postopku kot na koncu razdelka \ref{sec_grupe_psl2q} z uporabo 
 \end{equation*}  
 kjer smo z $\alpha(n)$ označili najkrajši zakon v grupi $S_n$.
 
-Avtorja članka \cite{Kozma_Thom_2016} sta rezultat močno izboljšala in sicer na obliko \begin{equation*}
+Avtorja članka \cite{Kozma_Thom_2016} sta rezultat močno izboljšala in sicer na obliko \begin{equation}\label{eq_kozma_thom}
     \alpha(n)  \le \exp((1 + o(1)) \log(n)^4 \log (\log n))
-\end{equation*}
-z uporabo Liebeckovega izreka, ki opredeli strukturo po
+\end{equation}
+z uporabo: 
+\begin{itemize}
+    \item Liebeckovega izreka (\cite{Liebeck_1984}) o strukturi podgrup grupe $S_n$, ki opredeli vrste podrgup v odvisnosti od načina delovanja na $S_n$. Najpomembnejši rezultat izreka je ugotovitev, da je vsaka podgrupa $\Gamma \subseteq  S_n$, ki ne sodi med prve štiri vrste, omejena z $\lvert \Gamma \rvert \le \exp((1 + o(1)) \log(n)^2)$. 
+    \item Helfgott--Seressov izrek (\cite{Helfgott_Seress_2013}), ki poda asimptotsko oceno za diametre Cayleyjevih grafov grupe $S_n$.
+\end{itemize} 
+Oba rezultata sta zahtevna in temeljita na uporabi klasifikacije končnih enostavnih grup. Dokaz ocene \ref{eq_kozma_thom} v grobem poteka v dveh delih, in sicer za vsak $k \le n$ razdeli pare $(\sigma, \tau) \in S_k^2$ na tiste,
+ki generirajo grupo $S_k$ ali $A_k$ (to je prva vrsta podgrup po Liebeckovem izreku) in na pare, ki generirajo preostale vrste podgrup.
+\begin{enumerate}
+    \item Najprej za vsako naravno število $k \le n$ s $P(k)$ označimo množico $k$-ciklov grupe $S_k$. Helfgott-Seressov izrek nam zagotovi obstoj množice $W \subseteq F_2$, velikosti $\lvert W \rvert \le 8n^2 \log n$, da za vsak $w \in W$ velja \begin{equation}\label{eq_helfgot_ocena}
+        l(w) \le \exp((1 + o(1)) \log(n)^{4} \log(\log(n))).
+    \end{equation}  
+    Še več, za vse $k \le n$ in vse pare $(\sigma, \tau) \in S_k^2$, ki generirajo $S_k$,
+    obstaja beseda $w \in W$, tako da je $w(\sigma, \tau) \in P(k)$. Ker beseda $1_{F_2}$ ni $k$-cikel (za $k \ge 2$, primer $k = 1$ pripada trivialni podgrupi in nas ne zanima), je beseda $w$ netrivialna. Nato definiramo množico \begin{equation*}
+    W' = \left\{ w^{k}  \middle|\,  w \in W , \, 1 \le  k \le  n \right\}, 
+    \end{equation*}  
+    ki ne vsebuje enote $1_{F_2}$, ker je grupa $F_2$ torzijsko prosta (TODO skliči se na dokaz te trditve v uvodu, velikokrat se ga posredno uporablja). S pomočjo ocene moči $W$ sklepamo $\lvert W' \rvert \le 8 n^3 \log n$.
+    Ker za vsak $k \le n$ in za vsak $(\sigma, \tau) \in S_k^2$ obstaja beseda $w \in W'$, da je $w(\sigma, \tau) = 1_{F_2}$, po komutatorski lemi \ref{psl_komutatorska_lema_prakticna} in oceni \ref{eq_helfgot_ocena} obstaja netrivialna beseda $v \in F_2$, dolžine
+    \begin{equation*}
+    l(v) \le \exp((1 + o(1)) \log(n)^{4} \log(\log(n))).
+    \end{equation*}  
+    \item V drugem primeru z obravnavanjem podgrup po Liebeckovem izreku konstruiramo netrvialno besedo $\tilde{v} \in F_2$, ki trivializira vse pare $(\sigma, \tau) \in S_k^2$, ki ne generirajo
+    grupe $S_k$ (veljati mora $\tilde{v}(\sigma, \tau) = 1_{F_2}$ za vse pare s to lastnostjo). Na primer, v prvo vrsto spadajo podgrupe oblike $S_k$ ali $A_k$, ki spadajo pod prejšnjo točko dokaza, mejo za meto vrsto pa nam direktno podaja Liebeckov izrek. Vrste dva do štiri je treba obravnavati
+    vsako posebej. Na koncu zakone za posamezne vrste grup povežemo s komutatorsko lemo.    
+\end{enumerate}
+
+Avtorja sta razdelek končala z mislijo (\cite[str.~82]{Kozma_Gady_2016}), da po Babaijevi domnevi sledi po praktično enakem dokazu ocena \begin{equation*}
+\alpha(n) \le \exp((1 + o(1)) \log{n} \log(\log (n))) = n^{(1 + o(1)) \log(\log(n))}.
+\end{equation*}  
+
+\begin{trditev}
+\label{trd_babaijeva_domneva}
+ TODO, vprašaj Jezernika za vir ? Citiraj predstavitev ?? 
+\end{trditev}
 
 \subsection{Enostavne grupe}
-
 
 % kratek opis članka https://arxiv.org/abs/1811.05401v2
 % kako ta članek vpliva na grupe PSL_2(q)
 
+TODO dodaj razmislek o sporadičnih in enostavnih grupah in napiši nekaj o klasifikaciji končnih enostavnih grup
 
 \subsection{Grupe $PSL_2(q)$}\label{sec_grupe_psl2q}
 
@@ -933,7 +945,7 @@ Tekom tega poglavja bo $p$ vedno označevalo praštevilo, $q$ pa praštevilsko p
     \end{dokaz}
     \noindent
     Direktna posledica te leme je recimo dejstvo, da grupa $\text{Sym}(\mathbb{N})$ nima netrivialnih zakonov, saj vsebuje vse $\operatorname{PSL}_2(p)$ kot podgrupe.
-    Druga taka grupa je recimo $\operatorname{SL}_2(\mathbb{Z})$, saj vsebuje vse grupe $\operatorname{PSL}_2(q)$ kot kvociente (TODO najdi vir in razloži). 
+    Druga taka grupa je recimo $\operatorname{SL}_2(\mathbb{Z})$, saj vsebuje vse grupe $\operatorname{PSL}_2(q)$ kot kvociente (TODO pri Jezerniku je to za domačo nalogo). 
     Ker se zakoni prenašajo na kvociente, enako kot v prvem primeru sklepamo, da $\operatorname{SL}_2(\mathbb{Z})$ ne more imeti netrivialnih zakonov.   
 
     \subsubsection{Konstrukcija zakonov v grupah $PSL_2(q)$}
@@ -975,11 +987,14 @@ Tekom tega poglavja bo $p$ vedno označevalo praštevilo, $q$ pa praštevilsko p
     Ker velja $\det A = \alpha \alpha^{q} = 1$, red $A$ deli število $q-1$.
     \end{enumerate}   
 \end{dokaz}
-\noindent
-    Za konkretno grupo $G = \operatorname{PSL}_2(q)$ definirajmo podmnožice $H_m := \left\{ A \in \operatorname{PSL}_2(q)  \middle|\,  A^{m} = I \right\}$ za števila $m \in \left\{ p, q-1 , q+1\right\}$.
-    Po razmisleku iz prejšnje leme te podmnožice tvorijo pokritje $G$. Z uporabo komutatorske leme (TODO tu se moraš sklicati na svojo obliko !!), je netrivialni zakon v grupi $G$ oblike \begin{equation*}
-    w = [[x^{p}, y^{q-1}], y^{q + 1}] = x^{p} y^{q-1} x^{-p} \cancel{ y^{1 - q}} y^{q + 1} \cancel{y^{q -1}} x^{p} y^{1 - q} x^{-p} y^{- q - 1}= x^{p} y^{q-1} x^{-p}  y^{q + 1} x^{p} y^{1 - q} x^{-p} y^{- q - 1} 
+    Za konkretno grupo $G = \operatorname{PSL}_2(q)$ definirajmo podmnožice \begin{equation*}
+        H_m := \left\{ A \in \operatorname{PSL}_2(q)  \middle|\,  A^{m} = I \right\}
     \end{equation*}  
+       za števila $m \in \left\{ p, q-1 , q+1\right\}$.
+    Po razmisleku iz prejšnje leme te podmnožice tvorijo pokritje $G$. Z uporabo komutatorske leme \ref{lem_komutaroska_lema_nova}, je zakon v grupi $G$ beseda oblike \begin{align*}
+        w &= [[x^{p}, y^{q-1}], y^{q + 1}]  \\
+         &= x^{p} y^{q-1} x^{-p} \cancel{ y^{1 - q}} y^{q + 1} \cancel{y^{q -1}} x^{p} y^{1 - q} x^{-p} y^{- q - 1}= x^{p} y^{q-1} x^{-p}  y^{q + 1} x^{p} y^{1 - q} x^{-p} y^{- q - 1} 
+    \end{align*}  
     dolžine \begin{equation*}
     l(w) = 4(p + q) \le 8q. 
     \end{equation*}
@@ -1005,7 +1020,8 @@ Tekom tega poglavja bo $p$ vedno označevalo praštevilo, $q$ pa praštevilsko p
     \end{equation*}  
      Potem velja $\tau(x) = (1 + o(1)) \frac{n}{\log(n)}$.     
     \end{lema}
-    Ta lema je ena izmed oblik osnovnega izreka o praštevilih, ki ga je prvi dokazal (TODO kdo, katerega leta). Ker je dokaz netrivialen, ga bomo opustili, bralec ga lahko najde v (TODO). 
+    Ta lema je ena izmed oblik osnovnega izreka o praštevilih. Leta 1851 je Čebišev dokazal (\cite[str.~4--5]{Granville_1993}), da limita $\frac{\tau(x)}{x / \log(x)}$ -- če le obstaja -- mora biti 1, kar bi potrdilo Gaussovo domnevo. Obstoja limite mu ni uspelo dokazati, je pa to uspelo Riemannu v svojem znamenitem članku \cite{Riemann_1859} leta 1859, v katerem je povezal porazdeltev praštevil s funkcijo zeta in formuliral Riemannovo hipotezo.
+    Ker je dokaz netrivialen, ga bomo opustili, Riemann ga je v prej omenjenem članku dokazal z uporabo kompleksne analize. 
     Nekoliko več o tej lemi piše v članku \cite{Kozma_Thom_2016}.            
     \noindent
     Zdaj se lahko lotimo konstrukcije netrivialnega zakona za vse grupe oblike $\operatorname{PSL}_2(q)$, moči manjše ali enake številu $n \in \mathbb{N}$. Z uporabo lem \ref{lem_velikost_grupe_psl2q} in \ref{lem_gostota_prastevil}
