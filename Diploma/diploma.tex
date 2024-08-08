@@ -482,7 +482,7 @@ kjer je $\ker \psi = \operatorname{im} \varphi$, $\varphi$ je injektivni in $\ps
     Naj bo \begin{equation*}
         \mathbf{1} \to N \to G \to G / N \to  \mathbf{1}  
     \end{equation*}  
-    kratko eksaktno zaporedje grup. Naj bo $F_k = \langle x_1, \ldots, x_k \rangle  = \langle S \rangle$. Naj bo $w_N \in F_k$ netrivialni zakon za $N$ in $w_{ G / N} \in  F_k$ netrivialni zakon za $G / N$. 
+    kratko eksaktno zaporedje grup. Naj bo $F_k = \langle a_1, \ldots, a_k \rangle  = \langle S \rangle$. Naj bo $w_N \in F_k$ netrivialni zakon za $N$ in $w_{ G / N} \in  F_k$ netrivialni zakon za $G / N$. 
     Potem obstaja netrivialni $k$-črkovni zakon za grupo $G$ dolžine kvečjem $l(w_N) l( w_{ G / N } )$. Od tod sledi \begin{equation*}
     \operatorname{girth}_{k}(G) \le \operatorname{girth}_{k}(N) \operatorname{girth}_{k}( G / N ). 
     \end{equation*}  
@@ -491,11 +491,11 @@ kjer je $\ker \psi = \operatorname{im} \varphi$, $\varphi$ je injektivni in $\ps
     Dokaz obravnava dva možna primera oblike zakona za $w_{ G / N }$. 
     \begin{enumerate}
         \item Če je $w_{ G / N } = s^{n}$ za neki $s \in S$, $n \in  \mathbb{Z} \setminus \left\{ 0\right\} $, so vse besede oblike $t^{n}$, kjer je $t \in S$, zakoni za $G / N$. Zato lahko vzamemo besedo \begin{equation*}
-        w = w_N(x_1^{n}, \ldots, x_{k}^{n}),
+        w = w_N(a_1^{n}, \ldots, a_{k}^{n}),
         \end{equation*}  
         ki je netrivialni zakon za $G$. To sledi iz dejstev, da preslikava $g \mapsto g^{n}$ slika $G$ v $N$ (ker je $s^{n}$ zakon za $G / N$), $w_N$ pa je netrivialni zakon za $N$.    
-    \item Sicer lahko brez škode za splošnost predpostavimo, da je zakon oblike $w_{ G / N} = x_1 w_{ G / N}' x_2$, kjer se $w_{ G / N}'$ niti ne začne z $x_1^{-1}$ niti konča z $x_2^{-1}$. To smemo storiti, ker lahko na besedi uporabimo ciklino rotacijo in vzamemo 
-    $w_{ G / N}'' = s w' t$, pri čemer $s, t \in  S \cup  S^{-1}$ in $st \neq 1$. Če je potrebno, lahko na tej besedi uporabimo avtomorfizem grupe $F_k$, ki ga inducirajo $s \mapsto x_1$, $x_1 \to s$, $x_2 \mapsto t$, $t \mapsto x_2$ in $r \mapsto r$ za vse ostale $r \in S$.  
+    \item Sicer lahko brez škode za splošnost predpostavimo, da je zakon oblike $w_{ G / N} = a_1 w_{ G / N}' a_2$, kjer se $w_{ G / N}'$ niti ne začne z $a_1^{-1}$ niti konča z $a_2^{-1}$. To smemo storiti, ker lahko na besedi uporabimo ciklino rotacijo in vzamemo 
+    $w_{ G / N}'' = s w' t$, pri čemer $s, t \in  S \cup  S^{-1}$ in $st \neq 1$. Če je potrebno, lahko na tej besedi uporabimo avtomorfizem grupe $F_k$, ki ga inducirajo $s \mapsto a_1$, $a_1 \to s$, $a_2 \mapsto t$, $t \mapsto a_2$ in $r \mapsto r$ za vse ostale $r \in S$.  
    Nato definiramo besede \begin{equation*}
    w_i := w_{ G / N}(a_{i}, \ldots, a_{k}, a_1, \ldots, a_{i - 1}). 
    \end{equation*}  
@@ -507,7 +507,17 @@ kjer je $\ker \psi = \operatorname{im} \varphi$, $\varphi$ je injektivni in $\ps
     \end{enumerate}
 \end{dokaz}
 
-% TODO dodaj nekaj primerov uporabe razširitvene leme (na produktu in na diedrskih grupah)
+\begin{primer}
+    S pomočjo te leme lakho dokažemo, da za vsak $n \in \mathbb{N}$ obstaja zakon $w \in F_2$ v diedrski grupi $D_{2n}$ dolžine $8$. Ker ima podgrupa $\langle r \rangle \subseteq D_{2n}$ indeks 2, je edinka,
+    zato lahko tvorimo kratko eksaktno zaporedje \begin{equation*}
+        \mathbf{1} \to \langle r \rangle  \xrightarrow{\varphi} D_{2n} \xrightarrow{\psi} D_{2n} / \langle r \rangle  \to \mathbf{1}.
+        \end{equation*}
+        Ker je podgrupa $\langle r \rangle$ Abelova, je v njej zakon beseda $[a, b] = aba^{-1} b^{-1}$, grupa $D_{2n} / \langle r \rangle$ pa je moči $2$ in je zato v njej zakon beseda $a^2$. Po lemi \ref{lem_razsiritvena_lema} torej obstaja beseda $w \in F_2$ dolžine $l(w) \le  8$, ki je zakov v $D_{2n}$.
+        Če sledimo konstrukciji izreka vidimo, da je to natanko beseda $w = [a^2, b^2] = a^2 b^2 a^{-2} b^{-2}$.   
+\end{primer}
+
+Iz primera je razvidno, da je moč razširitvene leme je še posebej izrazita, kadar ima grupa kakšno edinko z lepimi lastnosti, kot so na primer rešljivost, nilpotentnost ali celo Abelovost. Od tod sledi tudi, da so s stališča obravnave virtualno nilpotentne oziroma rešljive grupe -- torej grupe, ki imajo nilpotentno oziroma rešljivo edinko končnega indeksa --
+praktično enake nilpotentnim oziroma rešljivim. Naravna posledica razširitvene leme je tudi dejstvo, da bistveno vlogo pri iskanju kratkih zakonov igrajo enostavne grupe, saj lahko problem iskanja zakonov v neenostavnih grupah vedno prevedemo na dva manjša; na problema edinke in njenega kvocienta.  
 
 \section{Nilpotentne in rešljive grupe}
 
