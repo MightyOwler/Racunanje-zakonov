@@ -520,7 +520,7 @@ da za vsako grupo $G$ velja \begin{equation*}
 \end{equation*}    
 \end{lema}
 
-% To lemo sem v praktično enaki obliki uspel dokazati na bolj elementaten način v obliki leme \ref{lem_komutatorska_lema_splosna}, brez uporabe Nielsenovega izreka. % TODO katerega 
+% To lemo sem v praktično enaki obliki uspel dokazati na bolj elementaten način v obliki leme \ref{lem_komutatorska_lema_splosna}, brez uporabe Nielsenovega izreka.
 % Ideja za dokaz leme \ref{lem_komutaroska_lema_nova} izvira iz dokaza leme 2 v \cite[str.~7--8]{Schneider_2016}.  
 
 % \begin{lema}
@@ -901,7 +901,8 @@ Direktna posledica te leme je naslednja ugotovitev za rešljive grupe.
     torej bo $w$ zakon za grupo $G$. Po prejšnji lemi obstaja netrivialna beseda dolžine $C_1 \iota^{n} +o(1)$ v $F_2^{(n)}$, ki je iskani netrivialni zakon za grupo $G$.
 \end{dokaz}
 
-Zdaj moramo to znanje le še prevesti na nilpotentne grupe. Brez dokaza (najdemo ga lahko v TODO, ideja je ... ) bomo privzeli naslednjo znano lemo. 
+Zdaj moramo to znanje le še prevesti na nilpotentne grupe. Brez dokaza (najdemo ga lahko v \cite[str.~17--18]{Schneider}) bomo privzeli naslednje razmeroma znano dejstvo o členih
+spodnje centralne vrste. 
 
 \begin{lema}
 \label{lem_povezava_med_spodnjo_in_izpeljano_vrsto}
@@ -1278,7 +1279,7 @@ Z njegovo pomočjo je namreč lažje opaziti in posledično dokazati naslednje l
 \begin{trditev}
 \label{trd_lastnosti_zakonov_ciklicne}
  Za vsako ciklično grupo $C_n$ je \begin{equation*}
- F_2 / K(C_n, 2) \approx C_n \times C_n
+ F_2 / K(C_n, 2) \cong C_n \times C_n
  \end{equation*}  
  in posledično sledi \begin{equation*}
 \left[ F_2 : K(C_n, 2) \right] = n^2.
@@ -1286,8 +1287,32 @@ Z njegovo pomočjo je namreč lažje opaziti in posledično dokazati naslednje l
 Z drugimi besedami, delež zakonov v cikličnih grupah med vsemi besedami je $1 / n^2$.
 \end{trditev}
 \begin{dokaz}
-
+Naj bo $F_2 = \langle a, b \rangle$.
+Najti moramo epimorfizem $F_2 \to C_n \times C_n$ z jedrom $K(C_n ,2)$. Naj bo $\xi \in C_n$ generator ciklične grupe. Definirajmo preslikavo $\varphi: F_2 \to C_n \times C_n$,
+inducirano s slikama elementov $a \mapsto (\xi, 1_{C_n})$ in $b \mapsto (1_{C_n}, \xi)$.
 \end{dokaz}
+
+\begin{posledica}
+\label{psl_lastnosti_zakonov_elementarno_abelove}
+Naj bo grupa $G$ elementarno Abelova, torej $G = \prod_{i = 1}^{n} C_{p^{k_{i}}}$. Potem velja $F_2 / K(G, 2) \cong C_{p^{k}} \times C_{p^{k}}$, kjer je $k = \max_{i = 1 , \ldots , n} k_i$.
+\end{posledica}
+\begin{dokaz}
+To smo v resnici že razmislili (TODO v uvodnem poglavju napiši ta razmislek, ali pri komutatorski lemi). 
+Beseda $w \in F_2$ je namreč zakon v $C_{p^{k}}$ natanko tedaj, ko je zakon v vsakem faktorju produkta $\prod_{i = 1}^{n} C_{p^{k_{i}}}$. Implikacija v levo je zato očitna, implikacija v desno pa tudi,
+saj za vsak $i = 1 , \ldots , n$ velja $C_{p^{k_{i}}} \le C_{p^{k}}$, zakoni pa se prenašajo na pogrupe.
+\end{dokaz}
+
+\begin{posledica}
+\label{psl_lastnosti_zakonov_splosni_produkti_ciklicnih}
+Naj bo grupa $G$ poljubni končni produkt cikličnih grup. Natančneje, naj bo $G = \prod_{i = 1}^{n} \prod_{j = 1}^{n_i} C_{p_{i}^{k_{i,j}}}^{m_j}$, kjer so za vsak $i = 1, \ldots, n$ $p_i$ paroma različna praštevila, števila $n_i, m_{i} \ge 1$, in vsak $j = 1, \ldots , n_i$ števila $k_{i, j} \ge 1$ paroma različna. % TODO to se ne sliši prav
+Naj bodo $k_i = \max_{j = 1, \ldots, n_i}$. Potem velja $F_2 / K(G, 2) \cong C_{l} \times C_{l}$, kjer je $l = p_1^{k_1} \cdot p_n^{k_n}$.
+\end{posledica}
+\begin{dokaz}
+V luči prejšnje posledice je beseda $w \in F_2$ zakon v grupi $C_l$ natanko tedaj, ko je zakon v grupi $\prod_{i = 1}^{n} C_{p^{k_i}}$, ki je po klasifikaciji končnih Abelovih grup izomorfna $C_l$.
+\end{dokaz}
+
+
+
 
 
 
