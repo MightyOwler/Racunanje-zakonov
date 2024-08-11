@@ -74,6 +74,7 @@
 
 \usepackage{tikz}
 \usepackage{cancel}
+\usepackage{listings}
 
 % deklarirajte vse matematične operatorje, da jih bo LaTeX pravilno stavil
 % \DeclareMathOperator{\...}{...}
@@ -1233,17 +1234,66 @@ kar vsekakor ni ravno spodbudno. Pa vendar se v praksi izkaže, da ti indeksi de
     \left[ F_2 : K(D_{10}, 2) \right] &= 2^2 \cdot 5^{5} = 12500, \\
     \left[ F_2 : K(S_3, 2) \right] &= 2^2 \cdot 3^{5} = 972, \\
     \left[ F_2 : K(A_4, 2) \right] &= 2^{10} \cdot  3^{2} = 9216, \\
-    \left[ F_2 : K(A_5, 2) \right] &= 2^{48} \cdot  3^{24} \cdot 5^{24} = 4738381338321616896000000000000000000000000.
+    \left[ F_2 : K(A_5, 2) \right] &= 2^{48} \cdot  3^{24} \cdot 5^{24} \approx 4.73 \cdot 10^{42}.   % 4738381338321616896000000000000000000000000.
 \end{align*}
 
 V splošnem ni veliko grup, za katere bi poznali točne vrednosti teh kvocientov \cite[str.~1]{Cocke_2020}. Rezultatov za grupe $\operatorname{PSL}_2(q)$ nisem našel.
 
 \subsection{Iskanje generatorjev zakonov za nilpotentne grupe}
 
-Kot smo videli v prejšnjem poglavju, moramo do problema pristopiti bolj zvito. 
+Kot smo videli v prejšnjem poglavju, moramo do problema pristopiti bolj zvito. Delež zakonov med vsemi dvočrkovnimi besedami nam določa kvocient \begin{equation*}
+\bigslant{F_2}{\bigcap_{\varphi \in \operatorname{Hom}(F_2, G)}}.  
+\end{equation*}  
+Vemo že, da je grupa $F_2^{\exp(G)} = \left\{ w^{\exp(G)}  \middle|\, w \in F_2 \right\}$ edinka v $F_2$. (TODO tega v resnici nisem nikjer pokazal, je treba).
+Zato lahko po tretjem izreku o izomorfizmu zapišemo 
+\begin{equation*}
+    \bigslant{F_2}{\bigcap_{\varphi \in \operatorname{Hom}(F_2, G)}} \cong \dfrac{\bigslant{F_2}{F_2^{\exp(G)}}}{\bigslant{ \left( \bigcap\limits_{\varphi \in \operatorname{Hom}({F_2} / {F_2^{\exp(G)}}, G)} \ker \varphi \right) }{F_2^{\exp(G)}}}.
+\end{equation*}  
+  
+S tem smo problem poenostavili, saj nam za izračun zakonov ni več treba računati jeder vseh homomorfizmov $F_2 \to G$, temveč le še $F_2 / F_2^{\exp(G)} \to G$.
+Če je grupa $G$ nilpotentna razreda $d$, uporabimo podoben razmislek. 
+ (TODO to bo treba dokazati pri nilpotentnih grupah) 
+Ker je poljubni člen spodnje centralne vrste edinka v $F_2$, je tudi grupa $\gamma_{d+ 1}(F_2)$.
+Produkt edink je edinka, zato je tudi $F_2^{\exp(G)} \gamma_{d+ 1}(F_2)$ edinka v $F_2$, in lahko tvorimo kvocient 
+\begin{equation*}
+    \bigslant{F_2}{\bigcap_{\varphi \in \operatorname{Hom}(F_2, G)}} \cong \dfrac{\bigslant{F_2}{F_2^{\exp(G)}\gamma_{d+1}(F_2)}}{ \bigslant{ \left( \bigcap\limits_{\varphi \in \operatorname{Hom}({F_2} / {F_2^{\exp(G)}\gamma_{d+1}(F_2)}, G)} \ker \varphi \right) }{F_2^{\exp(G)}\gamma_{d+1}(F_2)}}.
+\end{equation*}
+
+S tem pa smo problem (za nilpotentne grupe) že močno poenostavili, saj vsebuje GAP paket za delo z nilpotentnimi grupami \texttt{nq}, s pomočjo katerega lahko zgornji kvocient izračunamo in obravnavamo kot grupo.
+Na tak način sem izračunal indekse za vse nilpotentne grupe do vključno moči 64. Program je dostopen na repozitoriju (TODO tukaj prilepi ), opisuje ga naslednja psevdokoda. 
+
+\begin{verbatim}
+    vse nilpotentne grupe želenih moči shranimo v seznam 
+    za vsako grupo G iz seznama:
+        izračunamo vrednosti exp(G) in d
+        kvocient := (zgornji izraz z ustreznimi vrednostmi)
+        zakoni := presek homomorfizmov kvocient -> G
+        poračunamo strukturo in velikost kvocienta kvocient/zakoni
+    izračunane rezultate shranimo v datoteko
+\end{verbatim}
+
+Ta pristop do problema je mnogo boljši, saj je ne le bolj povezan s strukturo grup, temveč tudi omogoča boljši vpogled v razumevanje zakonov.
+Z njegovo pomočjo je namreč lažje opaziti in posledično dokazati naslednje lastnosti zakonov. Začnimo s preprostimi.
+
+\begin{trditev}
+\label{trd_lastnosti_zakonov_ciklicne}
+ Za vsako ciklično grupo $C_n$ je \begin{equation*}
+ F_2 / K(C_n, 2) \approx C_n \times C_n
+ \end{equation*}  
+ in posledično sledi \begin{equation*}
+\left[ F_2 : K(C_n, 2) \right] = n^2.
+ \end{equation*}  
+Z drugimi besedami, delež zakonov v cikličnih grupah med vsemi besedami je $1 / n^2$.
+\end{trditev}
+\begin{dokaz}
+
+\end{dokaz}
 
 
-\cite{Cocke_2020}, še posebej pa \cite{Chilebus_Cocke_Ho_2024}
+
+% Po Nielsen--Schreierjevem izreku \ref{izr_nielsen_schreier} sta obe grupi prosti. 
+
+% \cite{Cocke_2020}, še posebej pa \cite{Chilebus_Cocke_Ho_2024}
 
 \section{Zaključek}
 % ...

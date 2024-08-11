@@ -45,6 +45,17 @@ AssignGeneratorVariables(F2); # tole predpiše vrednosti generatorjem
 
 # allgps := AllSmallGroups(Size, 16);
 
+# tole spodaj bi bilo verjetno bolj optimalno ...
+
+# gap> F := FreeGroup( 3 );                               
+# <free group on the generators [ f1, f2, f3 ]>
+# gap> t := ExpressionTrees( "a", "b", "x" );
+# [ a, b, x ]
+# gap> tree := Comm( t[1], t[2] )^3/LeftNormedComm( [t[1],t[2],t[3],t[1]] );
+# Comm( a, b )^3/Comm( a, b, x, a )
+# gap> EvaluateExpTree( tree, t, GeneratorsOfGroup(F) );
+# f1^-1*f2^-1*f1*f2*f1^-1*f2^-1*f1*f2*f1^-1*f2^-1*f1*f2*f1^-1*f3^-1*f2^-1*f1^
+# -1*f2*f1*f3*f1^-1*f2^-1*f1*f2*f1*f2^-1*f1^-1*f2*f1*f3^-1*f1^-1*f2^-1*f1*f2*f3
 
 
 # all_gps := Filtered(List([1..m], n -> AllSmallGroups(Size, n)), G -> true);
@@ -55,8 +66,10 @@ AssignGeneratorVariables(F2); # tole predpiše vrednosti generatorjem
 
 filePath := "C:/Users/jasak/Documents/Jasa/Sola/FMF/3_letnik/Diploma/Program_za_racunsko_iskanje_zakonov/Gap/generatorji_zakonov_v_nilpotentnih_grupah.g";
 
-spodnja_meja := 61;
-zgornja_meja := 70;
+
+# spodnja_meja mora biti več kot 1
+spodnja_meja := 65;
+zgornja_meja := 67;
 
 # all_gps := AllSmallGroups(Size, zgornja_meja);
 # all_gps := Filtered(List([spodnja_meja..zgornja_meja], n -> AllSmallGroups(Size, n)), G -> true);
@@ -75,10 +88,21 @@ lista_razredov := List(all_nilpotent_gps, G -> NilpotencyClassOfGroup(G));
 
 # od tod naprej delaš dalje !!!
 
+# tole Crashne ...
+
+# nq_poskus := NilpotentQuotient(F2/[x^13]: idgens := [x]);
+# F2exp := F2 / [x^exp];
+# Print("Kvocient F2 / F2^exp: ", Size(nq));
+
+
+
 results := [];
 
 for G in all_nilpotent_gps do
     # Step 1: Generate all pairs of elements in the group G
+    # Start timing
+    start_time := Runtime();
+
     pairsinG := Tuples(G, 2);
 
     exp := Exponent(G);
@@ -93,19 +117,27 @@ for G in all_nilpotent_gps do
 
     # Step 4: Find the intersection of all kernels (the "laws" of the group)
     zakoni := Intersection(kers);
+    quotient_group := FactorGroup(nq, zakoni);
+
     zakoni := PcGroupToPcpGroup(zakoni);
+    # nq := PcGroupToPcpGroup(nq);
 
     # Step 5: Print or store the results for this group
-    Print("Struktura grupe: ", StructureDescription(G), "\n");
-    Print("Grupa moči ", Size(G), " razreda nilpotentnosti ", razred_nilpotentnosti, "\n");
-    Print("Grupa zakonov kvocienta: ", zakoni, "\n");
+    Print("Struktura nilpotentne grupe G: << ", StructureDescription(G), " >>\n");
+    Print("Grupa G je moči ", Size(G), " in razreda nilpotentnosti ", razred_nilpotentnosti, "\n");
+    Print("Grupa zakonov kvocienta nq = F2 / (F2^exp gama_", razred_nilpotentnosti + 1, "(F2)): ", zakoni, "\n");
     PrintPcpPresentation(zakoni);
     Print("Generatorji kvocienta: ", GeneratorsOfGroup(zakoni), "\n");
     # Print("PCP prezentacija kvocienta: ", PcpPresentation(zakoni), "\n\n");
 
-    quotient_group := PCGroupQuotient(nq, zakoni);
-    Print("Kvocient grupa nq/zakoni: ", StructureDescription(quotient_group), "\n");
-    Print("Generatorji kvocient grupe: ", GeneratorsOfGroup(quotient_group), "\n");
+    
+    Print("Kvocient nq/zakoni: <<< ", StructureDescription(quotient_group), " >>>\n");
+    Print("Indeks podgrupe zakoni v nq: ", Size(quotient_group), "\n");
+    Print("Generatorji kvocienta nq/zakoni: ", GeneratorsOfGroup(quotient_group), "\n");
+
+    end_time := Runtime();
+    elapsed_time := end_time - start_time;
+    Print("Izračunano v: ", elapsed_time, " ms\n");
     Print("\n");
     
     
