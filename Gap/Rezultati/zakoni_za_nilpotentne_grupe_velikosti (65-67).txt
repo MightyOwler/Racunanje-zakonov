@@ -1,0 +1,12 @@
+Grupa moči 65 razreda nilpotentnosti 1
+Struktura grupe: C65
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 66 razreda nilpotentnosti 1
+Struktura grupe: C66
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 67 razreda nilpotentnosti 1
+Struktura grupe: C67
+Zakoni v kvocientni grupi: Group( id )
+
