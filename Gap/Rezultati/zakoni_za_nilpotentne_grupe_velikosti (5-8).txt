@@ -1,0 +1,32 @@
+Grupa moči 5 razreda nilpotentnosti 1
+Struktura grupe: C5
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 6 razreda nilpotentnosti 1
+Struktura grupe: C6
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 7 razreda nilpotentnosti 1
+Struktura grupe: C7
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 8 razreda nilpotentnosti 1
+Struktura grupe: C8
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 8 razreda nilpotentnosti 1
+Struktura grupe: C4 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 8 razreda nilpotentnosti 2
+Struktura grupe: D8
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 8 razreda nilpotentnosti 2
+Struktura grupe: Q8
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 8 razreda nilpotentnosti 1
+Struktura grupe: C2 x C2 x C2
+Zakoni v kvocientni grupi: Group( id )
+

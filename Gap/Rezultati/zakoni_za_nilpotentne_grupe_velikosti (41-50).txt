@@ -1,0 +1,108 @@
+Grupa moči 41 razreda nilpotentnosti 1
+Struktura grupe: C41
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 42 razreda nilpotentnosti 1
+Struktura grupe: C42
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 43 razreda nilpotentnosti 1
+Struktura grupe: C43
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 44 razreda nilpotentnosti 1
+Struktura grupe: C44
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 44 razreda nilpotentnosti 1
+Struktura grupe: C22 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 45 razreda nilpotentnosti 1
+Struktura grupe: C45
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 45 razreda nilpotentnosti 1
+Struktura grupe: C15 x C3
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 46 razreda nilpotentnosti 1
+Struktura grupe: C46
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 47 razreda nilpotentnosti 1
+Struktura grupe: C47
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 48 razreda nilpotentnosti 1
+Struktura grupe: C48
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 48 razreda nilpotentnosti 1
+Struktura grupe: C12 x C4
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 48 razreda nilpotentnosti 2
+Struktura grupe: C3 x ((C4 x C2) : C2)
+Zakoni v kvocientni grupi: Group( [ g3^4 ] )
+
+Grupa moči 48 razreda nilpotentnosti 2
+Struktura grupe: C3 x (C4 : C4)
+Zakoni v kvocientni grupi: Group( [ g3^4 ] )
+
+Grupa moči 48 razreda nilpotentnosti 1
+Struktura grupe: C24 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 48 razreda nilpotentnosti 2
+Struktura grupe: C3 x (C8 : C2)
+Zakoni v kvocientni grupi: Group( [ g3^10 ] )
+
+Grupa moči 48 razreda nilpotentnosti 3
+Struktura grupe: C3 x D16
+Zakoni v kvocientni grupi: Group( [ g3^8*g4^2*g5^2, g4^2, g5^2 ] )
+
+Grupa moči 48 razreda nilpotentnosti 3
+Struktura grupe: C3 x QD16
+Zakoni v kvocientni grupi: Group( [ g3^8*g4^2*g5^2, g4^2, g5^2 ] )
+
+Grupa moči 48 razreda nilpotentnosti 3
+Struktura grupe: C3 x Q16
+Zakoni v kvocientni grupi: Group( [ g3^8*g4^2*g5^2, g4^2, g5^2 ] )
+
+Grupa moči 48 razreda nilpotentnosti 1
+Struktura grupe: C12 x C2 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 48 razreda nilpotentnosti 2
+Struktura grupe: C6 x D8
+Zakoni v kvocientni grupi: Group( [ g3^4 ] )
+
+Grupa moči 48 razreda nilpotentnosti 2
+Struktura grupe: C6 x Q8
+Zakoni v kvocientni grupi: Group( [ g3^4 ] )
+
+Grupa moči 48 razreda nilpotentnosti 2
+Struktura grupe: C3 x ((C4 x C2) : C2)
+Zakoni v kvocientni grupi: Group( [ g3^4 ] )
+
+Grupa moči 48 razreda nilpotentnosti 1
+Struktura grupe: C6 x C2 x C2 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 49 razreda nilpotentnosti 1
+Struktura grupe: C49
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 49 razreda nilpotentnosti 1
+Struktura grupe: C7 x C7
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 50 razreda nilpotentnosti 1
+Struktura grupe: C50
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 50 razreda nilpotentnosti 1
+Struktura grupe: C10 x C5
+Zakoni v kvocientni grupi: Group( id )
+

@@ -1,0 +1,80 @@
+Grupa moči 51 razreda nilpotentnosti 1
+Struktura grupe: C51
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 52 razreda nilpotentnosti 1
+Struktura grupe: C52
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 52 razreda nilpotentnosti 1
+Struktura grupe: C26 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 53 razreda nilpotentnosti 1
+Struktura grupe: C53
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 54 razreda nilpotentnosti 1
+Struktura grupe: C54
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 54 razreda nilpotentnosti 1
+Struktura grupe: C18 x C3
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 54 razreda nilpotentnosti 2
+Struktura grupe: C2 x ((C3 x C3) : C3)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 54 razreda nilpotentnosti 2
+Struktura grupe: C2 x (C9 : C3)
+Zakoni v kvocientni grupi: Group( [ g3^3 ] )
+
+Grupa moči 54 razreda nilpotentnosti 1
+Struktura grupe: C6 x C3 x C3
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 55 razreda nilpotentnosti 1
+Struktura grupe: C55
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 56 razreda nilpotentnosti 1
+Struktura grupe: C56
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 56 razreda nilpotentnosti 1
+Struktura grupe: C28 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 56 razreda nilpotentnosti 2
+Struktura grupe: C7 x D8
+Zakoni v kvocientni grupi: Group( [ g3^12 ] )
+
+Grupa moči 56 razreda nilpotentnosti 2
+Struktura grupe: C7 x Q8
+Zakoni v kvocientni grupi: Group( [ g3^12 ] )
+
+Grupa moči 56 razreda nilpotentnosti 1
+Struktura grupe: C14 x C2 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 57 razreda nilpotentnosti 1
+Struktura grupe: C57
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 58 razreda nilpotentnosti 1
+Struktura grupe: C58
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 59 razreda nilpotentnosti 1
+Struktura grupe: C59
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 60 razreda nilpotentnosti 1
+Struktura grupe: C60
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 60 razreda nilpotentnosti 1
+Struktura grupe: C30 x C2
+Zakoni v kvocientni grupi: Group( id )
+

@@ -1,0 +1,12 @@
+Grupa moči 13 razreda nilpotentnosti 1
+Struktura grupe: C13
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 14 razreda nilpotentnosti 1
+Struktura grupe: C14
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 15 razreda nilpotentnosti 1
+Struktura grupe: C15
+Zakoni v kvocientni grupi: Group( id )
+

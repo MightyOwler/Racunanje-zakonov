@@ -1,0 +1,88 @@
+Grupa moči 20 razreda nilpotentnosti 1
+Struktura grupe: C20
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 20 razreda nilpotentnosti 1
+Struktura grupe: C10 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 21 razreda nilpotentnosti 1
+Struktura grupe: C21
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 22 razreda nilpotentnosti 1
+Struktura grupe: C22
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 23 razreda nilpotentnosti 1
+Struktura grupe: C23
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 24 razreda nilpotentnosti 1
+Struktura grupe: C24
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 24 razreda nilpotentnosti 1
+Struktura grupe: C12 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 24 razreda nilpotentnosti 2
+Struktura grupe: C3 x D8
+Zakoni v kvocientni grupi: Group( [ g3^4 ] )
+
+Grupa moči 24 razreda nilpotentnosti 2
+Struktura grupe: C3 x Q8
+Zakoni v kvocientni grupi: Group( [ g3^4 ] )
+
+Grupa moči 24 razreda nilpotentnosti 1
+Struktura grupe: C6 x C2 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 25 razreda nilpotentnosti 1
+Struktura grupe: C25
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 25 razreda nilpotentnosti 1
+Struktura grupe: C5 x C5
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 26 razreda nilpotentnosti 1
+Struktura grupe: C26
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 27 razreda nilpotentnosti 1
+Struktura grupe: C27
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 27 razreda nilpotentnosti 1
+Struktura grupe: C9 x C3
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 27 razreda nilpotentnosti 2
+Struktura grupe: (C3 x C3) : C3
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 27 razreda nilpotentnosti 2
+Struktura grupe: C9 : C3
+Zakoni v kvocientni grupi: Group( [ g3^3 ] )
+
+Grupa moči 27 razreda nilpotentnosti 1
+Struktura grupe: C3 x C3 x C3
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 28 razreda nilpotentnosti 1
+Struktura grupe: C28
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 28 razreda nilpotentnosti 1
+Struktura grupe: C14 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 29 razreda nilpotentnosti 1
+Struktura grupe: C29
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 30 razreda nilpotentnosti 1
+Struktura grupe: C30
+Zakoni v kvocientni grupi: Group( id )
+

@@ -1,0 +1,20 @@
+Grupa moči 40 razreda nilpotentnosti 1
+Struktura grupe: C40
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 40 razreda nilpotentnosti 1
+Struktura grupe: C20 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 40 razreda nilpotentnosti 2
+Struktura grupe: C5 x D8
+Zakoni v kvocientni grupi: Group( [ g3^8 ] )
+
+Grupa moči 40 razreda nilpotentnosti 2
+Struktura grupe: C5 x Q8
+Zakoni v kvocientni grupi: Group( [ g3^8 ] )
+
+Grupa moči 40 razreda nilpotentnosti 1
+Struktura grupe: C10 x C2 x C2
+Zakoni v kvocientni grupi: Group( id )
+

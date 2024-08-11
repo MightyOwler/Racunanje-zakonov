@@ -1,0 +1,1115 @@
+Grupa moči 61 razreda nilpotentnosti 1
+Struktura grupe: C61
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 62 razreda nilpotentnosti 1
+Struktura grupe: C62
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 63 razreda nilpotentnosti 1
+Struktura grupe: C63
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 63 razreda nilpotentnosti 1
+Struktura grupe: C21 x C3
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 1
+Struktura grupe: C64
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 1
+Struktura grupe: C8 x C8
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C8 : C8
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C8 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C4 x C2) : C8
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C8 x C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: Q8 : C8
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C8 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C4 : C4) : C4
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C8 : C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C2 x C2) . ((C4 x C2) : C2) = (C4 x C2) . (C4 x C2)
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C4 : C8) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C2 x C2) . ((C4 x C2) : C2) = (C4 x C2) . (C4 x C2)
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C2 x C2) . ((C4 x C2) : C2) = (C4 x C2) . (C4 x C2)
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C8 : C8
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C8 : C8
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C8 x C2) : C4
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 x C4) : C4
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C4 . (C4 x C4)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C4 : C4) : C4
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C4 : C4) : C4
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C4 x C2) . D8 = C4 . (C4 x C4)
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C4 x C2) : C2) : C4
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C8 : C2) : C4
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C8 x C2) : C4
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3 ] )
+
+Grupa moči 64 razreda nilpotentnosti 1
+Struktura grupe: C16 x C4
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C16 : C4
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C16 : C4
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C16 x C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C16 : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C16 : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: ((C8 : C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: (C4 x C2 x C2) : C4
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: ((C2 x C2 x C2) : C4) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: (C2 x Q8) : C4
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: (C2 . ((C4 x C2) : C2) = (C2 x C2) . (C4 x C2)) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: C2 . ((C2 x C2 x C2) : C4) = (C4 x C2) . (C4 x C2)
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: (C16 x C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: Q16 : C4
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: (C16 x C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: (C16 : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: (C16 : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: C2 . ((C8 x C2) : C2) = C8 . (C4 x C2)
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C4 : C16
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C8 . D8 = C4 . (C8 x C2)
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: C16 : C4
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: C16 : C4
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: C16 : C4
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: C4 . D16 = C8 . (C4 x C2)
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11 ] )
+
+Grupa moči 64 razreda nilpotentnosti 1
+Struktura grupe: C32 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C32 : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3 ] )
+
+Grupa moči 64 razreda nilpotentnosti 5
+Struktura grupe: D64
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12, g13, g14, g15, g16, g17, g18, g19, g20, g21\
+, g22, g23, g24, g25, g26, g27, g28, g29, g30, g31, g32, g33, g34 ] )
+
+Grupa moči 64 razreda nilpotentnosti 5
+Struktura grupe: QD64
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12, g13, g14, g15, g16, g17, g18, g19, g20, g21\
+, g22, g23, g24, g25, g26, g27, g28, g29, g30, g31, g32, g33, g34 ] )
+
+Grupa moči 64 razreda nilpotentnosti 5
+Struktura grupe: Q64
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12, g13, g14, g15, g16, g17, g18, g19, g20, g21\
+, g22, g23, g24, g25, g26, g27, g28, g29, g30, g31, g32, g33, g34 ] )
+
+Grupa moči 64 razreda nilpotentnosti 1
+Struktura grupe: C4 x C4 x C4
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x ((C4 x C2) : C4)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 x C4) : C4
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C4 x ((C4 x C2) : C2)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C4 x (C4 : C4)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x ((C4 x C2) : C2)) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: ((C4 x C2) : C4) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: ((C4 x C2) : C4) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 x C4) : C4
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 x C4) : C4
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 x C4) : C4
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x (C4 : C4)) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x ((C4 x C2) : C2)) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 : C4) : C4
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: ((C4 x C2) : C4) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 : C4) : C4
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x (C4 : C4)) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x Q8) : C4
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x C2 x D8) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: ((C4 x C2) : C4) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x ((C4 x C2) : C2)) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 x C2) : Q8
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x (C4 : C4)) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x (C4 : C4)) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x C2 x C2) . (C2 x C2 x C2)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: ((C4 x C2) : C4) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x C2 x C2) . (C2 x C2 x C2)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x C2 x C2) . (C2 x C2 x C2)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 1
+Struktura grupe: C8 x C4 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x (C8 : C4)
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C4 x (C8 : C2)
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C8 x C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x ((C8 x C2) : C2)
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x (C8 : C2)) : C2
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C8 x C2 x C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C2 x ((C2 x C2 x C2) : C4)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C4 x C4) : C2) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C2 x ((C8 : C2) : C2)
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C2 x (C2 . ((C4 x C2) : C2) = (C2 x C2) . (C4 x C2))
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C2 x (C8 : C2)) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C2 x ((C8 x C2) : C2)
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C2 x (Q8 : C4)
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C4 x C4) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C2 x (C4 : C4)) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C4 x C4) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (Q8 : C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C2 x ((C4 x C4) : C2)
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C2 x (C8 : C2)) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x (C4 : C8)
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 : C8) : C2
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 : C8) : C2
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C2 x (C8 : C4)
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C2 x (C8 : C4)
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C8 : C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C8 : C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C2 x (C4 . D8 = C4 . (C4 x C2))
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C4 . D8 = C4 . (C4 x C2)) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C8 x C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C8 : C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C8 x C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C8 x D8
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x (C8 : C2)) : C2
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x (C8 : C2)) : C2
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C4 x D16
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C4 x QD16
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C4 x Q16
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C4 x Q8) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: Q16 : C4
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C4 x D8) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C8 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C8 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C8 x Q8
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C8 : Q8
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C4 x C2 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C2 x QD16) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C4 x C2 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C2 x Q8) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C2 x Q16) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C2 x Q8) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C4 x C4) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C4 x C4) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C4 x C4) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C4 : Q8) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C2 x C2 x C2 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C4 x C2 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C2 x D16) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C2 x QD16) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (Q8 : C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C4 : Q16
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C8 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C4 x Q8) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C8 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C4 x C2 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (Q8 : C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C8 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C4 x C2 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (Q8 : C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C8 : C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C8 : (C2 x C2)) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C2 . ((C4 x C2) : C2) = (C2 x C2) . (C4 x C2)) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C8 : C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: Q8 : Q8
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C8 : C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: Q8 : Q8
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C8 : C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C2 x C2) . (C2 x D8) = (C4 x C2) . (C2 x C2 x C2)
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C8 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C8 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C8 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (Q8 : C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (Q8 : C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (Q8 : C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C8 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C2 x C2) . (C2 x D8) = (C4 x C2) . (C2 x C2 x C2)
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C8 x C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C8 : C4) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C8 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C2 x C2) . (C2 x D8) = (C4 x C2) . (C2 x C2 x C2)
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C2 x QD16) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C4 x C4) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C4 : Q16
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C4 x C4) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C4 x C4) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C4 : Q8) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C8 : Q8
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C2 x C2) . (C2 x D8) = (C4 x C2) . (C2 x C2 x C2)
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C8 : Q8
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C8 : Q8
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 1
+Struktura grupe: C16 x C2 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x (C16 : C2)
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C16 x C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: C2 x D32
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: C2 x QD32
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: C2 x Q32
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: ((C8 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: ((C8 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11 ] )
+
+Grupa moči 64 razreda nilpotentnosti 4
+Struktura grupe: QD32 : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11 ] )
+
+Grupa moči 64 razreda nilpotentnosti 1
+Struktura grupe: C4 x C4 x C2 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x C2 x ((C4 x C2) : C2)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x C2 x (C4 : C4)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x ((C4 x C4) : C2)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x C4 x D8
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x C4 x Q8
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C4 x ((C4 x C2) : C2)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x ((C4 x C2) : C2)) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 x Q8) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: ((C4 x C4) : C2) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x ((C2 x C2 x C2 x C2) : C2)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x ((C4 x C2 x C2) : C2)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x ((C2 x Q8) : C2)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x ((C4 x C2 x C2) : C2)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x ((C4 x C2) : C2)) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x ((C4 x C4) : C2)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x ((C2 x C2) . (C2 x C2 x C2))
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x ((C4 x C4) : C2)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: ((C4 x C4) : C2) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x ((C4 x C4) : C2)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x (C4 : Q8)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x ((C4 x C2) : C2)) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 x Q8) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x C2 x D8) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x ((C4 x C2) : C2)) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: ((C4 x C4) : C2) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x ((C4 x C2) : C2)) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 x D8) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 x D8) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 x D8) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 x Q8) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 x D8) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: ((C2 x Q8) : C2) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 : Q8) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: D8 x D8
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x ((C4 x C2) : C2)) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x ((C4 x C2) : C2)) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x ((C4 x C2) : C2)) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: Q8 x D8
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x ((C4 x C2) : C2)) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: ((C4 x C4) : C2) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: ((C4 x C4) : C2) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: ((C4 x C4) : C2) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x (C4 : C4)) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: ((C4 x C4) : C2) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: ((C4 x C4) : C2) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: Q8 : Q8
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: Q8 x Q8
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 x D8) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: ((C4 x C2 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: ((C4 x C4) : C2) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: ((C4 x C2 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C4 : Q8) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x C2) . (C2 x C2 x C2 x C2)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 1
+Struktura grupe: C8 x C2 x C2 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x C2 x (C8 : C2)
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x ((C8 x C2) : C2)
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x (C8 : C2)) : C2
+Zakoni v kvocientni grupi: Group( [ g1 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C2 x C2 x D16
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C2 x C2 x QD16
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C2 x C2 x Q16
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C2 x ((C8 x C2) : C2)
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C2 x (C8 : (C2 x C2))
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: C2 x ((C2 x Q8) : C2)
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: ((C8 x C2) : C2) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C2 x D16) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C2 x QD16) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 3
+Struktura grupe: (C2 x Q16) : C2
+Zakoni v kvocientni grupi: Group( [ g1, g2 ] )
+
+Grupa moči 64 razreda nilpotentnosti 1
+Struktura grupe: C4 x C2 x C2 x C2 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x C2 x C2 x D8
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x C2 x C2 x Q8
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x C2 x ((C4 x C2) : C2)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x ((C2 x C2 x C2) : (C2 x C2))
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: C2 x ((C2 x Q8) : C2)
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 2
+Struktura grupe: (C2 x ((C4 x C2) : C2)) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 64 razreda nilpotentnosti 1
+Struktura grupe: C2 x C2 x C2 x C2 x C2 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 65 razreda nilpotentnosti 1
+Struktura grupe: C65
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 66 razreda nilpotentnosti 1
+Struktura grupe: C66
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 67 razreda nilpotentnosti 1
+Struktura grupe: C67
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 68 razreda nilpotentnosti 1
+Struktura grupe: C68
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 68 razreda nilpotentnosti 1
+Struktura grupe: C34 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 69 razreda nilpotentnosti 1
+Struktura grupe: C69
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 70 razreda nilpotentnosti 1
+Struktura grupe: C70
+Zakoni v kvocientni grupi: Group( id )
+

@@ -1,0 +1,80 @@
+Grupa moči 16 razreda nilpotentnosti 1
+Struktura grupe: C16
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 16 razreda nilpotentnosti 1
+Struktura grupe: C4 x C4
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 16 razreda nilpotentnosti 2
+Struktura grupe: (C4 x C2) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 16 razreda nilpotentnosti 2
+Struktura grupe: C4 : C4
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 16 razreda nilpotentnosti 1
+Struktura grupe: C8 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 16 razreda nilpotentnosti 2
+Struktura grupe: C8 : C2
+Zakoni v kvocientni grupi: Group( [ g3^2 ] )
+
+Grupa moči 16 razreda nilpotentnosti 3
+Struktura grupe: D16
+Zakoni v kvocientni grupi: Group( [ g4^2*g5^2, g5^2 ] )
+
+Grupa moči 16 razreda nilpotentnosti 3
+Struktura grupe: QD16
+Zakoni v kvocientni grupi: Group( [ g4^2*g5^2, g5^2 ] )
+
+Grupa moči 16 razreda nilpotentnosti 3
+Struktura grupe: Q16
+Zakoni v kvocientni grupi: Group( [ g4^2*g5^2, g5^2 ] )
+
+Grupa moči 16 razreda nilpotentnosti 1
+Struktura grupe: C4 x C2 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 16 razreda nilpotentnosti 2
+Struktura grupe: C2 x D8
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 16 razreda nilpotentnosti 2
+Struktura grupe: C2 x Q8
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 16 razreda nilpotentnosti 2
+Struktura grupe: (C4 x C2) : C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 16 razreda nilpotentnosti 1
+Struktura grupe: C2 x C2 x C2 x C2
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 17 razreda nilpotentnosti 1
+Struktura grupe: C17
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 18 razreda nilpotentnosti 1
+Struktura grupe: C18
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 18 razreda nilpotentnosti 1
+Struktura grupe: C6 x C3
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 19 razreda nilpotentnosti 1
+Struktura grupe: C19
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 20 razreda nilpotentnosti 1
+Struktura grupe: C20
+Zakoni v kvocientni grupi: Group( id )
+
+Grupa moči 20 razreda nilpotentnosti 1
+Struktura grupe: C10 x C2
+Zakoni v kvocientni grupi: Group( id )
+
