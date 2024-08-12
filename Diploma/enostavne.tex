@@ -1,6 +1,6 @@
 \section{Enostavne, polenostavne in simetrične grupe}
 
-Na prvi pogled se zdi nenavadno obravnavati enostavne in simetrične grupe v istem poglavju. Po strukturi se namreč močno razlikuejo; simetrične grupe imajo bogato strukturo edink (kar nam kažejo recimo izreki Sylowa ? TODO ali res), po drugi strani pa enostavne
+Na prvi pogled se zdi nenavadno obravnavati enostavne in simetrične grupe v istem poglavju. Po strukturi se namreč močno razlikuejo; simetrične grupe imajo bogato strukturo edink, po drugi strani pa enostavne
 nimajo nobenih pravih netrivialnih. Razlog za takšno obravnavo se skriva v postopku za iskanje kratkih zakonov, ki poteka z uporabo naključnih sprehodov. Ta postopek ni konstruktiven, zgolj pokaže nam obstoj nekega kratkega zakona v grupi, čeprav njegove konkretne oblike ne poznamo.
 Naključni sprehodi so se izkazali za ključno orodje pri obravnavi družine enostavnih grup $\operatorname{PSL}_2(q)$, ki bo glavna tema poglavja.
 
@@ -40,8 +40,8 @@ Na straneh 28--31 vira \cite{Schneider_2016} je podan razmislek, kako problem v 
 
 \begin{definicija}
 \label{def_grupa_zunanjih_avtomorfizmov}
-Naj bo $G$ grupa in $\operatorname{Aut}(G)$ njena grupa avtomorfizmov. Znano dejstvo je (TODO enovrstični račun), da je grupa notranjih avtomorfizmov $\operatorname{Inn}(G) = \left\{ x \mapsto g x g^{-1}  \middle|\,  g \in G  \right\}$ njena edinka.
-Kvocientu $\operatorname{Out}(G) :=  \operatorname{Aut}(G)  /  \operatorname{Inn}(G)$ rečemo grupa zunanjih avtomorfizmov grupe $G$. 
+Naj bo $G$ grupa in $\operatorname{Aut}(G)$ njena grupa avtomorfizmov. Ker je grupa notranjih avtomorfizmov $\operatorname{Inn}(G) = \left\{ x \mapsto g x g^{-1}  \middle|\,  g \in G  \right\}$ njena edinka,
+lahko definiramo kvocient $\operatorname{Out}(G) :=  \operatorname{Aut}(G)  /  \operatorname{Inn}(G)$, ki mu rečemo grupa zunanjih avtomorfizmov grupe $G$. 
 \end{definicija}
 
 \begin{izrek}
@@ -62,7 +62,6 @@ Tako zgornjo enačbo prevedemo na \begin{equation*}
     l(w_{\operatorname{Aut}(H) }) \le  50 l(w_H).
 \end{equation*}  
 
-% TODO v resnici je bolj smiselno, če ta sklep spada na konec poglavja, saj skupaj poveže vse posamezne ugotovitve + pojmi niso tako neznani
 
 Ko vse to združimo, dobimo (TODO napiši po komponentah kaj dobiš). Zdaj se lotimo posameznih delov te enačbe. Ker je podrobna obravnava spošnih enostavnih grup in simetričnih grup preobsežna za okvir te diplomske naloge, bomo zgolj navedli glavne rezultate in povzeli njihove dokaze.
 
@@ -103,7 +102,7 @@ ki generirajo grupo $S_k$ ali $A_k$ (to je prva vrsta podgrup po Liebeckovem izr
     obstaja beseda $w \in W$, tako da je $w(\sigma, \tau) \in P(k)$. Ker beseda $1_{F_2}$ ni $k$-cikel (za $k \ge 2$, primer $k = 1$ pripada trivialni podgrupi in nas ne zanima), je beseda $w$ netrivialna. Nato definiramo množico \begin{equation*}
     W' = \left\{ w^{k}  \middle|\,  w \in W , \, 1 \le  k \le  n \right\}, 
     \end{equation*}  
-    ki ne vsebuje enote $1_{F_2}$, ker je grupa $F_2$ torzijsko prosta (TODO skliči se na dokaz te trditve v uvodu, velikokrat se ga posredno uporablja). S pomočjo ocene moči $W$ sklepamo $\lvert W' \rvert \le 8 n^3 \log n$.
+    ki ne vsebuje enote $1_{F_2}$, ker je grupa $F_2$ torzijsko prosta (glej posledico \ref{psl_prosta_grupa_je_torzijsko_prosta}). S pomočjo ocene moči $W$ sklepamo $\lvert W' \rvert \le 8 n^3 \log n$.
     Ker za vsak $k \le n$ in za vsak $(\sigma, \tau) \in S_k^2$ obstaja beseda $w \in W'$, da je $w(\sigma, \tau) = 1_{F_2}$, po komutatorski lemi \ref{psl_komutatorska_lema_prakticna} in oceni \ref{eq_helfgot_ocena} obstaja netrivialna beseda $v \in F_2$, dolžine
     \begin{equation*}
     l(v) \le \exp((1 + o(1)) \log(n)^{4} \log(\log(n))).
@@ -113,14 +112,14 @@ ki generirajo grupo $S_k$ ali $A_k$ (to je prva vrsta podgrup po Liebeckovem izr
     vsako posebej. Na koncu zakone za posamezne vrste grup povežemo s komutatorsko lemo.    
 \end{enumerate}
 
-Avtorja sta razdelek končala z mislijo (\cite[str.~82]{Kozma_Gady_2016}), da po Babaijevi domnevi sledi po praktično enakem dokazu ocena \begin{equation*}
-\alpha(n) \le \exp((1 + o(1)) \log{n} \log(\log (n))) = n^{(1 + o(1)) \log(\log(n))}.
-\end{equation*}  
+% Avtorja sta razdelek končala z mislijo (\cite[str.~82]{Kozma_Gady_2016}), da po Babaijevi domnevi sledi po praktično enakem dokazu ocena \begin{equation*}
+% \alpha(n) \le \exp((1 + o(1)) \log{n} \log(\log (n))) = n^{(1 + o(1)) \log(\log(n))}.
+% \end{equation*}  
 
-\begin{trditev}
-\label{trd_babaijeva_domneva}
- TODO, vprašaj Jezernika za vir ? Citiraj predstavitev ?? 
-\end{trditev}
+% \begin{trditev}
+% \label{trd_babaijeva_domneva}
+%  vprašaj Jezernika za vir ? Citiraj predstavitev ?? 
+% \end{trditev}
 
 \subsection{Enostavne grupe}
 
@@ -232,7 +231,7 @@ Tekom tega poglavja bo $p$ vedno označevalo praštevilo, $q$ pa praštevilsko p
     \end{equation*}  
      Potem velja $\tau(x) = (1 + o(1)) \frac{n}{\log(n)}$.     
     \end{lema}
-    Ta lema je ena izmed oblik osnovnega izreka o praštevilih. Leta 1851 je Čebišev dokazal (\cite[str.~4--5]{Granville_1993}), da limita $\frac{\tau(x)}{x / \log(x)}$ -- če le obstaja -- mora biti 1, kar bi potrdilo Gaussovo domnevo. Obstoja limite mu ni uspelo dokazati, je pa to uspelo Riemannu v svojem znamenitem članku \cite{Riemann_1859} leta 1859, v katerem je povezal porazdeltev praštevil s funkcijo zeta in formuliral Riemannovo hipotezo.
+    Ta lema je ena izmed oblik osnovnega izreka o praštevilih. Leta     1851 je Čebišev dokazal (\cite[str.~4--5]{Granville_1993}), da limita $\frac{\tau(x)}{x / \log(x)}$ -- če le obstaja -- mora biti 1, kar bi potrdilo Gaussovo domnevo. Obstoja limite mu ni uspelo dokazati, je pa to uspelo Riemannu v svojem znamenitem članku \cite{Riemann_1859} leta 1859, v katerem je povezal porazdeltev praštevil s funkcijo zeta in formuliral Riemannovo hipotezo.
     Ker je dokaz netrivialen, ga bomo opustili, Riemann ga je v prej omenjenem članku dokazal z uporabo kompleksne analize. 
     Nekoliko več o tej lemi piše v članku \cite{Kozma_Thom_2016}.            
     \noindent
@@ -241,9 +240,26 @@ Tekom tega poglavja bo $p$ vedno označevalo praštevilo, $q$ pa praštevilsko p
     l(w) \le 8 \left( \frac{3 \sqrt[3]{(1 + o(1)) 2n}}{\log((1 + o(1)) 2n))}  \right)^2 \cdot 8 \sqrt[3]{(1 + o(1)) 2n} \le 1152 (1 + o(1)) \frac{n}{\log(n)^2},
     \end{equation*}  
     ki je zakon za vse grupe $\operatorname{PSL}_2(q)$, moči $n$ ali manj. Ta rezultat ni najboljši in je predstavljal oviro, kot je bilo omenjeno v tretjem odstavku članka \cite[str.~6]{Bradford_Thom_2017}.
-    Izognemo se ji lahko z uporabo naključnih sprehodov.
+    Izognemo se ji lahko z uporabo naključnih sprehodov, ki prinaša naslednji rezultat.
 
-    \subsubsection{Iskanje zakonov v grupah $PSL_2(q)$ z naključnimi sprehodi}
+    \begin{izrek}[Bradford--Thom]
+    \label{izr_bradford_thom}
+    Za vsako naravno število $n \in \mathbb{N}$ obstaja beseda $w \in F_2$ dolžine \begin{equation*}
+        O( n^{2 / 3} {\log(n)}^3),
+        \end{equation*}  
+        ki je zakon v vsaki grupi $\operatorname{PSL}_2(q)$, moči $n$ ali manj.
+    \end{izrek}
+    Dokaz tega izreka je glavni rezultat članka \cite{Bradford_Thom_2017}. Ker je nekoliko preveč specifičen za okvir te naloge, ga opuščamo.
+    Poteka podobno kot dokaz enačbe \ref{eq_kozma_thom}, le da moramo uporabiti ustrezen ekvivalent Helfgott-Seressovega in Liebeckovega izreka. 
+
+    % \subsubsection{Iskanje zakonov v grupah $PSL_2(q)$ z naključnimi sprehodi}
     
-
-\cite{Kozma_Thom_2016}
+    % Celoten dokaz avotrjev članka \cite{Bradford_Thom_2017}, je nekoliko preveč specifičen za okvir te naloge, zato bom opisal le glavno idejo, ki je zelo podobna dokazu enačbe \ref{eq_kozma_thom} pri simetričnih grupah.  
+    % \begin{enumerate}
+    %     \item Helfgott--Seressov izrek \ref{izr_Helfgott_Seress} nam je zagotovil dobre ocene za čase mešanja lenih naključnih sprehodov po Cayleyjevih grafih simetričnih grup. Njegovo vlogo pri tem dokazu nadomesti Breuillard--Gamburdov izrek (trditev 2.5 v \cite[str.~8]{Bradford_Thom_2017}), ki nam sporoča, da 
+    %     obstaja konstanta $\delta > 0$, da za vsako naravno število $n \ge 2$ obstaja razmeroma malo (kvečjem $\sqrt{n}$) praštevil $p$ majših od $n$, za katera bi imel leni naključni sprehod po grupi $\operatorname{PSL}_2(p)$ spektralno razliko manjšo od $\delta$. Intuitivno to pomeni, da bomo lahko ocenili hitrost konvergence lenih spehodov po grupah $\operatorname{PSL}_2(q)$. 
+    %     \item Ekvivalent Liebeckovega izreka o strukturi grup (TODO napiši Liebeckov izrek) nam zagotavlja Dicksonov izrek (trditev 3.10 \cite[str.~8]{Bradford_Thom_2017}).
+    %     \item Vlogo podgrupe $k$-ciklov v simetrični grupi $S_k$, ki smo jo označili smo z $P(k)$, nadomestita Borelovi pogrupi $\operatorname{PSL}_2(q)$, torej podgrupa zgornjetrikotnih in podgrupa spodnjetrikotnih matrik.
+    %     \item Namesto da obravnavamo lene naključne sprehode vsakega zase, jih obravnavamo v parih. S pomočjo Breuillard--Gamburdovega izreka in Dicksonovega izreka navzgor omejimo število potrebnih parov sprehodov, da dobimo par z želenimi lastnostmi.
+    %     \item ... 
+    %     \end{enumerate}
