@@ -7,7 +7,16 @@
 
 
 Recimo, da poznamo zakone v nekaterih podmnožicah grupe $G$, zanima pa nas, kako bi iz njih zgradili zakone za večje podmnožice te grupe. Na to vprašanje odgovarjata komutatorska in razširitvena lema,
-ki sta ključni orodji pri obravnavanju zakonov. Začeli bomo z dokazom komutatorske leme, za katero bomo potrebovali naslednjo definicijo.
+ki sta ključni orodji pri obravnavanju zakonov. Začeli bomo z dokazom komutatorske leme, za katero bomo potrebujemo nekaj definicij.
+
+\begin{definicija}
+    \label{def_izginjajoca_mnozica}
+    Naj bo $w \in  F_k$. Potem množico \begin{equation*}
+    Z(G, w) := \left\{ (g_1, .., g_{k}) \in  G^{k}  \middle|\, w(g_1, \ldots, g_{k}) = 1 \right\} 
+    \end{equation*}  
+    imenujemo izginajoča množica besede $w$ v grupi $G$. Tu $1$ označuje enoto v grupi $G$, $w(g_1, \ldots, g_{k})$ pa sliko elementa $w \in F_k = \langle a_{1}, \ldots , a_k \rangle$ s homomorfizmom,
+    induciranim s preslikavo $\varphi: a_{i} \mapsto g_{i}$ za $i = 1,\ldots, n$ v skladu z definicijo \ref{def_prosta_grupa}.  
+    \end{definicija}
 
 \begin{definicija}\label{def_netrivialna_potenca}
 Naj bo $G$ grupa. Element $g \in  G$ je \emph{periodičen}, če je oblike $g = h^{n}$ za nek element $h \in G$ in naravno število $n \ge  2$. Sicer rečemo, da je $g$ \emph{aperiodičen}.
@@ -224,7 +233,7 @@ kjer je $\ker \psi = \operatorname{im} \varphi$, $\varphi$ je injektivni in $\ps
     \end{equation*}  
     kratko eksaktno zaporedje grup. Naj bo $F_k = \langle a_1, \ldots, a_k \rangle  = \langle S \rangle$. Naj bo $w_N \in F_k$ netrivialni zakon za $N$ in $w_{ G / N} \in  F_k$ netrivialni zakon za $G / N$. 
     Potem obstaja netrivialni $k$-črkovni zakon za grupo $G$ dolžine kvečjem $l(w_N) l( w_{ G / N } )$. Od tod sledi \begin{equation*}
-    \operatorname{girth}_{k}(G) \le \operatorname{girth}_{k}(N) \operatorname{girth}_{k}( G / N ). 
+    \alpha_k(G) \le \alpha_k(N) \alpha_k( G / N ). 
     \end{equation*}  
 \end{lema}
 \begin{dokaz}

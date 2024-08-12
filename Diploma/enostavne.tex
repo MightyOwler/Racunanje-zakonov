@@ -65,7 +65,7 @@ Tako zgornjo enačbo prevedemo na \begin{equation*}
 
 Ko vse to združimo, dobimo (TODO napiši po komponentah kaj dobiš). Zdaj se lotimo posameznih delov te enačbe. Ker je podrobna obravnava spošnih enostavnih grup in simetričnih grup preobsežna za okvir te diplomske naloge, bomo zgolj navedli glavne rezultate in povzeli njihove dokaze.
 
-\subsection{Simetrične grupe}
+\subsection{Simetrične grupe}\label{sec_simetricne_grupe}
 
 % opis članka o Thom - Kozma, napišeš v čem se razlikuje postopek z naključnimi sprehodi
 % opišeš in kometiraš Liebeckov izrek
@@ -102,7 +102,7 @@ ki generirajo grupo $S_k$ ali $A_k$ (to je prva vrsta podgrup po Liebeckovem izr
     obstaja beseda $w \in W$, tako da je $w(\sigma, \tau) \in P(k)$. Ker beseda $1_{F_2}$ ni $k$-cikel (za $k \ge 2$, primer $k = 1$ pripada trivialni podgrupi in nas ne zanima), je beseda $w$ netrivialna. Nato definiramo množico \begin{equation*}
     W' = \left\{ w^{k}  \middle|\,  w \in W , \, 1 \le  k \le  n \right\}, 
     \end{equation*}  
-    ki ne vsebuje enote $1_{F_2}$, ker je grupa $F_2$ torzijsko prosta (glej posledico \ref{psl_prosta_grupa_je_torzijsko_prosta}). S pomočjo ocene moči $W$ sklepamo $\lvert W' \rvert \le 8 n^3 \log n$.
+    ki ne vsebuje enote $1_{F_2}$, ker je grupa $F_2$ torzijsko prosta (glej posledico \ref{trd_prosta_grupa_je_torzijsko_prosta}). S pomočjo ocene moči $W$ sklepamo $\lvert W' \rvert \le 8 n^3 \log n$.
     Ker za vsak $k \le n$ in za vsak $(\sigma, \tau) \in S_k^2$ obstaja beseda $w \in W'$, da je $w(\sigma, \tau) = 1_{F_2}$, po komutatorski lemi \ref{psl_komutatorska_lema_prakticna} in oceni \ref{eq_helfgot_ocena} obstaja netrivialna beseda $v \in F_2$, dolžine
     \begin{equation*}
     l(v) \le \exp((1 + o(1)) \log(n)^{4} \log(\log(n))).
@@ -153,7 +153,7 @@ Tekom tega poglavja bo $p$ vedno označevalo praštevilo, $q$ pa praštevilsko p
     \begin{dokaz}
         TODO, imaš v Schneiderju
     \end{dokaz}
-    \noindent
+
     Direktna posledica te leme je recimo dejstvo, da grupa $\text{Sym}(\mathbb{N})$ nima netrivialnih zakonov, saj vsebuje vse $\operatorname{PSL}_2(p)$ kot podgrupe.
     Druga taka grupa je recimo $\operatorname{SL}_2(\mathbb{Z})$, saj vsebuje vse grupe $\operatorname{PSL}_2(q)$ kot kvociente (TODO pri Jezerniku je to za domačo nalogo). 
     Ker se zakoni prenašajo na kvociente, enako kot v prvem primeru sklepamo, da $\operatorname{SL}_2(\mathbb{Z})$ ne more imeti netrivialnih zakonov.   
@@ -234,7 +234,7 @@ Tekom tega poglavja bo $p$ vedno označevalo praštevilo, $q$ pa praštevilsko p
     Ta lema je ena izmed oblik osnovnega izreka o praštevilih. Leta     1851 je Čebišev dokazal (\cite[str.~4--5]{Granville_1993}), da limita $\frac{\tau(x)}{x / \log(x)}$ -- če le obstaja -- mora biti 1, kar bi potrdilo Gaussovo domnevo. Obstoja limite mu ni uspelo dokazati, je pa to uspelo Riemannu v svojem znamenitem članku \cite{Riemann_1859} leta 1859, v katerem je povezal porazdeltev praštevil s funkcijo zeta in formuliral Riemannovo hipotezo.
     Ker je dokaz netrivialen, ga bomo opustili, Riemann ga je v prej omenjenem članku dokazal z uporabo kompleksne analize. 
     Nekoliko več o tej lemi piše v članku \cite{Kozma_Thom_2016}.            
-    \noindent
+   
     Zdaj se lahko lotimo konstrukcije netrivialnega zakona za vse grupe oblike $\operatorname{PSL}_2(q)$, moči manjše ali enake številu $n \in \mathbb{N}$. Z uporabo lem \ref{lem_velikost_grupe_psl2q} in \ref{lem_gostota_prastevil}
     vemo, da moramo moramo konstruirati zakone za vse grupe $\operatorname{PSL}_2(q)$, za katere je $q \le \sqrt[3]{(1 + o(1)) 2n}$. Od tod dobimo besedo $w \in F_2$ dolžine \begin{equation*}
     l(w) \le 8 \left( \frac{3 \sqrt[3]{(1 + o(1)) 2n}}{\log((1 + o(1)) 2n))}  \right)^2 \cdot 8 \sqrt[3]{(1 + o(1)) 2n} \le 1152 (1 + o(1)) \frac{n}{\log(n)^2},

@@ -1,88 +1,101 @@
 \section{Osnovni pojmi za obravnavo zakonov}
 
-Da lahko natančno formuliramo in razumemo zakone, moramo najprej razumeti teoretično ozadje.
+Za natančno formulacijo in razumevanje zakonov moramo uvesti pojem proste grupe.
 
 \subsection{Proste grupe}
 
-Definicijo zakona \ref{def_zakon_osnovna} lahko bolj formalno zapišemo s pomočjo prostih grup.
+Naslednjo definicijo proste grupe najdemo v članku \cite{Pogacnik_2024}.
 
 \begin{definicija}
 \label{def_prosta_grupa}
-Naj bo $S$ množica. Grupa $F(S)$ je (do izomorfizma natančno) enolična grupa z lastnostjo, da za poljubno grupo $G$ in poljubno preslikavo
-$\varphi: S \to G$ obstaja natanko ena razširitev $\varphi: F(S) \to G$, ki je hkrati homomorfizem grup. 
+Grupa $F$ je \emph{prosta} nad neprazno množico $S$, če za vsako preslikavo $\iota : S \to F$ in vsako grupo $G$ in vsako preslikavo $\iota: X \to  G$ obstaja natanko en homomorfizem $\tilde{\varphi} \in \operatorname{Hom}(F, G)$,
+da velja $\tilde{\varphi} \circ \iota = \varphi$. Z drugimi besedami, spodnji diagram komutira. Tej lastnosti pravimo \emph{univerzalna lastnost prostih grup}.
+ % TODO dodaj ta diagram
 \end{definicija}
 
-\begin{opomba}
-Za poljubni množici $S$ in $T$ velja $F(S) \cong F(T)$ natanko tedaj, ko $\lvert S \rvert = \lvert T \rvert$. Zato lahko v primeru končne množice $\lvert S \rvert = k$ govorimo o 
-prosti grupi ranga $k$, ki jo označimo z $F_k$.
-\end{opomba}
+% https://q.uiver.app/#q=WzAsMyxbMCwwLCJYIl0sWzIsMCwiRyJdLFswLDIsIkYiXSxbMCwxLCJcXHZhcnBoaSJdLFswLDIsIlxcaW90YSIsMl0sWzIsMSwiXFx0aWxkZXtcXHZhcnBoaX0iLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+% \begin{tikzcd}
+% 	X & G \\
+% 	\\
+% 	F
+% 	\arrow["\varphi", from=1-1, to=1-3]
+% 	\arrow["\iota"', from=1-1, to=3-1]
+% 	\arrow["{\tilde{\varphi}}"', dashed, from=3-1, to=1-3]
+% \end{tikzcd}
 
-V viru (\cite[str.~4, tridtev 1.9]{Lyndon_Schupp_2015}) je natančno razloženo znano dejstvo, da lahko elemente proste grupe $F(S)$ predstavimo v obliki okrajšanih besed,
-torej besed oblike $w = s_1 \cdots s_n$, kjer je $s_i \in S \cup S^{-1}$ za $i = 1, \ldots, n$ in $s_i \neq s_{i+1}^{-1}$ za $i = 1, \ldots, n-1$. Tu je $S^{-1} = \left\{ s^{-1}  \middle|\, s \in  S \right\}$.
-Z upoštevanjem tega dejstva lahko elementom proste grupe $F(S)$ določimo dolžino.
+\begin{trditev}
+\label{trd_enolicnost_prostih_grup}
+ Naj bo $S$ neprazna množica. Potem do izomorfizma natančno obstaja največ ena prosta grupa nad množico $S$.
+\end{trditev}
+\begin{dokaz}
+Dokaz trditve je vzet iz \cite[str.~4]{Pogacnik_2024}.
+Naj bosta $F$ in $F'$ prosti grupi nad množico $S$. Označimo z $i$ in $j$ inkluziji $i : S \to F$ in $j : F'$, ki jima po definiciji \ref{def_prosta_grupa} pripadata. Po univerzalni lastnosti prostih grup lahko inkluziji
+razširimo do homomorfizmov $\varphi_i : F' \to F$ in $\varphi_j : F \to F'$. (TODO vstavi komutativni diagram)
+Kompozitum $\varphi_i \circ \varphi_j : F \to F$ je na množici $S$ identiteta. Ker sta tako $\varphi_i \circ \varphi_j$ kot $\text{id}_F$ razširitvi inkluzije $i$,
+mora po enoličnosti razširitev veljati $\varphi_i \circ \varphi_j = \text{id}_F$. Simetrično pokažemo še $\varphi_j \circ \varphi_i  = \text{id}_{F'}$, torej sta grupi $F$ in $F'$ izomorfni.
+\end{dokaz}
+
+Zaradi te trditve je $F(S)$ upravičena oznaka za prosto grupo nad množico $S$. Še več, grupi $F(S)$ in $F(T)$ sta si izomorfni kot grupi natanko tedaj, ko sta si $S$ in $T$ izomorfni kot množici.
+Zato bomo v primeru, ko je $S$ končna množica moči $k$, namesto $F(S)$ pisali $F_k$.
+
+Naj bo sedaj $S$ poljubna neprazna množica. Definiramo grupo okrajšanih besed nad množico $S$ kot \begin{equation*}
+    S^* := \{ s_1 s_2 \cdots s_n  \vert n \in \mathbb{N}, \forall i = 1, \ldots, n.\,  s_i \in S \cup S^{-1} , \forall i = 1 , \ldots n-1 .\, s_i \neq s_{i + 1}^{-1} \}.
+\end{equation*}
+Operacija nad njej je stikanje besed, ki jim nato še okrajšamo sosednje inverze. Ta operacija je dobro definirana, grupa $S^*$ pa prosta nad množico $S$. 
+Ti dejstvi sta natančno dokazani v viru (\cite[str.~4, tridtev 1.9]{Lyndon_Schupp_2015}). Po trditvi \ref{trd_enolicnost_prostih_grup} sledi $S^* \cong F(S)$,
+zato si lahko elemente prostih grup predstavljamo kot okrajšane besede. Z upoštevanjem tega dejstva lahko elementom proste grupe $F(S)$ definiramo dolžino.
 
 \begin{definicija}
 \label{def_dolzina_besede}
-Naj bo $w \in  F(S)$ element proste grupe nad množico $S$ in naj bo njegova okrajšana oblika $w = s_1 \cdots s_n$. Potem številu $n$ pravimo dolžina (besede) $w$ in pišemo $l(w) = n$.
+Naj bo beseda $w \in  F(S)$ oblike $w = s_1 \cdots s_n$. Potem definiramo \emph{dolžino besede} $l(w) = n$.
 \end{definicija}
+\begin{opomba}\label{opm_trikotniska_neenakost}
+    Po definiciji množenja besed v prostih grupah je očitno, da za vsaki besedi $w_1 , w_2$ velja trikotniška neenakost $l(w_1 w_2) \le l(w_1) l(w_2)$.
+\end{opomba}
 
-Brez dokaza bomo privzeli Nielsen--Schreierjev izrek, ki je klasični rezultat v teoriji prosti grup. Bralec lahko dokaz najde v \cite[str.~5--8]{Lyndon_Schupp_2015}
+Pri konstrukciji zakonov stalno uporabljamo naslednjo na videz očitno trditev, ki jo vendarle moramo dokazati. 
+
+\begin{trditev}\label{trd_prosta_grupa_je_torzijsko_prosta}
+    Proste grupe so \emph{torzijsko proste}. Z drugimi besedami, vsi elementi razen enote so neskončnega reda. 
+\end{trditev}
+\begin{dokaz}
+    Naj bo $F(S)$ prosta grupa nad neprazno množico $S$. Recimo, da obstaja beseda $w \in F(S)$ končnega reda oblike $w = a_1 a_2 \ldots a_n$ za paroma neinverzne $a_1, \ldots , a_n \in S$. Naj bo preslikava $j : S \to (\mathbb{Z}, +)$, ki vse elemente $a_i$ slika v pozitivna števila. Po univerzalni lastnosti prostih grup jo lahko razširimo do homomorfizma $\varphi_j \in \operatorname{Hom}(F(S), \mathbb{Z})$. 
+    Ker je $\varphi_j$ homomorfizem, bo $\varphi(w) = \sum_{i = 1}^{n} \varphi(a_i) > 0$. To je prosislovno, saj bi moral red elementa $\varphi(w)$ deliti red besede $w$,
+    grupa $(\mathbb{Z}, +)$ pa je torzijsko prosta, zato je element $\varphi_j(w)$ v njej neskončnega reda.
+\end{dokaz}
+
+
+Brez dokaza bomo privzeli Nielsen--Schreierjev izrek, ki je klasični rezultat v teoriji prosti grup. Potrebovali ga bomo za dokaz komutatorske leme,
+še bolj izrazito pa pri obravnavi zakonov z računalnikom v razdelku \ref{sec_racunalnisko_iskanje}. 
 
 \begin{izrek}[Nielsen--Schreierjev izrek]
 \label{izr_nielsen_schreier}
  Vsaka podgrupa proste grupe je prosta.
 \end{izrek}
 
-Ta izrek ima vrsto pomembnih posledic, ena preprostejših -- pa tudi pomembnejših -- je naslednja. 
+Bralec lahko dokaz najde v \cite[str.~5--8]{Lyndon_Schupp_2015}.
 
-\begin{posledica}
-\label{psl_prosta_grupa_je_torzijsko_prosta}
-Proste grupe so torzijsko proste. Z drugimi besedami, vsi elementi razen enote so neskončnega reda. 
-\end{posledica}
-\begin{dokaz}
-Naj bo $w \in F_k \setminus \left\{ 1_{F_k} \right\}$ beseda in $n > 0$ najmanjše število, da velja $w^{n} = 1_{F_k}$. Potem je \begin{equation*}
-\langle w \rangle = \left\{ 1_{F_{k}}, w, \ldots ,w^{n-1}\right\} \cong C_n, 
-\end{equation*}  
- končne ciklične grupe pa niso proste, s čimer smo prišli v protislovje z Nielsen--Schreierjevim izrekom.  
-\end{dokaz}
+\subsection{Definicija in osnovne lastnosti zakonov}\label{sec_osnovne_lastnosti_zakonov}
 
-\subsection{Definicija in osnovne lastnosti zakonov}
-
-Zdaj definiramo izginjajočo množico besede $w$ v grupi $G$.
-
-\begin{definicija}
-\label{def_izginjajoca_mnozica}
-Naj bo $w \in  F_k$. Potem množico \begin{equation*}
-Z(G, w) := \left\{ (g_1, .., g_{k}) \in  G^{k}  \middle|\, w(g_1, \ldots, g_{k}) = 1 \right\} 
-\end{equation*}  
-imenujemo izginajoča množica besede $w$ v grupi $G$. Tu $1$ označuje enoto v grupi $G$, $w(g_1, \ldots, g_{k})$ pa sliko elementa $w \in F_k = \langle a_{1}, \ldots , a_k \rangle$ s homomorfizmom,
-induciranim s preslikavo $\varphi: a_{i} \mapsto g_{i}$ za $i = 1,\ldots, n$ v skladu z definicijo \ref{def_prosta_grupa}.  
-\end{definicija}
-
-
-Zdaj lahko natančno formuliramo definicjo zakona.
+Za začetek uvedimo blago zlorabo notacije. Naj bo podana prosta grupa $F_k = \langle a_1, \ldots, a_k \rangle$ in naj bo $w$ beseda v njej.
+Naj bo $G$ grupa in naj bodo $g_1, \ldots, g_k \in G$. Potem definiramo \begin{equation*}
+    w(g_1, \ldots, g_k) := \varphi(w),
+\end{equation*}
+kjer je $\varphi \in \operatorname{Hom}(F_k, G)$ po univerzalni lastnosti induciran s slikami $a_i \mapsto g_i$ za $i = 1, \ldots, k$.
+To je formalna definicja intuitivne ideje \glqq vstavljanja konkretnih elementov grupe v abstraktne elemente\grqq iz uvodnega poglavja. Z njeno pomočjo definiramo zakone.
 
 \begin{definicija}\label{def_zakon_formalna}
-Beseda $w \in F_k$ je $k$-črkovni zakon v grupi $G$, če je $Z(G, w) = G^{k}$. Alternativno, beseda $w \in F_k$ je $k$-črkovni zakon v grupi $G$, če jo vsak homomorfizem $\varphi: F_k \to G$ slika v enoto $1 \in G$.   
+    Beseda $w \in F_k$ je \emph{$k$-črkovni zakon v grupi $G$}, če za vse $k$-terice elementov $g_1, \ldots, g_k \in G$ velja $w(g_1, \ldots, g_k) = 1_G$.
+    Za vsako podgrupo $H \le G$ pravimo tudi, da je $w \in F_k$ \emph{$k$-črkovni zakon v podgrupi $H$}, če za vse $k$-terice elementov $h_1, \ldots, h_k \in H$ velja $w(h_1, \ldots, h_k) = 1_G$.
 \end{definicija}
 
-Definirajmo še zakon v podmnožici grupe.
-\begin{definicija}
-    \label{def_zakon_v_podmnožici}
-    Naj bo $G$ grupa in $H$ njena podmnožica. Beseda $w \in F_k$ je zakon v podmnožici $H$, če za vse izbire $g_1, \ldots, g_k \in H$ velja $w(g_1, \ldots, g_{k}) = 1_G$.
-    \end{definicija}
-    
-    \begin{opomba}
-    Beseda $w \in F_k$ je zakon v podmnožici $H \subseteq G$ natanko tedaj, ko je $Z(G, w) \supseteq H^{k}$ ter zakon v vsaki podmnožici $H_1, \ldots, H_n \subseteq G$ natanko tedaj, ko je $Z(G, w) \supseteq \bigcup_{i = 1}^{n} H_i^{k}$.  
-    \end{opomba}
-
-Ta definicija nam omogoča vpogled v strukturo zakonov. Naj $K(G, k) \subseteq F_k$ označuje množico $k$-črkovnih zakonov v grupi $G$. Potem v luči prejšnje definicije velja
+Ta definicija nam omogoča vpogled v strukturo zakonov. Naj \emph{$K(G, k) \subseteq F_k$ označuje množico $k$-črkovnih zakonov v grupi $G$}. Potem v luči prejšnje definicije velja
 \begin{equation*}
-K(G, k)  = \bigcap_{\varphi: F_k \to G} \ker(\varphi).   
+K(G, k)  = \bigcap_{\varphi \in \operatorname{Hom}(F_k, G)} \ker(\varphi).   
 \end{equation*}  
-Ta množica je končni presek edink v $G$ in posledično tudi sama edinka. Še več, invariantna je za vsak avtomorfizem $\alpha: F_k \to  F_k$, saj
+Ta množica je končni presek edink v $G$ in posledično tudi sama edinka. Še več, je karakteristična, saj za vsak avtomorfizem $\alpha \in \operatorname{Aut}(F_2)$ velja
 \begin{equation*}
-    K(G, k)  = \bigcap_{\varphi: F_k \to G} \ker(\varphi) = \bigcap_{\varphi: F_k \to G} \ker(\varphi \circ \alpha). 
+    K(G, k)  = \bigcap_{\varphi \in \operatorname{Hom}(F_k, G)} \ker(\varphi) = \bigcap_{\varphi \in \operatorname{Hom}(F_k, G)} \ker(\varphi \circ \alpha). 
 \end{equation*}  
 To je preprosta posledica dejstva, da $\varphi$ preteče grupo $\operatorname{Hom}(F_k, G)$ natanko tedaj, ko jo preteče $\varphi \circ \alpha$.     
 
@@ -94,26 +107,25 @@ Naj bo $G$ grupa ter $H_1, \ldots, H_n$ njene podgrupe končnega indeksa, torej 
 \end{lema}
 
 \begin{dokaz}
-Dovolj je dokazati trditev za $n = 2$, za višje vrednosti sledi z indukcijo. Naj bosta $H_1, H_2 \le G$ podgrupi končnega indeksa, označimo $S: = H_1 \cup H_2$. Naj bosta $C_1$ in $C_2$ množici odsekov podgrup $H_1$ in $H_2$ v $G$ ter naj bo $C$ množica odsekov podgrupe $S$ v $G$. Definiramo preslikavo $f : C \to  C_1 \times C_2$ s predpisom $f(g S ) = (g H_1, g H_2)$. Desna smer sklepa \begin{equation*}
+Dovolj je dokazati trditev za $n = 2$, za višje vrednosti sledi z indukcijo. Naj bosta $H_1, H_2 \le G$ podgrupi končnega indeksa, označimo $S: = H_1 \cap H_2$, ki je podgrupa v $G$. Naj bosta $A_1$ in $A_2$ množici odsekov podgrup $H_1$ in $H_2$ v $G$ ter naj bo $A$ množica odsekov podgrupe $S$ v $G$.
+ Definiramo preslikavo $f : A \to  A_1 \times A_2$ s predpisom $f(g S ) = (g H_1, g H_2)$. Desna smer sklepa \begin{equation*}
  g S = h S \iff gh^{-1} \in H_1, \, gh^{-1} \in H_2  \iff g H_1 = h H_1, \, g H_2 = h H_2
 \end{equation*}  
-nam podaja dobro definiranost, leva pa injektivnost preslikave $f$, ki nam da $\lvert C \rvert \le  \lvert C_1 \rvert \lvert C_2 \rvert $.    
+nam podaja dobro definiranost, leva pa injektivnost preslikave $f$, ki nam podaja oceno $\lvert A \rvert \le  \lvert A_1 \rvert \lvert A_2 \rvert $.    
 \end{dokaz}
-Z uporabo te leme direktno sledi, da je grupa $K(k)$ podgrupa končnega indeksa v $F_k$. To dejstvo bo še posebej pobmembno pri iskanju zakonov z računalnikom.
+Z uporabo te leme direktno sledi, da je grupa $K(k)$ podgrupa končnega indeksa največ $\lvert G \rvert^{ \lvert G \rvert^k}$ v $F_k$. 
+Za vsak homomorfizem $\varphi \in \operatorname{Hom}(F_k, G)$ namreč po prvem izreku o izomorfizmu velja \begin{equation*}
+    \lvert F_k / \ker \varphi \rvert = \lvert \operatorname{im} \varphi \rvert \le \lvert G \rvert. 
+\end{equation*}
+To dejstvo bo še posebej pobmembno pri iskanju zakonov z računalnikom.
 
-\begin{definicija}\label{def_ozina}
-Število \begin{equation*}
-\operatorname{girth}_{k}(G) := \min \left\{ l(w)  \middle|\,  w \in F_k \setminus \left\{ 1\right\} \text{ je zakon v } G  \right\} \cup \left\{ \infty\right\} 
-\end{equation*}  
-je $k$-črkovna dolžina grupe $G$.  
-\end{definicija}
 
 % TODO tukaj poveži ožino grafa z bistvom naloge, morda poveži z https://www.researchgate.net/publication/2441748_On_The_Girth_Of_Groups
 
 \begin{definicija}
 \label{def_cayleyev_graf}
-Naj bo $G$ grupa in $S \subseteq G$ njena podmnožica, za katero velja $S = S^{-1}$. Potem $\operatorname{Cay}(G, S)$ označuje graf z vozlišči $V = G$ in povezavami
-$E = \left\{ (p, q) \middle|\, p^{-1}q \in  S \right\}$. Imenujemo ga Cayleyjev graf grupe $G$, generiran z množico $S$.  
+Naj bo $G$ grupa in $S \subseteq G$ njena \emph{simetrična} podmnožica. To pomeni, da velja $S = S^{-1} := \{ s^{-1}  \vert s \in S  \}$. Potem $\operatorname{Cay}(G, S)$ označuje graf z vozlišči $V = G$ in povezavami
+$E = \left\{ (p, q) \middle|\, p^{-1}q \in  S \right\}$. Imenujemo ga \emph{Cayleyjev graf grupe $G$, generiran z množico $S$}.  
 \end{definicija}
 
 \begin{opomba}
@@ -121,6 +133,16 @@ Pogoj simetričnosti $S = S^{-1}$ nam pove, da je $\operatorname{Cay}(G, S)$ pra
 (p,q) \in  E \iff p^{-1}q \iff q^{-1}p \iff (q,p) \in  E.
 \end{equation*}  
 \end{opomba}
+
+Preden si ogledamo dva primera, dokažimo nasledjo preprosto, a pomembno trditev.
+
+\begin{trditev}\label{trd_lastnosti_cayleyjevega_grafa}
+    Naj bo $S$ končna grupa moči $k$. Cayleyjev graf $\text{Cay}(G, S)$ je $\lvert S \rvert$-regularen, povezan graf.
+\end{trditev}
+\begin{dokaz}
+    Naj bo $g \in G$ vozlišče Cayleyjevega grafa $\text{Cay}(G, S)$. Potem je $g$ povezano z enoto $1_G$, saj je $\langle S \rangle = G$, torej lahko zapišemo
+    $g = s_1 s_2 \cdots s_n$ za neke elemente $s_i \in S$. Ta produkt določa povezavo v Cayleyjevem grafu. Ker je vsako vozlišče povezano z enoto $1_G$, je graf povezan. Iz $g s_i = g s_j$ sledi $s_i = s_j$, zato iz vsakega vozlišča vodi natanko $\lvert S \rvert$ različnih povezav.
+\end{dokaz}
 
 \begin{primer}
 Na spodnjih slikah imamo Cayleyjev graf grupe diedrske grupe $D_{10} = \langle r, Z \rangle$ za različni generatorski množici.
@@ -159,32 +181,42 @@ TODO nariši desno od tega še graf s 5 generatorji, morda raje Cayleyjev graf p
     \end{center}
 \end{primer}
 
-(TODO dokaz, da je Cayleyjev graf regularen in povezan).
+\begin{definicija}\label{def_ozina}
+    Številu \begin{equation*}
+    \operatorname{\alpha}_{k}(G) := \min \left\{ l(w)  \middle|\,  w \in F_k \setminus \left\{ 1\right\} \text{ je zakon v } G  \right\} \cup \left\{ \infty\right\} 
+    \end{equation*}  
+    rečemo \emph{$k$-črkovna dolžina grupe $G$}.  
+    \end{definicija}
+    
 
-\begin{opomba}
-Ime ožina iz definicije \ref{def_ozina} je smiselno v kontekstu definicije Cayleyjevega grafa grupe. TODO zakaj
+\begin{opomba} TODO tole malo popravi
+V nekaterih drugih virih, denimo \cite{Schneider_2016} in \cite{Kozma_Thom_2016}, temu številu rečejo $k$-črkovna ožina grupe $G$. To ime izhaja iz Cayleyjevega grafa grupe. Vsak cikel $g_1 , g_2, \ldots, g_n, g_1$ tega grafa namreč
+podaja zvezo $s_1 s_2 \cdots s_n = 1_G$, kjer za $i = 2, \ldots, n$ velja $s_i = g_{i - 1}^{-1} g_i$ in dodatno še $s_1 = g_n^{-1} g_1$.
+V kontekstu zakonov je to ime nekoliko zavajajoče, saj beseda $s_1 s_2 \cdots s_n$ ni nujno zakon v grupi. Če si pogledamo na primer grupo $C_3 \times C_5 = \langle (\xi, 1), (1, \eta) \rangle$,
+bo Cayleyjev graf $\text{Cay}(C_3 \times C_5, \{ (\xi, 1)^{\pm 1} , (1, \eta)^{\pm 1} \})$ vseboval 3-cikel, ki ga porodi generator $(\xi , 1)$. Po drugi strani pa beseda $\xi^3$ očitno ni zakon v grupi $C_3 \times C_5$, ki premore element reda 5.
+Ker je grupa $C_3 \times C_5$ Abelova, ni težko razmisliti, da velja $\alpha_k(C_3 \times C_5) = 4$ za $k \ge 2$ in $\alpha_1(C_3 \times C_5) = 15$. 
+
 \end{opomba}
-
 
 Izkaže se, da so najbolj zanimivi in za obravnavo relevantni dvočrkovni zakoni. To nam sporočata naslednji dve trditvi.
 \begin{trditev}
 \label{trd_vlozitev_proste_grupe}
- Obstaja vložitev grupe $F_{2 \cdot 3^{k}} = \langle x_1, \ldots, x_{2 \cdot 3^{k}} \rangle$ v grupo $F_2 = \langle x,y \rangle $, da velja $l(x_i) = 2k + 1$, kjer $l(w)$ označuje dolžino besede $w \in F_2 = \langle x,y \rangle$. 
+ Obstaja vložitev grupe $F_{2 \cdot 3^{k}} = \langle a_1, \ldots, a_{2 \cdot 3^{k}} \rangle$ v grupo $F_2 = \langle a,b \rangle $, da velja $l(a_i) = 2k + 1$, kjer $l(w)$ označuje dolžino besede $w \in F_2 = \langle a,b \rangle$. 
 \end{trditev}
 
 
 \begin{dokaz}
-Dokaz trditve ni zahteven, vendar je nekoliko preveč tehničen za potrebe te naloge. Naveden je v~\cite[str.~5]{Schneider_2016}, glavna ideja je obravnavati Cayleyev graf proste grupe $F_2$ z dvema generatorjema.
-Drevo vseh besed dolžine $k$ na ustrezen način dopolnimo tako, da dodamo povezave listom. Pri tem dobimo cikle dolžine $2k + 1$ in utemeljimo, da lahko jih lahko obravnavamo kot elemente $F_{2 \cdot 3^{k}}$, vložene v $F_2$. 
+Dokaz trditve ni posebno zahteven, vendar je nekoliko preveč tehničen za naše potrebe, saj bi zahteval uvedbo in razumevanje pojmov Schreierjevega grafa in fundamentalne grupe grafa, ki ju sicer tekom naloge ne potrebujemo. Naveden je v~\cite[str.~5]{Schneider_2016}, glavna ideja je obravnavati Cayleyev graf proste grupe $F_2$ z dvema generatorjema.
+Drevo vseh besed dolžine $k$ na ustrezen način dopolnimo (do Schreierjevega grafa) tako, da dodamo povezave listom. Pri tem dobimo cikle dolžine $2k + 1$ in (s pomočjo fundamentalne grupe grafa) utemeljimo, da lahko jih lahko obravnavamo kot elemente $F_{2 \cdot 3^{k}}$, vložene v $F_2$. 
 \end{dokaz}
 
 
 \begin{posledica}\label{psl_veccrkovni_zakoni_meje}
 Naj bo $G$ grupa in $k \ge 2$ naravno število. Potem velja \begin{equation*}
-     \operatorname{girth}_{k}(G) \le  \operatorname{girth}{2}(G) 
+     \alpha_k(G) \le  \alpha_2(G) 
 \end{equation*}  
 in \begin{equation*}
-\operatorname{girth}_{2}(G) \le \left( {2 \left\lceil \log_3(\frac{k}{2}) \right\rceil + 1  } \right) \operatorname{girth}_{k}(G).
+\alpha_2(G) \le \left( {2 \left\lceil \log_3 \left(\frac{k}{2} \right) \right\rceil + 1  } \right) \alpha_k(G).
 \end{equation*}  
 \end{posledica}
 \begin{dokaz}
