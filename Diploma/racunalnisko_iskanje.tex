@@ -9,7 +9,7 @@ Programi se nahajajo v repozitoriju (TODO daj pravo povezavo, lepo uredi).
 
 Najprimitivnejši način iskanja zakonov v dani grupi $G$ je kar po definiciji: Poiščemo vse besede grupe $F_2 = \langle a,b \rangle$ določene dolžine, nato pa jih izvrednotimo na vseh možnih parih.
 Za začetek me je zanimalo, koliko zakonov dolžine 17 ali manj premorejo grupe $\operatorname{PSL}_2(p)$. Za višje dolžine je bilo potrebno generirati nepraktično veliko besed. Pri tem se zavedamo, da grupe $\operatorname{PSL}_2(p)$ ne morejo imeti zakonov krajših od $p$-črk po trditvi \ref{trd_dolzina_zakonov_za_psl2p}.
-Program spisal v jeziku C++, ki je v splošnem veliko hitrejši od GAP-a, opisuje ga spodnja psevdokoda.
+Program sem spisal v jeziku C++, ki je v splošnem veliko hitrejši od GAP-a, opisuje ga spodnja psevdokoda.
 
 \begin{verbatim}
     # generiranje besed in parov elementov
@@ -34,15 +34,15 @@ Program spisal v jeziku C++, ki je v splošnem veliko hitrejši od GAP-a, opisuj
             je ta beseda zakon
 \end{verbatim}
 
-Hitro se je izkazalo, da je tak pristop tako zelo neučinkovit. Problem je namreč v tem, število besed dolžine $k$ narašča eksponentno. Če brez škode za splošnost fiksiramo prvo črko, je število besed dolžine $k$ črk ali manj enako $3^{k - 1}$,
-saj lahko v vsakem koraku dodamo natanko 3 črke, da ne pride do krajšanja. Tudi če bi obravnavali tako imenovane \emph{komutatorske besede}, ki vsebujejo enako število črk kot njihovih inverzov (število črk $a$ je enako številu črk $a^{-1}$, enako za $b$),
-število besed, ki bi jih morali pregledati, mnogo prehitro narašča, da bi lahko pokazali karkoli smiselnega.
+Hitro se je izkazalo, da je tak pristop tako zelo neučinkovit. Problem je namreč v tem, da število besed dolžine $k$ narašča eksponentno. Če brez škode za splošnost fiksiramo prvo črko, je število besed dolžine $k$ črk ali manj enako $3^{k - 1}$,
+saj lahko v vsakem koraku dodamo natanko 3 črke, da ne pride do krajšanja. Tudi če bi obravnavali tako imenovane \emph{komutatorske besede}, ki vsebujejo enako število črk kot njihovih inverzov (število črk $a$ je enako številu črk $a^{-1}$, podobno za $b$),
+število dvočrkovnih besed, ki bi jih morali pregledati, mnogo prehitro narašča, da bi lahko pokazali karkoli smiselnega.
 
 V splošnem se sicer da oceniti, z najmanj kolikšno verjetnostjo je naključna beseda $w \in F_2$ zakon v grupi $G$.
-Oceniti moramo indeks grupe zakonov $K(G, 2)$ v grupi $F_2$. To naredimo s pomočjo leme \ref{lem_koncni_indeks_koncnega_preseka} in dobimo (TODO tole se zdi precej sumljivo ...)
+Oceniti moramo indeks grupe zakonov $K(G, 2)$ v grupi $F_2$. S pomočjo razmisleka pod dokazom leme \ref{lem_koncni_indeks_koncnega_preseka} v primeru $k  = 2$ dobimo oceno
 \begin{equation*}
-\left[ F_2 : K(G, 2) \right] \le \prod_{g, h \in G} [F_2 : \ker \varphi_{gh}] = \prod_{g, h \in G} [F_2 / F_2^{\exp(G)} : \ker \varphi_{gh}  / F_2^{\exp(G)}] \le {\exp(G)}^{\lvert G \rvert^2}.
-\end{equation*}  
+    \left[ F_2 : K(G, 2) \right] \le {\lvert G \rvert}^{{\lvert G \rvert}^2},
+    \end{equation*}  
 kar vsekakor ni ravno spodbudno. Pa vendar se v praksi izkaže, da ti indeksi dejansko so razmeroma visoki. Članek \cite{Cocke_2020} nam ponuja konkretne vrednosti naslednjih indeksov.
 \begin{align*}
     \left[ F_2 : K(D_{10}, 2) \right] &= 2^2 \cdot 5^{5} = 12500, \\

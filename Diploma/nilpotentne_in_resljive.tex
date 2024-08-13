@@ -1,60 +1,66 @@
 \section{Nilpotentne in rešljive grupe}
 
-% nekaj o centralnih in spodnjih zaporedjih (ekvivalenco definicij lahko daš v appendix)
-% vse p-grupe so nilpotentne (klasična ekvivalenca z nilpotentnimi p-grupami)
-% dodaj primere nilptotentnih grup (predvsem tiste, ki nastopajo v računalniškem delu!)
-% rešljiv radikal, razmislek o razdelitvi splošnega problema na rešljive in polenostavne grupe
+\subsection{Definicija in osnovne lasntosti}
 
-% napiši nekaj malega o tem, kako dolžina zakonov v grobem lahko predstavlja kompleksnost strukture grupe. Ene izmed najosnovnejših - poleg Abelovih - so nilpotentne in rešljive,
-% slednje igrajo tudi pomembno vlogoo pri reševanju splošnega problema
-
-% \begin{definicija}
-% \label{def_centralna_vrsta}
-% Naj bo $G$ grupa in $H$ njena podgrupa. Centralna vrsta je zaporedje njenih podgrup $(H_k)_{k \ge 1}$, za katerega velja $H_1 = H$ in $H / Z(G / H_{i + 1})$ oziroma ekvivalentno $[H_i, G] \subseteq H_{i + 1}$ za vsak $i \ge 1$.
-% Rečemo, da se centralna vrsta izteče z grupo $K$, če obstaja naravno število $n$, da velja $H_k = K$ za vsako naravno število $k \ge n$.
-% \end{definicija}
+Intuitivno gledano so nilpotntne in rešljive grupe tiste, ki so po svoji strukturi še najbolj podobne Abelovim. Da jih lahko vpeljemo moramo najprej uvesti nekaj pojmov.
+\begin{definicija}\label{def_komutator_grup}
+    Naj bo $G$ grupa in $H, K \le G$ njeni podgrupi. Potem definiramo \emph{komutator podgrup $H$ in $K$} kot podgrupo \begin{equation*}
+        [H, K]  = \langle [h, k] | h \in H, k \in K \rangle.
+    \end{equation*}
+\end{definicija}
 
 \begin{definicija}
 \label{def_iztek_zaporedja}
 Naj bo $G$ grupa in $(H_k)_{k \ge 1}$ padajoče zaporedje njenih podgrup, torej $H_{i + 1} \subseteq H_{i}$ za vsak $i \ge 1$. 
-Rečemo, da se zaporedje $(H_k)_{k \ge 1}$ izteče z grupo $K$, če obstaja naravno število $n$, da velja $H_k = K$ za vsako naravno število $k \ge n$.
+Rečemo, da se \emph{zaporedje $(H_k)_{k \ge 1}$ izteče z grupo $K$}, če obstaja naravno število $n$, da velja $H_k = K$ za vsako naravno število $k \ge n$.
 \end{definicija}
-
 
 \begin{definicija}
 \label{def_nilpotentna_grupa}
-Grupa $G$ je nilpotentna, če se spodnja centralna vrsta $(\gamma_k(G))_{k \ge 1}$, podana rekurzivno z \begin{equation*}
+Grupa $G$ je \emph{nilpotentna}, če se \emph{spodnja centralna vrsta} $(\gamma_k(G))_{k \ge 1}$, podana rekurzivno z \begin{equation*}
 \gamma_1(G) := G \text{ in } \gamma_{k +1}(G) := [\gamma_k(G), G],
 \end{equation*}  
-izteče s trivialno grupo. Najmanjšemu številu $d$, za katero je $G^{(d)} = \mathbf{1}$ rečemo razred rešljivosti grupe $G$.    
+izteče s trivialno grupo. Najmanjšemu številu $d$, za katero je $\gamma_{d + 1} = \{ 1_G \}$, rečemo \emph{razred nilpotentnosti grupe $G$}.    
 \end{definicija}
 
-Celo družino primerov nilpotentnih grup nam podaja naslednja ugotovitev.
+Na kratko razmislimo, da je vsak člen spodnje centralne vrste $\gamma_k(G)$ edinka v grupi $G$. Osnovna ideja je, da lahko konjugiranje prenesemo v notranjost komutatorja: Za poljubne elemente $g, h, k \in G$ velja zveza \begin{equation*}
+    [g, h]^k = kghg^{-1}h^{-1}k^{-1} = kgk^{-1}khk^{-1}kg^{-1}k^{-1}kh^{-1}k^{-1} = [kgk^{-1}, khk^{-1}] = [g^k , h^k].
+\end{equation*}
+Elementi grupe $\gamma_1(G)  = [G , G]$ so po definicii oblike $\prod_{i = 1}^n [g_i, h_i]$ za neke elemente $g_i, h_i \in G$, zato za vsak element $k \in G$ velja \begin{equation*}
+    \left( \prod_{i = 1}^n [g_i, h_i]\right)^k = \prod_{i = 1}^n [g_i^k, h_i^k]. 
+\end{equation*}
+S tem smo dokazali, da je $\gamma_1(G)$ edinka v $G$, z indukcijo pokažemo enako za vse nadaljnje člene. S tem smo hkrati utemeljili tudi, da za vsako število $k \ge 0$ velja $\gamma_{k+1}(G) \triangleleft \gamma_k(G)$.
 
+Celo družino primerov nilpotentnih grup nam podaja naslednja ugotovitev.
 \begin{trditev}
 \label{trd_p_grupe_so_nilpotentne}
     Vse $p$-grupe so nilpotentne. Natančneje, če je $\lvert G \rvert  = p^{d}$ za neko naravno število $d \ge 1$, potem je $G$ nilpotentna razreda največ $d$. 
 \end{trditev}
 \begin{dokaz}
-    TODO, tole ne bi smelo biti težko, samo moraš paziti, da je v skladu s spodnjo centralno vrsto.
+    Naj bo $\lvert G \rvert = p^k$. Dokaz poteka z indukcijo po $k$. Za $k = 1$ je grupa Abelova in zato očitno nilpotentna. Za $k \ge 2$ uporabimo psoledico razredne formule, da imajo $p$-grupe netrivialni center.
+    Če je $Z(G) = G$ je grupa Abelova. Sicer sta po indukcijski predpostavki grupi $Z(G)$ in $G / Z(G)$ nilpotentni. Nilpotentnost kvocienta implicira obstoj najmanjšega števila $m$, za katero velja $\gamma_m(G) \subseteq Z(G)$.
+    Od tod direktno sledi, da je $\gamma_{m + 1}(G) = \{ 1_G \}$.
 \end{dokaz}
 
 \begin{primer}
-Trditev \ref{trd_p_grupe_so_nilpotentne} nam sporoča, da so vse diedrske grupe oblike $D_{2 \cdot 2^{k}}$ nilpotentne. Izkaže se, da so to tudi vse, saj (TODO tukaj moraš končati razmislek z dokazom https://math.stackexchange.com/questions/834966/is-the-dihedral-group-d-n-nilpotent-solvable). 
+Trditev \ref{trd_p_grupe_so_nilpotentne} nam sporoča, da so vse diedrske grupe oblike $D_{2 \cdot 2^{k}}$ nilpotentne. Izkaže se, da so to tudi vse. % (TODO tukaj moraš končati razmislek z dokazom https://math.stackexchange.com/questions/834966/is-the-dihedral-group-d-n-nilpotent-solvable). 
 \end{primer}
 
 \begin{definicija}
     \label{def_resljiva_grupa}
-    Grupa $G$ je rešljiva, če se izpeljana vrsta $(G^{(k)})_{k \ge 0}$, podana rekurzivno z \begin{equation*}
+    Grupa $G$ je \emph{rešljiva}, če se \emph{izpeljana vrsta} $(G^{(k)})_{k \ge 0}$, podana rekurzivno z \begin{equation*}
         G^{(0)} := G \text{ in } G^{(k + 1)} := [G^{(k)}, G^{(k)}],
         \end{equation*}  
-        izteče s trivialno grupo. Najmanjšemu številu $d$, za katero je $G^{(d)} = \mathbf{1}$ rečemo razred rešljivosti grupe $G$.    
+        izteče s trivialno grupo. Najmanjšemu številu $d$, za katero je $G^{(d)} = \{ 1_G \}$, rečemo \emph{razred rešljivosti grupe $G$}.    
     \end{definicija}
+
+    Analogno kot pri nilpotentnih grupah sklepamo, da izpeljana vrsta $(G^{(k)})_{k \ge 0}$ tvori verigo edink, ki so vse hkrati tudi edinke v $G$.
     
     \begin{primer}
-    Diedrske grupe $D_{2n}$ so rešljive razreda $2$, saj imamo zaporedje (TODO dokaži, kako izgleda to zaporedje. ).  % https://math.stackexchange.com/questions/834966/is-the-dihedral-group-d-n-nilpotent-solvable
+        Diedrske grupe $D_{2n} = \langle r , Z \rangle$ so rešljive razreda največ $2$. Z računom je enostavno pokazati, da je $(D_{2n})^{(1)}$ podmnožica Abelove podgrupe $\langle r \rangle$, zato bo grupa $(D_{2n})^{(2)} = ((D_{2n})^{(1)})^{(1)}$ trivialna.
+        Ta sklep namiguje na nekatere lastnosti rešljivih grup, ki jih dokaže trditev \ref{trd_lastnosti_resljivih_grup}. 
     \end{primer}
-    
+
     \begin{primer}
         Vse nilpotentne grupe so rešljive, saj po definiciji za vsako število $k \ge 0$ velja \begin{equation*}
         G^{(k)} = [G^{(k-1)}, G^{(k-1)}] \subseteq  [\gamma_k(G), G] = \gamma_{k +1}(G).
@@ -62,8 +68,6 @@ Trditev \ref{trd_p_grupe_so_nilpotentne} nam sporoča, da so vse diedrske grupe 
         Niso pa vse nilpotentne grupe rešljive, primer so recimo diedrske grupe $D_{2n}$, kjer $2n$ ni dvojiška potenca. 
     \end{primer}
     
-    % TODO: Naštevalna okolja enumerate, itemize ... uporabljamo za nizanje kratkih izjav, npr. delov trditev, niso pa primerna za pisanje daljših delov besedila. Tudi če v trditvi uporabimo naštevalno okolje, tega ni primerno uporabiti v dokazu te trditve, razen če so dokazi posameznih točk enovrstični. Namesto tega v dokazu točke ločimo tako, da dokaz vsake tvori svoj odstavek, oznako točke pa postavimo na začetek tega odstavka. Če so dokazi posameznih točk sestavljeni iz več odstavkov, lahko dokaze različnih točk bolj nazorno ločimo s prazno vrstico med odstavkoma, ki pripadata različnima točkama, ali pa oznako točke na začetku odstavka napišemo krepko. Podobno velja tudi za druga naštevanja, kjer ob vsaki točki napišemo daljšo razlago.
-
     \begin{trditev}
     \label{trd_lastnosti_resljivih_grup}
     Za rešljive grupe veljajo naslednje osnovne lasnosti.
@@ -86,38 +90,38 @@ Trditev \ref{trd_p_grupe_so_nilpotentne} nam sporoča, da so vse diedrske grupe 
         \end{enumerate}
     \end{dokaz}
 
-    Razširitvena lema nam ponuja naslednjo skromno oceno dolžine kratkih netrivialnih zakonov v rešljivih oziroma nilpotentnih grupah.
+    Razširitvena lema \ref{lem_razsiritvena_lema} nam ponuja naslednjo skromno oceno dolžine kratkih netrivialnih zakonov v rešljivih oziroma nilpotentnih grupah.
 
     \begin{trditev}
     \label{trd_ocitna_meja_za_kratke_zakone_resljive_grupe}
-     Obstaja beseda $w \in F_2$ dolžine $l(w) \le 4^{d}$, ki je zakon v vseh grupah razreda rešljivosti (ali nilpotentnosti) $d$ ali manj.  
+     Obstaja beseda $w \in F_2 = \langle a,  b \rangle$ dolžine $l(w) \le 4^{d}$, ki je zakon v vseh grupah razreda rešljivosti (ali nilpotentnosti) $d$ ali manj.  
     \end{trditev}
     \begin{dokaz}
-        Trditev je posledica razširitvene leme \ref{lem_razsiritvena_lema}, dokaz poteka z indukcijo po $d$. Za $d = 1$ je grupa $G$ Abelova, zato je ustrezni zakon beseda $w = [x,y]$, ki je dolžine 4.
+        Trditev je posledica razširitvene leme \ref{lem_razsiritvena_lema}, dokaz poteka z indukcijo po razredu rešljivosti grupe $G$, ki ga označimo z $d$. Za $d = 1$ je grupa $G$ Abelova, zato je ustrezni zakon beseda $w = [a, b]$, ki je dolžine 4.
         Za $d > 1$ opazimo, da je kvocient $G / G^{(1)}$ Abelova grupa, $G^{(1)}$ pa rešljiva grupa razreda največ $d - 1$. Zato z uporabo razširitvene leme in indukcijske predpostavke najdemo besedo $w \in  F_2$ dolžine \begin{equation*}
             l(w) \le  4 \cdot 4^{d - 1} = 4^{d},
         \end{equation*}  
-        ki je zakon za grupo $G$. Za nilpotentne grupe upoštevamo dejstvo $G^{(1)} \subseteq \gamma_1(G)$, kar implicira komutativnost grupe $G / \gamma_1(G)$. 
+        ki je zakon v grupi $G$. Za nilpotentne grupe upoštevamo dejstvo $G^{(1)} \subseteq \gamma_1(G)$, kar implicira komutativnost grupe $G / \gamma_1(G)$ ($G^{(1)}$ je po definiciji najmanjša edinka, za katero je kvocient $G / G^{(1)}$ Abelova grupa). 
     \end{dokaz}
     
     \begin{opomba}
     V članku \cite[str.~8]{Kozma_Thom_2016} je podana nekoliko šibkejša meja $l(w) \le  4 \cdot 6^{d-1}$, ker je avtor uporabil šibkejšo obliko razširitvene leme.
     \end{opomba}
 
-\subsection{Konstrukcija kratkih zakonov za nilpotentne in rešljive grupe}
+\subsection{Konstrukcija kratkih zakonov v nilpotentnih in rešljivih grupah}
 
-Konstrukcija kratkih zakonov za nilpotentne grupe je opisana v članku \cite{Elkasapy_Thom_2013} in z razlagami dopolnjena v magistrskem delu \cite{Schneider_2016}.
-Glavna ideja je, da poiščemo kratke netrivialne besede, vsebovane v izpeljani vrsti proste grupe $F_2 = \langle a, b \rangle $. Najprej definiramo zaporedji $(a_n)_n$ in $(b_n)_n$ v $F_2$ s predpisoma
+Konstrukcija kratkih zakonov v nilpotentnih grupah je opisana v članku \cite{Elkasapy_Thom_2013} in z razlagami dopolnjena v magistrskem delu \cite{Schneider_2016}.
+Glavna ideja je poiskati kratke netrivialne predstavnike izpeljane vrste proste grupe $F_2 = \langle a, b \rangle $. Najprej definiramo zaporedji $(a_n)_n$ in $(b_n)_n$ v $F_2$ s predpisoma
 \begin{equation*}
-a_0 = a, \, a_{n + 1} = [b_n^{-1}, a_{n}] \text{ in } b_0 = b, \, b_{n + 1} = [a_{n}, b_{n}]. 
+a_0 := a, \, a_{n + 1} := [b_n^{-1}, a_{n}] \text{ in } b_0 := b, \, b_{n + 1} := [a_{n}, b_{n}]. 
 \end{equation*}  
 Besede, ki jih bomo konstruirali s tema zaporedjema, morajo biti netrivialne, zato potrebujemo naslednjo lemo (lema 3.1 v viru \cite{Kozma_Thom_2016} oziroma lema 8 v \cite{Schneider_2016}).
 \begin{lema}
 \label{lem_ni_krajsanj_produkti_ab}
-Za vsak $n \in  \mathbb{N}$ so besede $a_{n} a_{n}$, $a_{n}^{-1} a_{n}^{-1}$, $b_{n} b_{n}$, $b_{n}^{-1} b_{n}^{-1}$, $a_{n}^{-1} b_{n}$, $b_{n}^{-1} a_{n}$, $a_{n} b_{n}^{-1}$, $b_{n} a_{n}^{-1}$, $a_{n}^{-1} b_{n}^{-1}$ in $b_{n} a_{n}$ v okrajšani obliki.   
+Za vsako nenegativno celo število $n$ so besede $a_{n} a_{n}$, $a_{n}^{-1} a_{n}^{-1}$, $b_{n} b_{n}$, $b_{n}^{-1} b_{n}^{-1}$, $a_{n}^{-1} b_{n}$, $b_{n}^{-1} a_{n}$, $a_{n} b_{n}^{-1}$, $b_{n} a_{n}^{-1}$, $a_{n}^{-1} b_{n}^{-1}$ in $b_{n} a_{n}$ okrajšane.   
 \end{lema}
 \begin{dokaz}
-    Dokaz poteka z indukcijo po $n$. Za $n = 0$ je tridtev očitna, ker sta $a$ in $b$ različna generatorja grupe $F_2$. Za $n > 0$ razpišimo produkt $a_n a_n$.
+    Dokaz poteka z indukcijo po $n$. Za $n = 0$ je trditev očitna, ker sta $a$ in $b$ različna generatorja grupe $F_2$. Za $n > 0$ najprej razpišimo produkt $a_n a_n$.
     \begin{equation*}
     a_{n} a_{n} = [b_{n- 1}^{-1}, a_{n-1}]^2 = b_{n- 1}^{-1} a_{n-1} b_{n- 1} \underbrace{a_{n-1}^{-1} b_{n- 1}^{-1}}_{\text{ni krajšanja}}  a_{n-1} b_{n- 1} a_{n-1}^{-1} 
     \end{equation*}  
@@ -131,10 +135,10 @@ Za vsak $n \in  \mathbb{N}$ so besede $a_{n} a_{n}$, $a_{n}^{-1} a_{n}^{-1}$, $b
 \end{dokaz}
 
 \begin{opomba}
-Produkti oblike $a_n b_n$ oziroma njihovi inverzi $b_n ^{-1} a_n ^{-1}$ niso nujno okrajšane besede, na primer že za $n = 1$ dobimo $a_1 b_1 = b^{-1} a b a a^{-1} b a^{-1} b^{-1}$. To dejstvo bomo izkoristili v nadaljevanju. 
+Produkti oblike $a_n b_n$ oziroma njihovi inverzi $b_n ^{-1} a_n ^{-1}$ niso nujno okrajšane besede, na primer že za $n = 1$ dobimo $a_1 b_1 = b^{-1} a b a a^{-1} b a^{-1} b^{-1}$. To dejstvo bomo izkoristili v nadaljevanju pri dokazu ocene iz trditve \ref{lem_vrednost_cn}. 
 \end{opomba}
 
-Najprej se prepričajmo, da so besede $a_n$ oziroma $b_n$ res elementi izpeljane grupe $F_2^{(n)}$.
+Najprej se prepričajmo, da so besede $a_n$ oziroma $b_n$ elementi izpeljane grupe $F_2^{(n)}$.
 
 \begin{lema}
 \label{lem_besede_ab_so_elementi_izpeljane_grupe}
@@ -256,7 +260,7 @@ Naslednja trditev je kombinacija posledice 4 in leme 11 iz naloge \cite{Schneide
     l(w) \le  C_1 \iota^{e} = C_1 2^{\log_2(\iota) e} \le C_1 (2k)^{\log_2(\iota)} = C_1 \iota k^{\log_2(\iota)} = C_2  k^\kappa.
     \end{equation*}
     Nadalje naj bo grupa $G$ nilpotentna razreda $d$, moči $n$ ali manj. Zaradi nilpotentnosti $G$ iz netrivialnosti grupe $\gamma_i(G)$ (za $i \in \mathbb{N} \cup \left\{ 0 \right\}$) sledi netrivialnost kvocienta $\gamma_i(G) / \gamma_{i + 1}(G)$, saj je centralna vrsta pred iztekom strogo padajoča.
-    Za razred nilpotentnosti $d$ velja ocena (TODO najdi vir) $d \le \left\lfloor \log_2(G)  \right\rfloor \le \log_2(n)$. Zato po prvem sklepu dokaza obstaja netrivialna beseda $w \in \gamma_d(G)$ dolžine \begin{equation*}
+    Za razred nilpotentnosti $d$ velja ocena (TODO najdi vir oziroma dokaži, verjetno je v resnici očitno s katrakterizacijo nilpotentnih grup) $d \le \left\lfloor \log_2(G)  \right\rfloor \le \log_2(n)$. Zato po prvem sklepu dokaza obstaja netrivialna beseda $w \in \gamma_d(G)$ dolžine \begin{equation*}
     l(w) \le C_2 d^{\kappa} \le C_2 \log_2(n)^{\kappa} = \frac{C_2}{\log_2(n)^{\kappa}} \log(n)^{\kappa} = C_3 \log(n)^{\kappa}, 
     \end{equation*}  
      saj velja $w \in \gamma_{\left\lfloor \log_2(n) \right\rfloor}(F_2) \subseteq \gamma_{d}(F_2)$. Od tod z analognim razmislekom kot v trditvi \ref{trd_osnovna_ocena_resljive_grupe} sledi, da je $w$ netrivialni zakon za vse nilpotentne grupe razreda $d$. 

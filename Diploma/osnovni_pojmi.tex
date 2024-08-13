@@ -120,8 +120,6 @@ Za vsak homomorfizem $\varphi \in \operatorname{Hom}(F_k, G)$ namreč po prvem i
 To dejstvo bo še posebej pobmembno pri iskanju zakonov z računalnikom.
 
 
-% TODO tukaj poveži ožino grafa z bistvom naloge, morda poveži z https://www.researchgate.net/publication/2441748_On_The_Girth_Of_Groups
-
 \begin{definicija}
 \label{def_cayleyev_graf}
 Naj bo $G$ grupa in $S \subseteq G$ njena \emph{simetrična} podmnožica. To pomeni, da velja $S = S^{-1} := \{ s^{-1}  \vert s \in S  \}$. Potem $\operatorname{Cay}(G, S)$ označuje graf z vozlišči $V = G$ in povezavami
@@ -185,14 +183,14 @@ TODO nariši desno od tega še graf s 5 generatorji, morda raje Cayleyjev graf p
     Številu \begin{equation*}
     \operatorname{\alpha}_{k}(G) := \min \left\{ l(w)  \middle|\,  w \in F_k \setminus \left\{ 1\right\} \text{ je zakon v } G  \right\} \cup \left\{ \infty\right\} 
     \end{equation*}  
-    rečemo \emph{$k$-črkovna dolžina grupe $G$}.  
+    rečemo \emph{$k$-črkovna ožina grupe $G$}.  
     \end{definicija}
     
 
-\begin{opomba} TODO tole malo popravi
-V nekaterih drugih virih, denimo \cite{Schneider_2016} in \cite{Kozma_Thom_2016}, temu številu rečejo $k$-črkovna ožina grupe $G$. To ime izhaja iz Cayleyjevega grafa grupe. Vsak cikel $g_1 , g_2, \ldots, g_n, g_1$ tega grafa namreč
-podaja zvezo $s_1 s_2 \cdots s_n = 1_G$, kjer za $i = 2, \ldots, n$ velja $s_i = g_{i - 1}^{-1} g_i$ in dodatno še $s_1 = g_n^{-1} g_1$.
-V kontekstu zakonov je to ime nekoliko zavajajoče, saj beseda $s_1 s_2 \cdots s_n$ ni nujno zakon v grupi. Če si pogledamo na primer grupo $C_3 \times C_5 = \langle (\xi, 1), (1, \eta) \rangle$,
+\begin{opomba} TODO tole malo popravi, ni čisto logično ubesedeno
+Ime ožina grupe -- ki je uporabljeno na primer v virih \cite{Schneider_2016}, \cite{Bradford_Thom_2017} in \cite{Schleimer_2001} -- je nekoliko zavajajoče. Izhaja iz Cayleyjevega grafa grupe, vsak njegov cikel $g_1 , g_2, \ldots, g_n, g_1$ namreč
+podaja zvezo $s_1 s_2 \cdots s_n = 1_G$ za elemente $s_i \in S$, kjer za $i = 2, \ldots, n$ velja $s_i = g_{i - 1}^{-1} g_i$ in $s_1 = g_n^{-1} g_1$.
+V kontekstu zakonov je to ime do neke mere neupravičeno, saj beseda $s_1 s_2 \cdots s_n$ ni nujno zakon v grupi. Če si pogledamo na primer grupo $C_3 \times C_5 = \langle (\xi, 1), (1, \eta) \rangle$,
 bo Cayleyjev graf $\text{Cay}(C_3 \times C_5, \{ (\xi, 1)^{\pm 1} , (1, \eta)^{\pm 1} \})$ vseboval 3-cikel, ki ga porodi generator $(\xi , 1)$. Po drugi strani pa beseda $\xi^3$ očitno ni zakon v grupi $C_3 \times C_5$, ki premore element reda 5.
 Ker je grupa $C_3 \times C_5$ Abelova, ni težko razmisliti, da velja $\alpha_k(C_3 \times C_5) = 4$ za $k \ge 2$ in $\alpha_1(C_3 \times C_5) = 15$. 
 
@@ -312,7 +310,7 @@ n \ge 2 \lvert S \rvert \operatorname{diam}(G, S)^2 \log(2 \lvert G \rvert ),
 TODO, to je Cauchy--Schwarz
 \end{dokaz}
 
-% TOOD tukaj poveži besedilo z intuitivno razloago
+% TODO tukaj poveži besedilo z intuitivno razloago
 
 Glavni rezultat, ki zagotovi obstoj kratkih zakonov, je Helfgott--Seressov izrek. \begin{izrek}\label{izr_Helfgott_Seress}
 Naj par $(\sigma, \tau) \in S_n^2$ generira grupo $S_n$, torej $\langle \sigma, \tau \rangle = S_n$. Potem je diameter grafa $\Gamma = \operatorname{Cay}(S_n, \left\{ \sigma^{\pm 1}, \tau^{\pm 1} \right\} )$ največ 
