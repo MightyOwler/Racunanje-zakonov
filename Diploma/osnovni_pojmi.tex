@@ -47,7 +47,7 @@ zato si lahko elemente prostih grup predstavljamo kot okrajšane besede. Z upoš
 
 \begin{definicija}
 \label{def_dolzina_besede}
-Naj bo beseda $w \in  F(S)$ oblike $w = s_1 \cdots s_n$. Potem definiramo \emph{dolžino besede} $l(w) = n$.
+Naj bo beseda $w \in  F(S)$ oblike $w = s_1 \cdots s_n$. Potem število $l(w) := n$ imenujemo \emph{dolžina besede $w$}.
 \end{definicija}
 \begin{opomba}\label{opm_trikotniska_neenakost}
     Po definiciji množenja besed v prostih grupah je očitno, da za vsaki besedi $w_1 , w_2$ velja trikotniška neenakost $l(w_1 w_2) \le l(w_1) l(w_2)$.
@@ -113,7 +113,7 @@ Dovolj je dokazati trditev za $n = 2$, za višje vrednosti sledi z indukcijo. Na
 \end{equation*}  
 nam podaja dobro definiranost, leva pa injektivnost preslikave $f$, ki nam podaja oceno $\lvert A \rvert \le  \lvert A_1 \rvert \lvert A_2 \rvert $.    
 \end{dokaz}
-Z uporabo te leme direktno sledi, da je grupa $K(k)$ podgrupa končnega indeksa največ $\lvert G \rvert^{ \lvert G \rvert^k}$ v $F_k$. 
+Z uporabo te leme direktno sledi, da je v primeru končnosti grupe $G$ grupa $K(G, k)$ podgrupa končnega indeksa največ $\lvert G \rvert^{ \lvert G \rvert^k}$ v $F_k$. 
 Za vsak homomorfizem $\varphi \in \operatorname{Hom}(F_k, G)$ namreč po prvem izreku o izomorfizmu velja \begin{equation*}
     \lvert F_k / \ker \varphi \rvert = \lvert \operatorname{im} \varphi \rvert \le \lvert G \rvert. 
 \end{equation*}
@@ -128,7 +128,7 @@ $E = \left\{ (p, q) \middle|\, p^{-1}q \in  S \right\}$. Imenujemo ga \emph{Cayl
 
 \begin{opomba}
 Pogoj simetričnosti $S = S^{-1}$ nam pove, da je $\operatorname{Cay}(G, S)$ pravi graf in ne zgolj usmerjen. Imamo namreč \begin{equation*}
-(p,q) \in  E \iff p^{-1}q \iff q^{-1}p \iff (q,p) \in  E.
+(p,q) \in  E \iff p^{-1}q \in S \iff q^{-1}p \in S \iff (q,p) \in  E.
 \end{equation*}  
 \end{opomba}
 
@@ -312,10 +312,10 @@ TODO, to je Cauchy--Schwarz
 
 % TODO tukaj poveži besedilo z intuitivno razloago
 
-Glavni rezultat, ki zagotovi obstoj kratkih zakonov, je Helfgott--Seressov izrek. \begin{izrek}\label{izr_Helfgott_Seress}
-Naj par $(\sigma, \tau) \in S_n^2$ generira grupo $S_n$, torej $\langle \sigma, \tau \rangle = S_n$. Potem je diameter grafa $\Gamma = \operatorname{Cay}(S_n, \left\{ \sigma^{\pm 1}, \tau^{\pm 1} \right\} )$ največ 
+Glavni rezultat, ki bo zagotovil obstoj kratkih zakonov v simetričnih grupah, je Helfgott--Seressov izrek, ki omeji diameter Cayleyjevih grafov simetričnih grup, generiranih s parom elementov. \begin{izrek}[Helfgott--Seress]\label{izr_Helfgott_Seress}
+Naj par $(\sigma, \tau) \in S_n^2$ generira grupo $S_n$, torej $\langle \sigma, \tau \rangle = S_n$. Potem obstaja konstanta $C > 0$, da je diameter grafa $\Gamma = \operatorname{Cay}(S_n, \left\{ \sigma^{\pm 1}, \tau^{\pm 1} \right\} )$ največ 
 \begin{equation*}
 \exp(C \log(n)^{4} \log(\log(n))).
 \end{equation*}
 \end{izrek}  
-Dokaz tega izreka je zelo težek in se močno nanaša na klasifikacijo končnih enostavnih grup, zato ga opuščamo. Bralec ga lahko najde v \cite{Helfgott_Seress_2013}.
+Dokaz tega izreka je zelo težek in se močno nanaša na klasifikacijo končnih enostavnih grup, zato ga opuščamo. Bralec ga lahko najde v članku \cite{Helfgott_Seress_2013}.

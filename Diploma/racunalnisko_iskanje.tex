@@ -34,7 +34,7 @@ Program sem spisal v jeziku C++, ki je v splošnem veliko hitrejši od GAP-a, op
             je ta beseda zakon
 \end{verbatim}
 
-Hitro se je izkazalo, da je tak pristop tako zelo neučinkovit. Problem je namreč v tem, da število besed dolžine $k$ narašča eksponentno. Če brez škode za splošnost fiksiramo prvo črko, je število besed dolžine $k$ črk ali manj enako $3^{k - 1}$,
+Hitro se je izkazalo, da je tak pristop zelo neučinkovit. Problem je namreč v tem, da število besed dolžine $k$ narašča eksponentno. Če brez škode za splošnost fiksiramo prvo črko, je to število enako $3^{k - 1}$,
 saj lahko v vsakem koraku dodamo natanko 3 črke, da ne pride do krajšanja. Tudi če bi obravnavali tako imenovane \emph{komutatorske besede}, ki vsebujejo enako število črk kot njihovih inverzov (število črk $a$ je enako številu črk $a^{-1}$, podobno za $b$),
 število dvočrkovnih besed, ki bi jih morali pregledati, mnogo prehitro narašča, da bi lahko pokazali karkoli smiselnega.
 
