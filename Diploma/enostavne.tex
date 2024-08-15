@@ -16,11 +16,11 @@ Potem s pomočjo komutatorske leme \ref{lem_komutatorska_lema} dobimo besedo $w$
 \begin{equation*}
     l(w) \le 2 \cdot 2 (2 + l(w_{\text{spor}}) + l(w_{\text{druž}}) )  \le 4f(n) + o(1).
 \end{equation*}
-Vidimo torej, da nas pri sporadične grupe prav nič ne ovirajo. Omenimo še to, da iskanja kratkih zakonov v družinah končnih enostavnih grup
+Vidimo torej, da nas pri asimptotski obravnavi zakonov sporadične grupe prav nič ne ovirajo. Omenimo še to, da iskanja kratkih zakonov v družinah končnih enostavnih grup
 lotimo z metodo maksimalnega reda elementa, ki je razložena v \ref{prm_komutatorska_redi_elementov}. Pri tem je najbolj problematična družina grup $\operatorname{PSL}_2(q)$,
 katere članice imajo razmeroma visoke rede elementov glede na njihove velikosti. Ta družina grup si zaradi svojih posebnih lasnosti zasluži svoj razdelek v tem poglavju.
 
- Morda presenetljivo pa se izkaže, da so siemtrične grupe pomembne za obravnavo enostavnih. Ta zveza bo podrobneje razložena na koncu poglavja. 
+ Morda presenetljivo pa se izkaže, da so simetrične grupe pomembne za obravnavo enostavnih. Ta zveza bo podrobneje razložena na koncu poglavja. 
 
 \subsection{Simetrične grupe}\label{sec_simetricne_grupe}
 
@@ -32,41 +32,52 @@ katere članice imajo razmeroma visoke rede elementov glede na njihove velikosti
 Obravnava simetričnih grup je najnatančneje opisana v članku \cite{Kozma_Thom_2016}, kjer avtorja dokažeta obstoj kratkih zakonov v simetričnih grupah s pomočjo naključnih sprehodov.
 Ker je celoten dokaz glavnega rezultata preveč specifičen za okvir te diplomske naloge, bom predstavil le del, ki je bralcu te naloge vsebinsko nov, tematsko drugačen od dosedanjih konstrukcij s komutatorsko in razširitveno lemo.
 
-Osnovna ocena dolžin kratkih zakonov v simetričnih grupah izhaja iz zgornje meje maksimalnega reda elementov v simetrični grupi,
-ki jo je dokazal Edmund Landau leta 1903 v knjigi \cite{Landau_1903}: \begin{equation*}
-\max_{\sigma \in S_n} \text{ord}(\sigma) \le \exp((1 + o(1)) (n \log n)^{1 / 2}).
-\end{equation*}  
-Od tod po enakem postopku kot na koncu razdelka \ref{sec_grupe_psl2q} z uporabo komutatorske leme $a, a^2, \ldots, a^{\max_{\sigma \in S_n} \text{ord}(\sigma)}$ na elementih proste grupe $F_2 = \langle a, b \rangle$ dobimo asimptotsko gledano enako oceno \begin{equation*}
-    \alpha(n)  \le \exp((1 + o(1)) (n \log n)^{1 / 2}),
+Osnovna ocena članka \cite{Kozma_Thom_2016} izhaja iz dolžin kratkih zakonov v simetričnih grupah izhaja iz zgornje meje maksimalnega reda elementov v simetrični grupi,
+ki jo je dokazal Edmund Landau leta 1903 v knjigi \cite{Landau_1903}.
+
+\begin{trditev}[Landau] \label{trd_landau}
+    Z $g(n)$ označimo maksimalni red elementa v simetrični grupi $S_n$. Obstaja konstanta $C > 0$, da za vsa naravna števila $n$ velja \begin{equation*}
+        g(n) \le \exp(C (n \log n)^{1 / 2}).
+    \end{equation*}
+\end{trditev}
+Landau je izrek dokazal z uporabo osnovnega izreka o praštevilih. Eno izmed njegovih oblik bomo spoznali v obliki izreka \ref{lem_gostota_prastevil} v naslednjem razdelku.  
+Od tod po enakem postopku kot v primeru \ref{prm_komutatorska_redi_elementov} z uporabo komutatorske leme na besedah $a, a^2, \ldots, a^{g(n)}$ na elementih proste grupe $F_2 = \langle a, b \rangle$ dobimo asimptotsko gledano enako oceno \begin{equation*}
+    \alpha(n)  \le \exp(C (n \log n)^{1 / 2}),
 \end{equation*}  
 kjer smo z $\alpha(n)$ označili dolžino najkrajšega netrivialnega zakona v grupi $S_n$.
 
-Avtorja članka \cite{Kozma_Thom_2016} sta rezultat močno izboljšala in sicer na obliko \begin{equation}\label{eq_kozma_thom}
-    \alpha(n)  \le \exp((1 + o(1)) \log(n)^4 \log (\log n))
-\end{equation}
-z uporabo: 
+Avtorja članka \cite{Kozma_Thom_2016} sta rezultat močno izboljšala.
+\begin{izrek}[Kozma--Thom]\label{izr_kozma_thom_glavni}
+    \begin{equation}\label{eq_kozma_thom}
+        \alpha(n)  \le \exp(C \log(n)^4 \log (\log n))
+    \end{equation}
+\end{izrek}
+To sta storila z uporabo zahtevnih izrekov, ki močno temeljita na klasifikaciji končnih enostavnih grup, zato ju v nalogi ne bomo dokazovali. To sta:
 \begin{itemize}
-    \item Liebeckovega izreka (\cite{Liebeck_1984}) o strukturi podgrup grupe $S_n$, ki opredeli vrste podrgup v odvisnosti od načina delovanja na $S_n$. Najpomembnejši rezultat izreka je ugotovitev, da je vsaka podgrupa $\Gamma \subseteq  S_n$, ki ne sodi med prve štiri vrste, omejena z $\lvert \Gamma \rvert \le \exp((1 + o(1)) \log(n)^2)$. 
-    \item Helfgott--Seressov izrek (\cite{Helfgott_Seress_2013}), ki poda asimptotsko oceno za diametre Cayleyjevih grafov grupe $S_n$.
+    \item Liebeckove izrek (\cite{Liebeck_1984}) o strukturi podgrup grupe $S_n$, ki opredeli vrste podrgup v odvisnosti od načina delovanja na $S_n$. Najpomembnejši rezultat izreka je ugotovitev, da je vsaka podgrupa $\Gamma \subseteq  S_n$, ki ne sodi med prve štiri vrste, omejena z $\lvert \Gamma \rvert \le \exp((1 + o(1)) \log(n)^2)$. 
+    \item Helfgott--Seressov izrek (\cite{Helfgott_Seress_2013}), ki poda asimptotsko oceno na diametre Cayleyjevih grafov grupe $S_n$. V nalogi smo ga formulirali v razdelku o naključnih sprehodih kot izrek \ref{izr_Helfgott_Seress}.
 \end{itemize} 
-Oba rezultata sta zahtevna in temeljita na uporabi klasifikacije končnih enostavnih grup. Dokaz ocene \ref{eq_kozma_thom} v grobem poteka v dveh delih, in sicer za vsak $k \le n$ razdeli pare $(\sigma, \tau) \in S_k^2$ na tiste,
-ki generirajo grupo $S_k$ ali $A_k$ (to je prva vrsta podgrup po Liebeckovem izreku) in na pare, ki generirajo preostale vrste podgrup.
+
+Dokaz ocene \ref{eq_kozma_thom} v grobem poteka v dveh delih. Za potrebe naše naloge se čimbolj osredotočimo na prvega; ta nam namreč ponuja nov vpogled v razumevanje zakonov,
+saj izkoristi moč naključnih sprehodov. Čeprav je tudi drugi del izreka zelo pomemben, je konceptualno dosti bolj podoben konstrukcijam, ki smo jih že spoznali, njegovo bistvo je spretna uporaba komutatorske leme.
+ Začnimo tako, da za vsako naravno število $k \le n$ razdelimo pare $(\sigma, \tau) \in S_k^2$ na tiste,
+ki generirajo grupo $S_k$ ali $A_k$ (to je prva vrsta podgrup po Liebeckovem izreku), in tiste, ki generirajo preostale vrste podgrup.
 \begin{enumerate}
-    \item Najprej za vsako naravno število $k \le n$ s $P(k)$ označimo množico $k$-ciklov grupe $S_k$. Helfgott-Seressov izrek nam zagotovi obstoj množice $W \subseteq F_2$, velikosti $\lvert W \rvert \le 8n^2 \log n$, da za vsak $w \in W$ velja \begin{equation}\label{eq_helfgot_ocena}
-        l(w) \le \exp((1 + o(1)) \log(n)^{4} \log(\log(n))).
+    \item Najprej za vsako naravno število $k \le n$ z zapisom $P(k)$ označimo množico $k$-ciklov grupe $S_k$. Helfgott-Seressov izrek nam zagotovi obstoj množice $W \subseteq F_2$, velikosti $\lvert W \rvert \le 8n^2 \log n$, da za vsak $w \in W$ velja \begin{equation}\label{eq_helfgot_ocena}
+        l(w) \le \exp(C \log(n)^{4} \log(\log(n))).
     \end{equation}  
     Še več, za vse $k \le n$ in vse pare $(\sigma, \tau) \in S_k^2$, ki generirajo $S_k$,
     obstaja beseda $w \in W$, tako da je $w(\sigma, \tau) \in P(k)$. Ker beseda $1_{F_2}$ ni $k$-cikel (za $k \ge 2$, primer $k = 1$ pripada trivialni podgrupi in nas ne zanima), je beseda $w$ netrivialna. Nato definiramo množico \begin{equation*}
-    W' = \left\{ w^{k}  \middle|\,  w \in W , \, 1 \le  k \le  n \right\}, 
+    W' := \left\{ w^{k}  \middle|\,  w \in W , \, 1 \le  k \le  n \right\}, 
     \end{equation*}  
     ki ne vsebuje enote $1_{F_2}$, ker je grupa $F_2$ torzijsko prosta (glej posledico \ref{trd_prosta_grupa_je_torzijsko_prosta}). S pomočjo ocene moči $W$ sklepamo $\lvert W' \rvert \le 8 n^3 \log n$.
     Ker za vsak $k \le n$ in za vsak $(\sigma, \tau) \in S_k^2$ obstaja beseda $w \in W'$, da je $w(\sigma, \tau) = 1_{F_2}$, po komutatorski lemi \ref{psl_komutatorska_lema_prakticna} in oceni \ref{eq_helfgot_ocena} obstaja netrivialna beseda $v \in F_2$, dolžine
     \begin{equation*}
-    l(v) \le \exp((1 + o(1)) \log(n)^{4} \log(\log(n))).
+    l(v) \le \exp(C \log(n)^{4} \log(\log(n))).
     \end{equation*}  
     \item V drugem primeru z obravnavanjem podgrup po Liebeckovem izreku konstruiramo netrvialno besedo $\tilde{v} \in F_2$, ki trivializira vse pare $(\sigma, \tau) \in S_k^2$, ki ne generirajo
     grupe $S_k$ (veljati mora $\tilde{v}(\sigma, \tau) = 1_{F_2}$ za vse pare s to lastnostjo). Na primer, v prvo vrsto spadajo podgrupe oblike $S_k$ ali $A_k$, ki spadajo pod prejšnjo točko dokaza, mejo za meto vrsto pa nam direktno podaja Liebeckov izrek. Vrste dva do štiri je treba obravnavati
-    vsako posebej. Na koncu zakone za posamezne vrste grup povežemo s komutatorsko lemo.    
+    vsako posebej. Na koncu zakone v posameznih vrstah grup povežemo s komutatorsko lemo.    
 \end{enumerate}
 
 % Avtorja sta razdelek končala z mislijo (\cite[str.~82]{Kozma_Gady_2016}), da po Babaijevi domnevi sledi po praktično enakem dokazu ocena \begin{equation*}
@@ -93,10 +104,10 @@ ki generirajo grupo $S_k$ ali $A_k$ (to je prva vrsta podgrup po Liebeckovem izr
 Tekom tega poglavja bo $p$ vedno označevalo praštevilo, $q$ pa praštevilsko potenco oblike $q = p^{k}$ za neko naravno število $k \ge $1. Začnimo z definicijo družine grup $\operatorname{PSL}_n(q)$.
 
 \begin{definicija}\label{def_pslnq_in_psl2q}
-    Naj bo $n \in \mathbb{N}$ in $q \in \mathbb{N}$ praštevilska potenca, torej $q = p^{k}$. Potem definiramo \begin{equation*}
-        \operatorname{PSL}_n(q) = {\operatorname{SL}_n(q)} / {Z(\operatorname{SL}_n(q))}.
+    Naj bo $n \in \mathbb{N}$ in $q \in \mathbb{N}$ praštevilska potenca, torej $q = p^{k}$. Potem definiramo grupo \begin{equation*}
+        \operatorname{PSL}_n(q) := {\operatorname{SL}_n(q)} / {Z(\operatorname{SL}_n(q))}.
      \end{equation*}   
-    V primeru $n = 2$ dobimo so elementi podgrupe $Z(\operatorname{SL}_n(q))$ skalarne $2 \times 2$ matrike oblike $\lambda I$ z lastnostjo $\det \lambda I = 1$. To enačbo prevedemo na enačbo oblike $(\lambda - 1)(\lambda + 1) = 0$.
+    V primeru $n = 2$ so elementi podgrupe $Z(\operatorname{SL}_n(q))$ skalarne $2 \times 2$ matrike z lastnostjo $\det \lambda I = 1_{\mathbb{F}_q}$. To enačbo prevedemo na enačbo oblike $(\lambda - 1)(\lambda + 1) = 0$.
     Če ima polje $\mathbb{F}_q$ karakteristiko $2$ -- kar se zgodi natanko v primeru $q = 2^{k}$ -- sta $\lambda_{1,2} = \pm 1$ isti element, sicer pa dva različna. Tako dobimo
     \begin{equation*}
                 \operatorname{PSL}_2(q) = \begin{cases}
@@ -108,53 +119,57 @@ Tekom tega poglavja bo $p$ vedno označevalo praštevilo, $q$ pa praštevilsko p
     
     Družina $\operatorname{PSL}_2(q)$ ima -- poleg svoje problematičnosti pri iskanju kratkih zakonov -- zelo posebne lastnosti. Ena izmed glavnih je sledeča. 
     \begin{trditev}\label{trd_dolzina_zakonov_za_psl2p}
-    Naj bo $p$ praštevilo. Potem ima vsak netrivialni zakon v grupi $\operatorname{PSL}_2(p)$ dolžino vsaj $p$.
+    Naj bo $p$ praštevilo. Potem ima vsak netrivialni zakon v grupi $\operatorname{PSL}_2(p)$ dolžino vsaj $p$. Posledično enako velja za grupi $\operatorname{GL}_2(p)$ in $\operatorname{SL}_2(p)$,
+    saj se zakoni prenašajo na podgrupe in kvociente.
     \end{trditev}
     \begin{dokaz}
-        TODO, imaš v Schneiderju
-    \end{dokaz}
+        Ker je trditev prikazana kot zanimivost, bomo dokaz izpustili. Bralec ga lahko najde v \cite{Schneider_2016}. Glavna ideja je pokazati, da lahko z matrikami, ki predsatvljajo strižne transformacije,
+        v primeru prekratkih besed vedno dobimo matriko, ki ni identiteta. % TODO tole vseeno pokaži
+        \end{dokaz}
 
     Direktna posledica te leme je recimo dejstvo, da grupa $\text{Sym}(\mathbb{N})$ nima netrivialnih zakonov, saj vsebuje vse $\operatorname{PSL}_2(p)$ kot podgrupe.
-    Druga taka grupa je recimo $\operatorname{SL}_2(\mathbb{Z})$, saj vsebuje vse grupe $\operatorname{PSL}_2(q)$ kot kvociente (TODO pri Jezerniku je to za domačo nalogo). 
-    Ker se zakoni prenašajo na kvociente, enako kot v prvem primeru sklepamo, da $\operatorname{SL}_2(\mathbb{Z})$ ne more imeti netrivialnih zakonov.   
+    Še bolj očiten primer grupe, ki nima dvočrkovnih zakonov, je sicer kar prosta grupa $F_2 = \langle x , y \rangle$. Če bi bila netrivialna beseda $w \in F_2 = \langle a , b \rangle$ zakon v njej,
+    bi prišli do protislovja s preslikavo, ki jo inducirajo slike $x \mapsto a$, $y \mapsto b$.
+    
+    % Druga taka grupa je recimo $\operatorname{SL}_2(\mathbb{Z})$, saj vsebuje vse grupe $\operatorname{PSL}_2(q)$ kot kvociente. 
+    % Ker se zakoni prenašajo na kvociente, enako kot v prvem primeru sklepamo, da $\operatorname{SL}_2(\mathbb{Z})$ ne more imeti netrivialnih zakonov.   
 
     \subsubsection{Konstrukcija zakonov v grupah $PSL_2(q)$}
 
-    Osnovna konstrukcija zakonov za grupe $\operatorname{PSL}_2(q)$ poteka prek obravnave redov elementov in uporabe komutatorske leme \ref{lem_komutatorska_lema_posplositev}.
-    Dokaz je prirejen po \cite[str.~36--37]{Schneider_2016}. 
+    Osnovna konstrukcija zakonov v grupah $\operatorname{PSL}_2(q)$ poteka prek obravnave redov elementov in uporabe komutatorske leme v slogu primera \ref{prm_komutatorska_redi_elementov}.
+    Dokaz je prirejen po \cite[str.~36--37]{Schneider_2016} in % TODO dodaj https://urbanjezernik.github.io/teorija-upodobitev/
     \begin{lema}
     \label{lem_redi_elementov_v_psl2q}
     Red poljubnega element $A \in  \operatorname{PSL}_2(q)$ deli vsaj eno izmed števil $p$, $q-1$ ali $q + 1$. 
     \end{lema}
     \begin{dokaz}
-    % (TODO popravi, da boš imel Jordanovo formo $J_A$ in ne matirke $A$)
-    Naj bo matrika $A \in \operatorname{PSL}_2(q)$. Obravnavajmo primere glede na njeno Jordanovo formo. Naj bo $\chi_A(X) \in \mathbb{F}_q[X]$ karakteristični polinom matrike $A$. 
+    Naj bo matrika $A \in \operatorname{PSL}_2(q)$. Obravnavajmo primere glede na njeno Jordanovo formo $J_A$. Naj bo $\chi_A(X) \in \mathbb{F}_q[X]$ karakteristični polinom matrike $A$. 
     \begin{enumerate}
-        \item Če je $A$ diagonalizabilna, je oblike \begin{equation*}
-        A \sim  \begin{bmatrix}
+        \item Če je $A$ diagonalizabilna, je njena Jordanova forma oblike \begin{equation*}
+        J_A = \begin{bmatrix}
             \alpha & 0 \\
             0 & \beta \\
         \end{bmatrix},
         \end{equation*}  
-          kjer sta $\alpha, \beta \in  \mathbb{F}_q^{*}$ (0 ne moreta biti, ker je matrika $A$ obrnljiva). Ker je $(\mathbb{F}_q^{*}, \cdot)$ grupa moči $q-1$, velja $\alpha^{q-1} = \beta^{q -1} = 1$ in od tod $A^{q-1} = I$.
-          \item Če je $\chi_A(X)$ razcepen v $\mathbb{F}_q[X]$, vendar matrika $A$ ni diagonalizabilna, mora biti oblike \begin{equation*}
-          A \sim  \begin{bmatrix}
+          kjer sta $\alpha, \beta \in  \mathbb{F}_q^{*}$ (0 ne moreta biti, ker je matrika $A$ obrnljiva). Ker je $(\mathbb{F}_q^{*}, \cdot)$ grupa moči $q-1$, velja $\alpha^{q-1} = \beta^{q -1} = 1$ in od tod $J_A^{q-1} = I$ oziroma $A^{q-1} = I$.
+          \item Če je $\chi_A(X)$ razcepen v $\mathbb{F}_q[X]$, vendar matrika $A$ ni diagonalizabilna, mora biti njena Jordanova forma oblike \begin{equation*}
+          J_A =  \begin{bmatrix}
             1 & \alpha\\
             0 & 1\\
           \end{bmatrix} = I + N.
           \end{equation*}  
-        Diagonalna elementa morata namreč oba biti enaka $1$ po razmisleku v definiciji \ref{def_pslnq_in_psl2q}. Ker velja $A^{p} = (I + N)^{p} = I^{p} + N^{p} = I$, red matrike $A$ deli $p$.  
+        Diagonalna elementa morata namreč oba biti enaka $1$ po razmisleku v definiciji \ref{def_pslnq_in_psl2q}. Ker velja $J_A^{p} = (I + N)^{p} = I^{p} + N^{p} = I$, red matrike $A$ deli $p$.  
     \item Če $\chi_A(X)$ ni razcepen v $\mathbb{F}_q[X]$, je razpecen v  $\mathbb{F}_{q^2}[X] = \mathbb{F}_q[X] / (\chi_A(X))$. Naj bo $\alpha \in \mathbb{F}_{q^2}$ neka ničla $\chi_A(X)$. Pokazati moramo, da je potem tudi $\alpha^q$ njegova ničla.
     Naj bo $\chi_A(X) = X^2 + bX + c$ za neka $b ,c \in \mathbb{F}_q^{*}$. Potem iz enačbe $\alpha^2 + b \alpha + c  = 0$ sledi \begin{equation*}
     0 = (\alpha^{q} + b \alpha + c)^q =  \alpha^{2q} + b^{q} \alpha^{q} + c^{q} =_\text{točka 1} \alpha^{2q} + b \alpha^{q} + c.    
     \end{equation*}  
-    Tako lahko matriko $A$ diagonaliziramo v kolobarju $M_2(\mathbb{F}_{q^2})$ \begin{equation*}
-    A \sim  \begin{bmatrix}
+    Tako lahko matriko $A$ diagonaliziramo v kolobarju $M_2(\mathbb{F}_{q^2})$ v obliki \begin{equation*}
+    J_A = \begin{bmatrix}
         \alpha & 0\\
         0 & \alpha^{q}\\
     \end{bmatrix}.
     \end{equation*}  
-    Ker velja $\det A = \alpha \alpha^{q} = 1$, red $A$ deli število $q-1$.
+    Ker velja $\det A = \det J_A  = \alpha \alpha^{q} = 1$, red $A$ deli število $q-1$.
     \end{enumerate}   
 \end{dokaz}
     Za konkretno grupo $G = \operatorname{PSL}_2(q)$ definirajmo podmnožice \begin{equation*}
@@ -218,7 +233,7 @@ Tekom tega poglavja bo $p$ vedno označevalo praštevilo, $q$ pa praštevilsko p
     % \begin{enumerate}
     %     \item Helfgott--Seressov izrek \ref{izr_Helfgott_Seress} nam je zagotovil dobre ocene za čase mešanja lenih naključnih sprehodov po Cayleyjevih grafih simetričnih grup. Njegovo vlogo pri tem dokazu nadomesti Breuillard--Gamburdov izrek (trditev 2.5 v \cite[str.~8]{Bradford_Thom_2017}), ki nam sporoča, da 
     %     obstaja konstanta $\delta > 0$, da za vsako naravno število $n \ge 2$ obstaja razmeroma malo (kvečjem $\sqrt{n}$) praštevil $p$ majših od $n$, za katera bi imel leni naključni sprehod po grupi $\operatorname{PSL}_2(p)$ spektralno razliko manjšo od $\delta$. Intuitivno to pomeni, da bomo lahko ocenili hitrost konvergence lenih spehodov po grupah $\operatorname{PSL}_2(q)$. 
-    %     \item Ekvivalent Liebeckovega izreka o strukturi grup (TODO napiši Liebeckov izrek) nam zagotavlja Dicksonov izrek (trditev 3.10 \cite[str.~8]{Bradford_Thom_2017}).
+    %     \item Ekvivalent Liebeckovega izreka o strukturi grup nam zagotavlja Dicksonov izrek (trditev 3.10 \cite[str.~8]{Bradford_Thom_2017}).
     %     \item Vlogo podgrupe $k$-ciklov v simetrični grupi $S_k$, ki smo jo označili smo z $P(k)$, nadomestita Borelovi pogrupi $\operatorname{PSL}_2(q)$, torej podgrupa zgornjetrikotnih in podgrupa spodnjetrikotnih matrik.
     %     \item Namesto da obravnavamo lene naključne sprehode vsakega zase, jih obravnavamo v parih. S pomočjo Breuillard--Gamburdovega izreka in Dicksonovega izreka navzgor omejimo število potrebnih parov sprehodov, da dobimo par z želenimi lastnostmi.
     %     \item ... 
@@ -258,9 +273,6 @@ l(w_G) \le  l(w_{S(G)}) l (w_{G / S(G)}).
 \end{equation*}  
 
 
-
-% TODO tole je treba še malo popraviti
-
 V lemi \ref{lem_kvoocient_resljivega_radikala_je_polenostaven} smo dokazali, da je grupa $G / S(G)$ polenostavna. Bistvo polenostavnih objektov je, da jih lahko zapišemo kot produkte enostavnih.
 To dejstvo bi seveda morali natančno formulirati in dokazati, vendar bi korektna obravnava zavzela prevelik delež naloge, zato jo izpustimo.
 Če povzamemo bistvo, problem o polenostavnih grupah s pomočjo razširitvene leme \ref{lem_razsiritvena_lema} razčlenimo na problem o simetričnih grupah in grupah avtomorfizmov enostavnih grup. Slednjih se lahko presenetljivo elegantno lotimo s pomočjo Schreierjeve domneve, ki jo bomo formulirali.
@@ -291,4 +303,4 @@ Tako zgornjo enačbo prevedemo na \begin{equation*}
 \end{equation*}  
 
 
-Ko vse to združimo, dobimo (TODO napiši po komponentah kaj dobiš).
+Ko vse to združimo, dobimo (TODO napiši po komponentah kaj dobiš. V resnici čisto preoblikuj in ustrezno utemelji, zakaj ne moreš lepo povedati).
